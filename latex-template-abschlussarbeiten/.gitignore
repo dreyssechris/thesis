@@ -1,0 +1,13 @@
+/thesis.lof
+/thesis.log
+/thesis.lol
+/thesis.lot
+**/*.out
+**/*.aux
+/thesis.bbl
+/thesis.bcf
+/thesis.blg
+/thesis.run.xml
+/thesis.synctex.gz
+/thesis.toc
+/thesis.pdf

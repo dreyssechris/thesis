@@ -1,0 +1,115 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{Alby2019}{book}{}
+      \name{author}{1}{}{%
+        {{hash=659325a2b2751c76e7205227badb25f3}{%
+           family={Alby},
+           familyi={A\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Rheinwerk Computing}%
+      }
+      \strng{namehash}{659325a2b2751c76e7205227badb25f3}
+      \strng{fullhash}{659325a2b2751c76e7205227badb25f3}
+      \strng{bibnamehash}{659325a2b2751c76e7205227badb25f3}
+      \strng{authorbibnamehash}{659325a2b2751c76e7205227badb25f3}
+      \strng{authornamehash}{659325a2b2751c76e7205227badb25f3}
+      \strng{authorfullhash}{659325a2b2751c76e7205227badb25f3}
+      \field{labelalpha}{Alb19}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-8362-7236-0}
+      \field{title}{Einführung in die Webanalyse}
+      \field{year}{2019}
+    \endentry
+    \entry{Eurostat}{online}{}
+      \name{author}{1}{}{%
+        {{hash=533195c920679b5848eb14c3f57cc69c}{%
+           family={Eurostat},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{533195c920679b5848eb14c3f57cc69c}
+      \strng{fullhash}{533195c920679b5848eb14c3f57cc69c}
+      \strng{bibnamehash}{533195c920679b5848eb14c3f57cc69c}
+      \strng{authorbibnamehash}{533195c920679b5848eb14c3f57cc69c}
+      \strng{authornamehash}{533195c920679b5848eb14c3f57cc69c}
+      \strng{authorfullhash}{533195c920679b5848eb14c3f57cc69c}
+      \field{labelalpha}{Eur24}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{4}
+      \field{month}{1}
+      \field{note}{[Zugriff: 14.01.2025]}
+      \field{title}{Increase in online education in the EU in 2023}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240124-2
+      \endverb
+      \verb{url}
+      \verb https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240124-2
+      \endverb
+    \endentry
+    \entry{Potomac}{online}{}
+      \name{author}{1}{}{%
+        {{hash=101d698c96f03d74123c5314716111b5}{%
+           family={Potomac},
+           familyi={P\bibinitperiod},
+           given={University},
+           giveni={U\bibinitperiod},
+           prefix={of},
+           prefixi={o\bibinitperiod}}}%
+      }
+      \strng{namehash}{101d698c96f03d74123c5314716111b5}
+      \strng{fullhash}{101d698c96f03d74123c5314716111b5}
+      \strng{bibnamehash}{101d698c96f03d74123c5314716111b5}
+      \strng{authorbibnamehash}{101d698c96f03d74123c5314716111b5}
+      \strng{authornamehash}{101d698c96f03d74123c5314716111b5}
+      \strng{authorfullhash}{101d698c96f03d74123c5314716111b5}
+      \field{labelalpha}{Pot24}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{16}
+      \field{month}{7}
+      \field{note}{[Zugriff: 14.01.2025]}
+      \field{title}{Online Learning vs Traditional Learning}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://potomac.edu/learning/online-learning-vs-traditional-learning/
+      \endverb
+      \verb{url}
+      \verb https://potomac.edu/learning/online-learning-vs-traditional-learning/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,0 +1,98 @@
+% !TeX spellcheck = de-DE
+
+%--------------------------------------
+%   Header
+%--------------------------------------
+\documentclass[
+    appendixprefix=true,
+    a4paper,                    % Papierformat A4
+    10pt,                       % Schriftgröße 10pt
+    %headings=normal,           % kleinere Überschriften verwenden
+    chapterprefix=false,        % Einfügen von "Anhang" bzw. "Kapitel" in Überschrift
+    oneside,                    % oneside - twoside
+    openright,                  % einseitiges > Latex Workshop: Build with recipe
+    titlepage,                  % Titleseite verwenden
+    listof=totoc,               % alle Listen in das Inhaltsverzeichnis
+    headsepline,                % Trennlinie zum Seitenkopf Bereich headings
+    plainheadsepline,           % Trennlinie zum Seitenkopf Bereich Plain
+    bibliography=totoc,         % das Literaturverzeichnis in den TOC
+    parskip=half-,              % Abstand nach Absatz
+    numbers=noenddot            % damit hinter der letzten Ziffer kein Punkt steht (Kapitelnummerierung)
+]{scrreprt}
+
+\input{misc/metainformation}	% persönlich Daten
+\input{misc/preamble}			% Pakete
+
+%--------------------------------------
+%  Bitte den Editor auf Biblatex bzw. Biber einstellen!!! 
+%--------------------------------------
+\usepackage[style = alphabetic]{biblatex}			% Literaturverzeichnis, bei Style den Stil einstellen, vorzugsweise numeric oder alphabetic
+\addbibresource{bib/literatur.bib}	% verwendete Literatur eintragen
+
+%\include{misc/glossaryEntries}		% Glossar
+
+%--------------------------------------
+%   Dokumentenbeginn
+%--------------------------------------
+\begin{document}
+    \include{chapter/00_titelseite}
+
+% --- Ab hier in Römischen Zahlen nummerieren
+    \pagenumbering{Roman}
+    \include{chapter/01_abstract}
+
+%--------------------------------------
+%   Inhalts-, Abbildungs-, Tabellenverzeichnis
+%--------------------------------------
+%\pdfbookmark[0]{\contentsname}{tocanc}
+    \tableofcontents        % Inhaltsverzeichnung
+    \listoffigures          % Abbildungsverzeichnis
+    \listoftables           % Tabellenverzeichnis
+    \lstlistoflistings      % Listingsverzeichnis
+    \cleardoublepage        % sichert korrekte Seitenzahlen
+
+%--------------------------------------
+%   Zähler für römische Nummerierung speichern
+%--------------------------------------
+    \newcounter{exterior}                       % neuer Zähler (leer)
+    \setcounter{exterior}{\value{page}}         % aktuelle Seitenzahl in neuen Zähler speichern
+
+% --- Ab hier in Arabische Zahlen nummerieren
+    \setcounter{page}{1}
+    \pagenumbering{arabic}
+
+% --- Hier ensprechend die Kapitel hinzufügen
+    \include{chapter/einleitung}
+    \include{chapter/grundlagen}
+    \include{chapter/auswahl}
+    \include{chapter/implementierung}
+    \include{chapter/evaluation}
+    \include{chapter/zusammenfassung}   
+% --- Ab hier in Römischen Zahlen nummerieren
+    \pagenumbering{Roman}
+    \setcounter{page}{\value{exterior}}
+
+%--------------------------------------
+%   Literaturverzeichnis mit BibLaTeX
+%--------------------------------------
+%%--------------------------------------
+%%   BibLateX - Literaturverzeichnis
+%%--------------------------------------
+
+    \printbibliography
+    \cite{Eurostat}
+    \cite{Potomac}
+    \cite{Alby2019}
+
+%--------------------------------------
+%   Glossar
+%--------------------------------------
+    %\printglossaries
+
+%--------------------------------------
+%   Selbstständigkeitserklärung und Anhang
+%--------------------------------------
+    \include{chapter/selbststaendigkeitserklaerung}
+    \include{chapter/anhang}
+
+\end{document}

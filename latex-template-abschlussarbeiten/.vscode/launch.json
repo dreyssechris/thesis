@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/chrisdreysse/Library/CloudStorage/OneDrive-Persönlich/ai/semester_7/ba_thesis/latex-template-abschlussarbeiten/listings",
+      "program": "/Users/chrisdreysse/Library/CloudStorage/OneDrive-Persönlich/ai/semester_7/ba_thesis/latex-template-abschlussarbeiten/listings/build/Debug/outDebug"
+    }
+  ]
+}
