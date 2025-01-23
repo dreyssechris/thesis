@@ -34,11 +34,31 @@ Der erste Schritt zur Erreichung dieser Ziele ist es, eine fundierte Grundlage z
 \section{Datenerfassung} % 2-2,5 Seiten
 
 \subsection{Logfile-Analyse}
+Logdateien (engl. Logfiles) gehören zu den ältesten Methoden, um Nutzungsdaten von Webseiten zu erfassen. Webserver protokollieren seit den Anfängen des Internets sämtliche Anfragen, die an sie gestellt werden, sowie die Antworten, die sie daraufhin liefern [Quelle Suchen]. Diese Protokolle werden in Form von Textdateien gespeichert und bieten eine strukturierte Übersicht über alle Interaktionen, auch „Hits“ genannt, die auf dem Server stattfinden. Die Erstellung von Logfiles erfolgt durch den Webserver, der alle Interaktionen zwischen Nutzer und Webseite aufzeichnet. Sobald ein Nutzer eine Webseite aufruft, sendet sein Browser mehrere Anforderungen (Requests) an den Server, um die verschiedenen Elemente der Seite wie Texte, Bilder oder Skripte zu laden. Der Server liefert daraufhin die angeforderten Inhalte zurück (Responses) und speichert diese Vorgänge zeitgleich in einer Logdatei. Diese Dateien, die in der Regel täglich neu generiert werden, dienen als Quelle für die Analyse von Zugriffen auf die Website. [Hassler, 2019, Kap. 2.2] 
+
+Im Listing~\ref{lst:logfile} ist ein Beispiel eines Logfile-Eintrags im Common Logfile Format (CLF) zu sehen: 
+
+\lstinputlisting[caption=Logfile-Eintrag im CLF {[Fou]}, label={lst:logfile}, language=Apache]{listings/logfile_entry.txt}
+
+Aus diesem Beispiel Eintrag lassen sich folgende Informationen in entsprechender Reihenfolge entnehmen [Apache Software Foundation, o. D.?]: 
+
+\begin{itemize}
+    \item IP-Adresse des Aufrufenden
+    \item Identitätskennzeichen
+    \item Authentifizierter Benutzername
+    \item Aufrufdatum und Zeit
+    \item URL der aufgerufenen Datei
+    \item HTTP-Anfrage
+    \item Ergebnis des Aufrufs (Status)
+    \item Größe der zurückgegebenen Datei
+\end{itemize}
+
+Zusätzlich wird in der Logfile auch die Aufrufmethode (z. B. GET oder POST),  gespeichert, diese Angabe ist jedoch für eine spätere Analyse oft weniger relevant [Hassler, 2019, Kap. 2.2].
 
 \subsection{Page Tagging}
 Unter Page Tagging versteht man die Einbindung eines kurzen Codeausschnittes (engl. Snippet) in den HTML-Code einer Webseite um Nutzerdaten zu erfassen. Dieses Snippet ist meistens in der Programmiersprache Javascript geschrieben. Beim initialen Aufruf einer Webseite (engl. page request) sendet der Browser eine HTTP-Anfrage an den Webserver, um die für die Darstellung der Seite erforderlichen Inhalte wie Bilder, Videos und Text zu laden. Der Webserver ist dafür verantwortlich, die notwendigen Bestandteile einer Webseite bereitzustellen, damit diese vollständig dargestellt werden kann. Dazu liefert er die angeforderten Dateien über eine HTTP-Antwort an den Webbrowser. Die erste Datei, die der Server sendet, ist eine HTML-Datei, welche die Struktur und den Inhalt der Seite definiert. Diese HTML-Datei enthält unter anderem das zuvor eingebundene Snippet, dass sogenannte Page-Tag, um die Datenerfassung zu ermöglichen. Wenn der Webbrowser nun beim Aufbau der Webseite, dass Page-Tag erkennt, beginnt dieser damit, die im Page-Tag referenzierte Javascript-Bibliothek vom Webserver herunterzuladen. Diese Bibliothek dient dazu, den gleichen Programmcode für mehrere Webseiten nutzbar zu machen. Die heruntergeladene Bibliothek wird schließlich im Cache-Speicher des Webbrowsers hinterlegt, sodass diese bei zukünftigen Seitenaufrufen schneller geladen werden. Nachdem das Page Tag die Bibliothek vom Server geladen hat, wird der Code aus der Bibliothek ausgeführt, um verschiedene Daten aus dem Browser zu sammeln. Dazu gehören unter anderem die Bildschirmauflösung, der Referrer (die Herkunftsseite), der Seiten-Titel und -URL sowie Informationen aus Cookies, welche eventuell bei vorherigen Besuchen gesetzt wurden. Diese gesammelten Daten verbleiben zunächst lokal im Browser [Dykes, 2014, S.70-71]. 
 
-Um die gesammelten Daten an den Webserver zu übertragen, wird ein Bild in der Größe eines Pixels erzeugt, weshalb dieses Verfahren ebenfalls als Pixel-Tracking bezeichnet wird [Hassler, 2019, S.31]. Der Webbrowser erkennt dieses Bild als fehlenden Inhalt an, der geladen werden muss und sendet eine HTTP-Anfrage um es abzurufen. Diese Anfrage wird auch als Image-Request bezeichnet und enthält alle zuvor gesammelten Daten als Parameter in der URL (Uniform Resource Locator). Die Image-Request wird allerdings nicht an den Webserver gesendet, auf welchem die Webseite hinterlegt ist, sondern an einen dedizierten Datensammlungsserver. Wurden die Daten vom Datensammlungsserver empfangen werden die Parameter aus der URL extrahiert und in einer Datenbank gespeichert. Anschließend können die Daten von einer Analyse-Engine verarbeitet werden um zusätzliche Einsichten in das Nutzerverhalten zu gewinnen. Neben der Verarbeitung der Daten kann der Datensammlungsserver in der HTTP-Antwort auch einen Cookie setzen, sofern dieser nicht bereits zuvor schon gesetzt wurde. Dieser Cookie enthält eine eindeutige Kennung (Visitor-ID), die es ermöglicht, dass Gerät des Nutzers bei zukünftigen Besuchen wiederzuerkennen und weitere Informationen mit diesem zu verknüpfen [Dykes, 2014, S.70-71]. 
+Um die gesammelten Daten an den Webserver zu übertragen, wird ein Bild in der Größe eines Pixels erzeugt, weshalb dieses Verfahren ebenfalls als Pixel-Tracking bezeichnet wird [Hassler, 2019, S.31]. Der Webbrowser erkennt dieses Bild als fehlenden Inhalt an, der geladen werden muss und sendet eine HTTP-Anfrage um es abzurufen. Diese Anfrage wird auch als Image-Request bezeichnet und enthält alle zuvor gesammelten Daten als Parameter in der URL (Uniform Resource Locator). Die Image-Request wird allerdings nicht an den Webserver gesendet, auf welchem die Webseite hinterlegt ist, sondern an einen dedizierten Datensammlungsserver. Wurden die Daten vom Datensammlungsserver empfangen werden die Parameter aus der URL extrahiert und in einer Datenbank gespeichert. Anschließend können die Daten von einer Analyse-Engine verarbeitet werden um zusätzliche Einsichten in das Nutzerverhalten zu gewinnen. Neben der Verarbeitung der Daten kann der Datensammlungsserver in der HTTP-Antwort auch einen Cookie setzen, sofern dieser nicht bereits zuvor schon gesetzt wurde. Dieser Cookie enthält eine eindeutige Kennung (Visitor-ID), die es ermöglicht, dass Gerät des Nutzers bei zukünftigen Besuchen wiederzuerkennen und weitere Informationen mit diesem zu verknüpfen [Dykes, 2014, S.70-71].
 
 \subsection{Events und Interaktionen}
 

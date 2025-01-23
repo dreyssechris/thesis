@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.3 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{anyt/global//global/global}
-    \entry{Alby2019}{book}{}
+  \datalist[entry]{anyt/global//global/global/global}
+    \entry{Alby2019}{book}{}{}
       \name{author}{1}{}{%
         {{hash=659325a2b2751c76e7205227badb25f3}{%
            family={Alby},
@@ -32,10 +32,12 @@
       }
       \strng{namehash}{659325a2b2751c76e7205227badb25f3}
       \strng{fullhash}{659325a2b2751c76e7205227badb25f3}
+      \strng{fullhashraw}{659325a2b2751c76e7205227badb25f3}
       \strng{bibnamehash}{659325a2b2751c76e7205227badb25f3}
       \strng{authorbibnamehash}{659325a2b2751c76e7205227badb25f3}
       \strng{authornamehash}{659325a2b2751c76e7205227badb25f3}
       \strng{authorfullhash}{659325a2b2751c76e7205227badb25f3}
+      \strng{authorfullhashraw}{659325a2b2751c76e7205227badb25f3}
       \field{labelalpha}{Alb19}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
@@ -45,7 +47,35 @@
       \field{title}{Einführung in die Webanalyse}
       \field{year}{2019}
     \endentry
-    \entry{Eurostat}{online}{}
+    \entry{Dykes2014}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=9e6f4f9926664055f45222795756718b}{%
+           family={Dykes},
+           familyi={D\bibinitperiod},
+           given={Brent},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Adobe Press}%
+      }
+      \strng{namehash}{9e6f4f9926664055f45222795756718b}
+      \strng{fullhash}{9e6f4f9926664055f45222795756718b}
+      \strng{fullhashraw}{9e6f4f9926664055f45222795756718b}
+      \strng{bibnamehash}{9e6f4f9926664055f45222795756718b}
+      \strng{authorbibnamehash}{9e6f4f9926664055f45222795756718b}
+      \strng{authornamehash}{9e6f4f9926664055f45222795756718b}
+      \strng{authorfullhash}{9e6f4f9926664055f45222795756718b}
+      \strng{authorfullhashraw}{9e6f4f9926664055f45222795756718b}
+      \field{labelalpha}{Dyk14}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-133-92462-6}
+      \field{title}{The Web Analytics Kick Start Guide: A Primer on the Fundamentals of DIGITAL Analytics}
+      \field{year}{2014}
+    \endentry
+    \entry{Eurostat}{online}{}{}
       \name{author}{1}{}{%
         {{hash=533195c920679b5848eb14c3f57cc69c}{%
            family={Eurostat},
@@ -53,10 +83,12 @@
       }
       \strng{namehash}{533195c920679b5848eb14c3f57cc69c}
       \strng{fullhash}{533195c920679b5848eb14c3f57cc69c}
+      \strng{fullhashraw}{533195c920679b5848eb14c3f57cc69c}
       \strng{bibnamehash}{533195c920679b5848eb14c3f57cc69c}
       \strng{authorbibnamehash}{533195c920679b5848eb14c3f57cc69c}
       \strng{authornamehash}{533195c920679b5848eb14c3f57cc69c}
       \strng{authorfullhash}{533195c920679b5848eb14c3f57cc69c}
+      \strng{authorfullhashraw}{533195c920679b5848eb14c3f57cc69c}
       \field{labelalpha}{Eur24}
       \field{sortinit}{E}
       \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
@@ -75,7 +107,69 @@
       \verb https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240124-2
       \endverb
     \endentry
-    \entry{Potomac}{online}{}
+    \entry{Apache}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=eb1472a1dd93ea5972fb047e03c718e0}{%
+           family={Foundation},
+           familyi={F\bibinitperiod},
+           given={The\bibnamedelimb Apache\bibnamedelima Software},
+           giveni={T\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{eb1472a1dd93ea5972fb047e03c718e0}
+      \strng{fullhash}{eb1472a1dd93ea5972fb047e03c718e0}
+      \strng{fullhashraw}{eb1472a1dd93ea5972fb047e03c718e0}
+      \strng{bibnamehash}{eb1472a1dd93ea5972fb047e03c718e0}
+      \strng{authorbibnamehash}{eb1472a1dd93ea5972fb047e03c718e0}
+      \strng{authornamehash}{eb1472a1dd93ea5972fb047e03c718e0}
+      \strng{authorfullhash}{eb1472a1dd93ea5972fb047e03c718e0}
+      \strng{authorfullhashraw}{eb1472a1dd93ea5972fb047e03c718e0}
+      \field{labelalpha}{Fou}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Zugriff: 22.01.2025]}
+      \field{title}{Log Files}
+      \verb{urlraw}
+      \verb https://httpd.apache.org/docs/current/logs.html
+      \endverb
+      \verb{url}
+      \verb https://httpd.apache.org/docs/current/logs.html
+      \endverb
+    \endentry
+    \entry{Hassler2019}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=e2ce0745d3238d14ad32bf293f9fe6b9}{%
+           family={Hassler},
+           familyi={H\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Frechen}%
+      }
+      \list{publisher}{1}{%
+        {mitp}%
+      }
+      \strng{namehash}{e2ce0745d3238d14ad32bf293f9fe6b9}
+      \strng{fullhash}{e2ce0745d3238d14ad32bf293f9fe6b9}
+      \strng{fullhashraw}{e2ce0745d3238d14ad32bf293f9fe6b9}
+      \strng{bibnamehash}{e2ce0745d3238d14ad32bf293f9fe6b9}
+      \strng{authorbibnamehash}{e2ce0745d3238d14ad32bf293f9fe6b9}
+      \strng{authornamehash}{e2ce0745d3238d14ad32bf293f9fe6b9}
+      \strng{authorfullhash}{e2ce0745d3238d14ad32bf293f9fe6b9}
+      \strng{authorfullhashraw}{e2ce0745d3238d14ad32bf293f9fe6b9}
+      \field{labelalpha}{Has19}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{5., aktualisierte Auflage}
+      \field{isbn}{978-3-747-50045-3}
+      \field{title}{Digital und Web Analytics: Metriken auswerten, Besucherverhalten verstehen, Website optimieren}
+      \field{year}{2019}
+    \endentry
+    \entry{Potomac}{online}{}{}
       \name{author}{1}{}{%
         {{hash=101d698c96f03d74123c5314716111b5}{%
            family={Potomac},
@@ -87,10 +181,12 @@
       }
       \strng{namehash}{101d698c96f03d74123c5314716111b5}
       \strng{fullhash}{101d698c96f03d74123c5314716111b5}
+      \strng{fullhashraw}{101d698c96f03d74123c5314716111b5}
       \strng{bibnamehash}{101d698c96f03d74123c5314716111b5}
       \strng{authorbibnamehash}{101d698c96f03d74123c5314716111b5}
       \strng{authornamehash}{101d698c96f03d74123c5314716111b5}
       \strng{authorfullhash}{101d698c96f03d74123c5314716111b5}
+      \strng{authorfullhashraw}{101d698c96f03d74123c5314716111b5}
       \field{labelalpha}{Pot24}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}

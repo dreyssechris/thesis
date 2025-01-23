@@ -23,6 +23,8 @@
 \input{misc/metainformation}	% persönlich Daten
 \input{misc/preamble}			% Pakete
 
+\usepackage{listings}
+\usepackage{xcolor}
 %--------------------------------------
 %  Bitte den Editor auf Biblatex bzw. Biber einstellen!!! 
 %--------------------------------------
@@ -30,6 +32,15 @@
 \addbibresource{bib/literatur.bib}	% verwendete Literatur eintragen
 
 %\include{misc/glossaryEntries}		% Glossar
+
+
+\lstdefinelanguage{Apache}{
+    basicstyle=\ttfamily,
+    sensitive=false,
+    morekeywords={GET, POST, HTTP},
+    morestring=[b]",
+    morecomment=[l]{\#}
+}
 
 %--------------------------------------
 %   Dokumentenbeginn
@@ -85,6 +96,7 @@
     \cite{Alby2019}
     \cite{Hassler2019}
     \cite{Dykes2014}
+    \cite{Apache}
 %--------------------------------------
 %   Glossar
 %--------------------------------------
