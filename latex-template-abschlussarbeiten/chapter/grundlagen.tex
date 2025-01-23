@@ -28,8 +28,12 @@ Der Zweck der Analyse ist es zunächst, einen Überblick über das aktuelle Nutz
 Der erste Schritt zur Erreichung dieser Ziele ist es, eine fundierte Grundlage zu schaffen, um Optimierungspotenziale zu identifizieren und Fortschritte zu messen. Hierbei spielt die Auswahl geeigneter Metriken, Kennzahlen und Key Performance Indicators (KPIs) eine entscheidende Rolle. Sie ermöglichen es, die Interaktionen mit dem Bildungsportal quantifierbar zu machen, um datenbasierte Entscheidungen treffen zu können. Im folgenden Kapitel werden die wichtigsten Metriken, Kennzahlen und KPIs, sowie deren Bedeutung näher erläutert. (Quelle?)
 
 \section{Metriken, Kennzahlen und KPIs} % 1-2
-- 
-- Definition Metriken, Kennzahlen und KPIs 
+
+- Definition und Abgrenzung der Begriffe Metriken, Kennzahlen und KPIs 
+- Andere Wissenschaftliche Arbeiten betrachten: Weshalb wurden für die Nutzeranalyse auf einem bestimmten Bildungsportal diese Metriken ausgewählt 
+- Daraus abgeleitet sollen die Metriken für das Bildungsportal evaschiffmann.de definiert und begründet werden
+- Nun möchte ich eine Tabelle einbinden, in welcher alle Kennzahlen, Metriken und KPIs definiert werden, welche verwendet werden sollen
+- Außerdem möchte ich noch erklären (eventuell auch in einer Übersicht, z.B. Tabelle oder noch als Spalte in der bereits erstellten Tabelle) wie die Datenerfassung der jeweiligen Kennzahl, Metrik oder KPI erfolgt 
 
 \section{Datenerfassung} % 2-2,5 Seiten
 
@@ -54,15 +58,48 @@ Aus diesem Beispiel Eintrag lassen sich folgende Informationen in entsprechender
 \end{itemize}
 
 Zusätzlich wird in der Logfile auch die Aufrufmethode (z. B. GET oder POST),  gespeichert, diese Angabe ist jedoch für eine spätere Analyse oft weniger relevant [Hassler, 2019, Kap. 2.2]. Der Vorteil dieser Methode ist es, dass die Datenerfassung unabhängig von Client-Technologien abläuft, da diese serverseitig erfolgt und keine zusätzlichen Technologien wie JavaScript notwendig sind. Zudem werden sämtliche HTTP-Requests, einschließlich der von Bots und Suchmaschinen-Crawlern, erfasst und können leicht in Textform archiviert werden. [Ryte Wiki, o.D.]
-Der große Nachteil dieses serverseitigen Verfahrens ist es, dass clientseitige Informationen, welche nicht an den Webserver übertragen werden, nicht erfasst werden können. Ebenso werden Interaktionen wie das Anklicken eines Bildes, die Scrolltiefe oder Verweildauer, die das Nutzerverhalten genauer beschreiben, nicht berücksichtigt. Zudem können Seitenaufrufe (engl. Page Views), welche aus dem Browser- Cache geladen werden, nicht in den Logfiles erfasst werden. [COUNTER, 2021]
+Der große Nachteil dieses serverseitigen Verfahrens ist es, dass clientseitige Informationen, welche nicht an den Webserver übertragen werden, nicht erfasst werden können. Ebenso werden Interaktionen wie das Anklicken eines Bildes, die Scrolltiefe oder Verweildauer, die das Nutzerverhalten genauer beschreiben, nicht berücksichtigt. Zudem können Seitenaufrufe (engl. Page Views), welche aus dem Browser- Cache geladen werden, nicht in den Logfiles erfasst werden. Ein Verfahren, welches für dieses Problem abhilfe schafft und Nutzer einer Website nicht aus der Sicht des Servers, sondern aus Sicht des Clients betrachtet, ist das sogenannte Page Tagging. [COUNTER, 2021]
 
 \subsection{Page Tagging}
-Unter Page Tagging versteht man die Einbindung eines kurzen Codeausschnittes (engl. Snippet) in den HTML-Code einer Webseite um Nutzerdaten zu erfassen. Dieses Snippet ist meistens in der Programmiersprache Javascript geschrieben. Beim initialen Aufruf einer Webseite (engl. page request) sendet der Browser eine HTTP-Anfrage an den Webserver, um die für die Darstellung der Seite erforderlichen Inhalte wie Bilder, Videos und Text zu laden. Der Webserver ist dafür verantwortlich, die notwendigen Bestandteile einer Webseite bereitzustellen, damit diese vollständig dargestellt werden kann. Dazu liefert er die angeforderten Dateien über eine HTTP-Antwort an den Webbrowser. Die erste Datei, die der Server sendet, ist eine HTML-Datei, welche die Struktur und den Inhalt der Seite definiert. Diese HTML-Datei enthält unter anderem das zuvor eingebundene Snippet, dass sogenannte Page-Tag, um die Datenerfassung zu ermöglichen. Wenn der Webbrowser nun beim Aufbau der Webseite, dass Page-Tag erkennt, beginnt dieser damit, die im Page-Tag referenzierte Javascript-Bibliothek vom Webserver herunterzuladen. Diese Bibliothek dient dazu, den gleichen Programmcode für mehrere Webseiten nutzbar zu machen. Die heruntergeladene Bibliothek wird schließlich im Cache-Speicher des Webbrowsers hinterlegt, sodass diese bei zukünftigen Seitenaufrufen schneller geladen werden. Nachdem das Page Tag die Bibliothek vom Server geladen hat, wird der Code aus der Bibliothek ausgeführt, um verschiedene Daten aus dem Browser zu sammeln. Dazu gehören unter anderem die Bildschirmauflösung, der Referrer (die Herkunftsseite), der Seiten-Titel und -URL sowie Informationen aus Cookies, welche eventuell bei vorherigen Besuchen gesetzt wurden. Diese gesammelten Daten verbleiben zunächst lokal im Browser [Dykes, 2014, S.70-71]. 
+Unter Page Tagging versteht man die Einbindung eines kurzen Codeausschnittes (engl. Snippet) in den HTML-Code einer Webseite um Nutzerdaten zu erfassen. Dieses Snippet ist meistens in der Programmiersprache Javascript geschrieben. Das Snippet ermöglicht die Datenerfassung, indem es eine Javascript-Bibliothek herunterlädt, die im Cache-Speicher des Webbrowsers hinterlegt wird, um bei zukünftigen Seitenaufrufen schneller geladen zu werden. Nachdem das Page Tag die Bibliothek geladen hat, wird der Code ausgeführt, um verschiedene Daten aus dem Browser zu sammeln [Dykes, 2014, S.70-71]. Es können zum einen Daten abegerufen werden, welche per Browser Object Model (BOM) bezüglich der Einstellungen für den Webbrowser zu Verfügung stehen und zum anderen auch Informationen, welche das Document Object Model (DOM) enthält. Hierbei lassen sich unter anderem folgende Informationen per Page Tag sammeln [Hassler, 2019, Kap.2.3]:  
 
-Um die gesammelten Daten an den Webserver zu übertragen, wird ein Bild in der Größe eines Pixels erzeugt, weshalb dieses Verfahren ebenfalls als Pixel-Tracking bezeichnet wird [Hassler, 2019, S.31]. Der Webbrowser erkennt dieses Bild als fehlenden Inhalt an, der geladen werden muss und sendet eine HTTP-Anfrage um es abzurufen. Diese Anfrage wird auch als Image-Request bezeichnet und enthält alle zuvor gesammelten Daten als Parameter in der URL (Uniform Resource Locator). Die Image-Request wird allerdings nicht an den Webserver gesendet, auf welchem die Webseite hinterlegt ist, sondern an einen dedizierten Datensammlungsserver. Wurden die Daten vom Datensammlungsserver empfangen werden die Parameter aus der URL extrahiert und in einer Datenbank gespeichert. Anschließend können die Daten von einer Analyse-Engine verarbeitet werden um zusätzliche Einsichten in das Nutzerverhalten zu gewinnen. Neben der Verarbeitung der Daten kann der Datensammlungsserver in der HTTP-Antwort auch einen Cookie setzen, sofern dieser nicht bereits zuvor schon gesetzt wurde. Dieser Cookie enthält eine eindeutige Kennung (Visitor-ID), die es ermöglicht, dass Gerät des Nutzers bei zukünftigen Besuchen wiederzuerkennen und weitere Informationen mit diesem zu verknüpfen [Dykes, 2014, S.70-71].
+\begin{itemize}
+    \item Mauszeigerposition
+    \item Interaktionen mit Multimedia-Dateien
+    \item Verweise in Form von Links
+    \item Titel der Seite
+    \item Tastatureingaben
+    \item Bildschirmauflösung
+    \item Cookies
+    \item alle Informationen, welche auch Logfiles liefern
+\end{itemize}
+
+Um die gesammelten Daten an den Webserver zu übertragen, wird ein Bild in der Größe eines Pixels erzeugt, weshalb dieses Verfahren ebenfalls als Pixel-Tracking bezeichnet wird [Hassler, 2019, S.31]. Der Webbrowser erkennt dieses Bild als fehlenden Inhalt an, der geladen werden muss und sendet eine HTTP-Anfrage um es abzurufen. Diese Anfrage wird auch als Image-Request bezeichnet und enthält alle zuvor gesammelten Daten als Parameter in der URL (Uniform Resource Locator). Die Image-Request wird allerdings nicht an den Webserver gesendet, auf welchem die Website hinterlegt ist, sondern an einen dedizierten Datensammlungsserver. Wurden die Daten vom Datensammlungsserver empfangen werden die Parameter aus der URL extrahiert und in einer Datenbank gespeichert. Anschließend können die Daten von einer Analyse-Engine verarbeitet werden um zusätzliche Einsichten in das Nutzerverhalten zu gewinnen. Neben der Verarbeitung der Daten kann der Datensammlungsserver in der HTTP-Antwort auch einen Cookie setzen. Dieser Cookie enthält eine eindeutige Kennung (Visitor-ID), die es ermöglicht, dass Gerät des Nutzers bei zukünftigen Besuchen wiederzuerkennen und weitere Informationen mit diesem zu verknüpfen [Dykes, 2014, S.70-71].
 
 \subsection{Events und Interaktionen}
 
-\subsection{DSGVO-Shit}
+\subsection{Datenschutz und rechtliche Anforderungen}
+Die Analyse der Logfiles und besonders das Page Tagging, bieten umfangreiche Möglichkeiten zur Erfassung von Nutzerdaten. Im Umgang mit diesen personenbezogenen Daten muss allerdings einiges beachtet werden, um den gesetzlichen Datenschutzanforderungen gerecht zu werden. Im Folgenden werden die rechtlichen Aspekte und deren Auswirkungen auf die Webanalyse näher beleuchtet.
+
+Der Datenschutz ist ein übergeordnetes Konzept, das in verschiedenen Ländern auf unterschiedliche Art und Weise geregelt ist. Die DSGVO hingegen stellt eine spezifische gesetzliche Regelung der EU dar, die alle Mitgliedstaaten gleichermaßen betrifft. Während Datenschutz allgemein darauf abzielt, die Privatsphäre der Menschen zu schützen, legt die DSGVO detaillierte Anforderungen an den Umgang mit personenbezogenen Daten fest und sieht hohe Bußgelder bei Verstoßen vor. Insbesondere für international tätige Unternehmen ist die Einhaltung der DSGVO essenziell, da sie auch außerhalb der EU gilt, wenn Daten von EU-Bürgern verarbeitet werden (Voigt \& Von dem Bussche, 2017, Kap.1; Kap.2).
+
+Nach Art. 4 Abs. 1 DSGVO gelten alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen, als personenbezogene Daten (Europäische Union, 2016, Art. 4 Abs. 1). Hierzu zählen somit auch IP-Adressen und Cookies [Hanschke, 2020, Kap.2.4].
+
+Art. 6 Abs. 1 DSGVO gibt vor, dass die Verarbeitung personenbezogener Daten nur rechtmäßig ist, wenn sie auf einer rechtlichen Grundlage beruht. Im Kontext der Webanalyse ist häufig die Einwilligung (Art. 6 Abs. 1 lit. a) relevant, welche vor der Datenerhebung eingeholt werden muss. Alternativ kann ein berechtigtes Interesse des Verantwortlichen (Art. 6 Abs. 1 lit. f) geltend gemacht werden, sofern die Interessen der Nutzer gewahrt bleiben (Europäische Union, 2016).
+
+Die rechtlichen Anforderungen der DSGVO haben direkte Auswirkungen auf die Gestaltung und den Betrieb der Webanalyse. Wichtige Aspekte sind:
+
+\begin{itemize}
+    \item \textbf{Transparenz:} Nutzer müssen darüber informiert werden, welche Daten erfasst werden und zu welchem Zweck [Hanschke, 2020, Kap.2.4].
+    \item \textbf{Datenminimierung:} Analysesysteme sollten nur die für den jeweiligen Zweck erforderlichen Daten sammeln [Europäische Union, 2016, Art. 5 Abs. 1 lit. c].
+    \item \textbf{Einwilligung:} Die Verarbeitung personenbezogener Daten geschieht oft durch den Einsatz von Cookies. Hierzu muss die Einwilligung der Nutzer eingeholt werden [Europäische Union, 2016, Art. 6 Abs. 1 lit. a]. 
+    \item \textbf{?Rechenschaftspflicht?:} Unternehmen müssen nachweisen können, dass sie die Anforderungen der DSGVO einhalten. Dies erfordert technische und organisatorische Maßnahmen wie Dokumentation und Auditierung (Voigt Von dem Bussche, 2017).
+\end{itemize}
+
+Die IP-Adresse wird von der DSGVO als personenbezogenes Datum eingestuft, da sie in Kombination mit weiteren Informationen eine Identifizierung der Person ermöglichen kann. Analytics-Systeme müssen daher besondere Maßnahmen ergreifen, um die Verarbeitung der IP-Adressen DSGVO-konform zu gestalten. Häufig wird die IP-Adresse anonymisiert, bevor sie gespeichert oder weiterverarbeitet wird. Google Analytics beispielsweise bietet eine Funktion zur IP-Anonymisierung, bei der die letzten Stellen der IP-Adresse entfernt werden (Google, o.D.). % noch quellen suchen + PostHog
+
+Cookies spielen eine zentrale Rolle in der Webanalyse, da sie es ermöglichen, Nutzer über verschiedene Sitzungen hinweg zu identifizieren. Die Verwendung von Cookies unterliegt jedoch strengen Anforderungen. Gemäß der E-Privacy-Richtlinie ("Cookie-Richtlinie") und der DSGVO ist für den Einsatz von Cookies, die nicht technisch notwendig sind, eine ausdrückliche Einwilligung der Nutzer erforderlich (Europäische Union, 2016). % Quelle + PostHog
+
+Zusätzlich müssen Nutzer die Möglichkeit haben, ihre Einwilligung jederzeit zu widerrufen. Dies stellt hohe Anforderungen an die technische Umsetzung von Cookie-Bannern und Consent-Management-Plattformen (Trepte, 2021).
 
 \section{Tools zur Webanalyse} %3 Seiten

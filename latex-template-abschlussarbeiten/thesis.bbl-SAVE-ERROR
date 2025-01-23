@@ -137,6 +137,38 @@
       \verb https://httpd.apache.org/docs/current/logs.html
       \endverb
     \endentry
+    \entry{Hanschke2020}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=2bb478c85db9614215d97afaadfe5451}{%
+           family={Hanschke},
+           familyi={H\bibinitperiod},
+           given={Inge},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Wiesbaden}%
+      }
+      \list{publisher}{1}{%
+        {Springer Fachmedien Wiesbaden}%
+      }
+      \strng{namehash}{2bb478c85db9614215d97afaadfe5451}
+      \strng{fullhash}{2bb478c85db9614215d97afaadfe5451}
+      \strng{fullhashraw}{2bb478c85db9614215d97afaadfe5451}
+      \strng{bibnamehash}{2bb478c85db9614215d97afaadfe5451}
+      \strng{authorbibnamehash}{2bb478c85db9614215d97afaadfe5451}
+      \strng{authornamehash}{2bb478c85db9614215d97afaadfe5451}
+      \strng{authorfullhash}{2bb478c85db9614215d97afaadfe5451}
+      \strng{authorfullhashraw}{2bb478c85db9614215d97afaadfe5451}
+      \field{labelalpha}{Han20}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2. Auflage}
+      \field{isbn}{978-3-658-28698-9}
+      \field{title}{Informationssicherheit und Datenschutz systematisch und nachhaltig gestalten: Eine kompakte Einführung in die Praxis}
+      \field{year}{2020}
+    \endentry
     \entry{Hassler2019}{book}{}{}
       \name{author}{1}{}{%
         {{hash=e2ce0745d3238d14ad32bf293f9fe6b9}{%
@@ -205,7 +237,42 @@
       \verb https://potomac.edu/learning/online-learning-vs-traditional-learning/
       \endverb
     \endentry
+    \entry{DSGVO}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=813947a91bed5aea99b2d9f5028c6f0d}{%
+           family={Union},
+           familyi={U\bibinitperiod},
+           given={Europäische},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{813947a91bed5aea99b2d9f5028c6f0d}
+      \strng{fullhash}{813947a91bed5aea99b2d9f5028c6f0d}
+      \strng{fullhashraw}{813947a91bed5aea99b2d9f5028c6f0d}
+      \strng{bibnamehash}{813947a91bed5aea99b2d9f5028c6f0d}
+      \strng{authorbibnamehash}{813947a91bed5aea99b2d9f5028c6f0d}
+      \strng{authornamehash}{813947a91bed5aea99b2d9f5028c6f0d}
+      \strng{authorfullhash}{813947a91bed5aea99b2d9f5028c6f0d}
+      \strng{authorfullhashraw}{813947a91bed5aea99b2d9f5028c6f0d}
+      \field{labelalpha}{Uni16}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{27}
+      \field{month}{4}
+      \field{note}{[Zugriff: 22.01.2025]}
+      \field{title}{Datenschutz-Grundverordnung (DSGVO) - Verordnung (EU) 2016/679 des Europäischen Parlaments und des Rates vom 27. April 2016}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32016R0679
+      \endverb
+      \verb{url}
+      \verb https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32016R0679
+      \endverb
+    \endentry
   \enddatalist
+  \missing{VoigVonDemBussche2017}
 \endrefsection
 \endinput
 
