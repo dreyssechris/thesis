@@ -525,10 +525,7 @@ INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\helvetic\phvb8
 INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\helvetic\phvb8r.tfm
 INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\helvetic\phvr8t.vf
 INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\helvetic\phvr8r.tfm
-INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\helvetic\phvro8t.tfm
 OUTPUT thesis.toc
-INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\helvetic\phvro8t.vf
-INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\helvetic\phvro8r.tfm
 INPUT .\thesis.lof
 INPUT .\thesis.lof
 INPUT thesis.lof
@@ -536,7 +533,10 @@ OUTPUT thesis.lof
 INPUT .\thesis.lot
 INPUT .\thesis.lot
 INPUT thesis.lot
+INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\helvetic\phvro8t.tfm
 OUTPUT thesis.lot
+INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\helvetic\phvro8t.vf
+INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\helvetic\phvro8r.tfm
 INPUT .\thesis.lol
 INPUT .\thesis.lol
 INPUT thesis.lol
@@ -623,10 +623,7 @@ INPUT .\chapter\anhang.tex
 INPUT .\chapter\anhang.tex
 INPUT chapter\anhang.tex
 INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\helvetic\phvb8t.tfm
-INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\helvetic\phvbo8t.tfm
 INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\helvetic\phvro8t.tfm
-INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\helvetic\phvbo8t.vf
-INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\helvetic\phvbo8r.tfm
 INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\helvetic\phvro8t.vf
 INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\helvetic\phvro8r.tfm
 INPUT C:\Users\chris\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\helvetic\phvb8t.vf

@@ -2,9 +2,9 @@
 \label{ch:webanalyse} 
 
 \section{Definitionen und Abgrenzung} % 1-1,5 Seiten
-Die Webanalyse (engl. Web Analytics) ist ein Teilbereich der Digitalanalyse (engl. Digital Analytics) und hat als Aufgabe, Webseiten zu analysieren und zu optimieren. Die Abgrenzung zwischen Webanalyse und Digitalanalyse zeigt, dass sich die Webanalyse primär auf Daten bezieht, die aus dem Besuch und der Nutzung von Websites entstehen, wobei die Digitalanalyse den Rahmen erweitert und sich mit der kanalfübergreifenden Ermittlung von Nutzerbezogenen Daten beschäftigt [Hassler, 2019, Kap.1.2]. Die Webanalyse wird von der Digital Analytics Association (DAA) wie folgt definiert: \textit{"Web analytics is the measurement, collection, analysis and reporting of web data for purposes of understanding and optimizing web usage."} [DAA, 2008].
+Die Webanalyse (engl. Web Analytics) ist ein Teilgebiet der Digitalanalyse (engl. Digital Analytics) und hat als Aufgabe, Webseiten zu analysieren und zu optimieren. Die Abgrenzung zwischen Webanalyse und Digitalanalyse zeigt, dass sich die Webanalyse primär auf Daten bezieht, die aus dem Besuch und der Nutzung von Websites entstehen, wobei die Digitalanalyse den Rahmen erweitert und sich mit der kanalfübergreifenden Ermittlung von Nutzerbezogenen Daten beschäftigt [Hassler, 2019, Kap.1.2]. Die Webanalyse wird von der Web Analytics Association (WAA) wie folgt definiert: \textit{``Web Analytics is the measurement, collection, analysis and reporting of Internet data for the purposes of understanding and optimizing Web usage.''} [WAA, 2008, S.3].
 
-Eine weitere Definition liefert die ISO 19731:2017, welche Webanalyse als Analyse und Berichterstattung über das Verhalten, Aussagen und Stimmungen von Nutzern auf Online-Plattformen beschreibt [International Organization for Standardization (ISO), 2017, Abschnitt 3.93]. Diese Definition hebt zusätzlich die Bedeutung von qualitativen und stimmungsbasierten Daten hervor.
+Eine weitere Definition liefert die ISO 19731:2017, welche Webanalyse als Analyse und Berichterstattung über das Verhalten, Aussagen und Stimmungen von Nutzern auf Online-Plattformen beschreibt [International Organization for Standardization (ISO), 2017, Kap.3.40]. Diese Definition verdeutlicht noch einmal die Bedeutung von qualitativen und stimmungsbasierten Daten bei der Webanalyse. 
 
 Sie dient unter anderem dazu, die Herkunft von Nutzern (Kanäle), deren Klickverhalten (Klickpfade) sowie die Effektivität von Kampagnen und die Leistung einer Website zu analysieren. Erkenntnisse aus der Webanalyse unterstützen Unternehmen oder Organisationen dabei, ihre Inhalte entsprechend des Nutzerverhaltens zu personalisieren, Schwachstellen in der Customer Journey zu identifizieren und die Nutzererfahrung (User Experience) zu verbessern.
 
@@ -60,17 +60,7 @@ In Zusammenarbeit mit der Professur für Geschichtsdidaktik wurden spezifische K
     \end{tabularx}
 \end{table}
 
-Zusätzlich zu den KPIs aus Tabelle~\ref{tab:kpi_allgemein} dienen die in Tabelle B1 im Anhang dargestellten Indikatoren dazu, eine Übersicht über das Verhalten und die Interaktionen der Nutzer mit der gesamten Website zu erfassen.
-
-Für die Webseite \textit{https://evaschiffmann.de/zum-tagebuch} sind die Indikatoren aus Tabelle B2 relevant.
-
-Für die Webseite \textit{https://evaschiffmann.de/wer-war-eva-schiffmann} sind die Indikatoren aus Tabelle B3 relevant. 
-
-Für die Webseite \textit{https://evaschiffmann.de/themen} sind die Indikatoren aus Tabelle B4 relevant.
-
-Für die Webseite \textit{http://evaschiffmann.de/orte} sind die Indikatoren aus Tabelle B5 relevant.
-
-Für die Webseite \textit{http://evaschiffmann.de/evas-lektueren} sind die Indikatoren aus Tabelle B6 relevant.
+Zusätzlich zu den in Tabelle~\ref{tab:kpi_uebersicht} dargestellten allgemeinen KPIs, die einen seitenübergreifenden Einblick in das Nutzungsverhalten ermöglichen, sind weitere seiten-spezifisch Indikatoren für die einzelnen Unterseiten des Bildungsportals definiert. Die in Tabelle~\ref{tab:kpi_allgemein} im Anhang aufgeführten Indikatoren liefern eine detaillierte Übersicht über die Gesamtaktivitäten der Nutzer auf der Website. Außerdem werden technische Merkmale und Informationen über die Nutzungsumgebung der Besucher erfasst. Für die Unterseite ``Zum Tagebuch'' werden die relevanten KPIs in Tabelle~\ref{tab:kpi_tagebuch} im Anhang dargestellt. Für die Unterseiten ``Wer war Eva Schiffmann?'' [Tabelle~\ref{tab:kpi_eva_schiffmann}], ``Themen'' [Tabelle~\ref{tab:kpi_themen}], ``Orte'' [Tabelle~\ref{tab:kpi_orte}] und ``Evas Lektüren'' [Tabelle~\ref{tab:kpi_evas_lektueren}] werden ebenfalls KPIs im Anhang abgebildet.
 
 
 \section{Datenerfassung} % 2-2,5 Seiten
@@ -114,7 +104,12 @@ Unter Page Tagging versteht man die Einbindung eines kurzen Codeausschnittes (en
 
 Um die gesammelten Daten an den Webserver zu übertragen, wird ein Bild in der Größe eines Pixels erzeugt, weshalb dieses Verfahren ebenfalls als Pixel-Tracking bezeichnet wird [Hassler, 2019, S.31]. Der Webbrowser erkennt dieses Bild als fehlenden Inhalt an, der geladen werden muss und sendet eine HTTP-Anfrage um es abzurufen. Diese Anfrage wird auch als Image-Request bezeichnet und enthält alle zuvor gesammelten Daten als Parameter in der URL (Uniform Resource Locator). Die Image-Request wird allerdings nicht an den Webserver gesendet, auf welchem die Website hinterlegt ist, sondern an einen dedizierten Datensammlungsserver. Wurden die Daten vom Datensammlungsserver empfangen werden die Parameter aus der URL extrahiert und in einer Datenbank gespeichert. Anschließend können die Daten von einer Analyse-Engine verarbeitet werden um zusätzliche Einsichten in das Nutzerverhalten zu gewinnen. Neben der Verarbeitung der Daten kann der Datensammlungsserver in der HTTP-Antwort auch einen Cookie setzen. Dieser Cookie enthält eine eindeutige Kennung (Visitor-ID), die es ermöglicht, dass Gerät des Nutzers bei zukünftigen Besuchen wiederzuerkennen und weitere Informationen mit diesem zu verknüpfen [Dykes, 2014, S.70-71].
 
-\subsection{Events und Interaktionen}
+- Grundlage von Page Tagging sind Events -> Quelle
+
+\subsection{Events}
+Ein Event beschreibt eine gezielte Aktion, die auf einer Webseite durch einen Nutzer ausgelöst wird. Diese Aktionen werden entweder vom Browser oder vom Server protokolliert und mit einem Zeitstempel versehen. Events können unter anderem das Einblenden von Werbeanzeigen, das Beginnen oder Abschließen von Kaufprozessen, Änderungen in Formularfeldern oder das Abspielen von Videos sein. [WAA, 2007, S.33]
+
+Für das Bildungsportal \textit{evaschiffmann.de} spielen Events somit eine essenzielle Rolle, wenn es um die Erfassung von Interaktionen mit Video- und Audioelementen geht. Ebenso werden Events unter anderem genutzt, um KPIs zu berechnen, welche sich auf die Nutzung der Suchfunktion, die Interaktionen mit der Karte oder das aufklappen von Überschriften beziehen. Events werden ebenfalls für die Aufzeichnung von Interaktionen mit eingebetteten Links verwendet [AT Internet, o.D]. Wie zum Beispiel das anklicken von Links, welche zu einem bestimmten Tagebucheintrag führen.
 
 \subsection{Datenschutz und rechtliche Anforderungen}
 Die Analyse der Logfiles und besonders das Page Tagging, bieten umfangreiche Möglichkeiten zur Erfassung von Nutzerdaten. Im Umgang mit diesen personenbezogenen Daten muss allerdings einiges beachtet werden, um den gesetzlichen Datenschutzanforderungen gerecht zu werden. Im Folgenden werden die rechtlichen Aspekte und deren Auswirkungen auf die Webanalyse näher beleuchtet.
@@ -141,3 +136,7 @@ Cookies spielen eine zentrale Rolle in der Webanalyse, da sie es ermöglichen, N
 Zusätzlich müssen Nutzer die Möglichkeit haben, ihre Einwilligung jederzeit zu widerrufen. Dies stellt hohe Anforderungen an die technische Umsetzung von Cookie-Bannern und Consent-Management-Plattformen (Trepte, 2021).
 
 \section{Tools zur Webanalyse} %3 Seiten
+
+\subsection{Google Analytics (GA)}
+\subsection{Matomo (Piwik)}
+\subsection{PostHog}
