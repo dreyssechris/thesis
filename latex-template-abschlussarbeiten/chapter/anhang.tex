@@ -9,8 +9,189 @@
 %	\lstinputlisting[caption={Batchdatei zum Automatischen Verteilen},language=command.com,label=app:batchjenkins]{Quellen/depoly_DMSCore.bat}
 
 
-\chapter{Konfigurationen}
-\label{ch:konfigurationen}
+%\chapter{Konfigurationen}
+%\label{ch:konfigurationen}
 %	\lstinputlisting[caption={Alte Konfiguration},label=konf:oldkonf]{Quellen/Environment.properties}
 %	\lstinputlisting[caption={Importdatei mit den Werten der alten Konfigurationsdatei},language=XML,label=konf:xmlfuerdms]{Quellen/out.xml}
+
+\chapter{Tabellen}
+\label{ch:tabellen}
+
+\section{KPIs für die Dashboardseite \textit{Allgemein}}
+Die nachfolgende Tabelle enthält die KPIs, welche auf der Dashboardseite \textit{Allgemein} dargestellt werden.
+
+\renewcommand{\arraystretch}{1.5} % Erhöht die Zeilenhöhe
+\begin{xltabular}{\textwidth}{|X|X|X|}
+    \caption{Allgemeine KPIs für die Website \textit{evaschiffmann.de}} \label{tab:kpi_uebersicht} \\
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endfirsthead
+
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    Anzahl wiederkehrender Besucher & Anzahl der Nutzer mit mindestens 2 Sitzungen & {\footnotesize \(\text{Count(Sessions > 1)}\)} \\ \hline
+    Neue vs. wiederkehrende Besucher & Verhältnis zwischen neuen und wiederkehrenden Nutzern & {\footnotesize \(\frac{\text{Neue Besucher}}{\text{Wiederkehrende Besucher}}\)} \\ \hline
+    Häufig besuchte Seiten & Ranking der am häufigsten besuchten Pfade & {\footnotesize \(\text{Ranking(Pageviews)}\)} \\ \hline
+    Wenig besuchte Unterseiten & Ranking der am wenigsten besuchten Pfade & {\footnotesize \(\text{Ranking(Pageviews)}\)} \\ \hline
+    Top referrers & Von welcher Domain Besucher kommen & {\footnotesize \(\text{Referrer Domains}\)} \\ \hline
+    Browser & Welche Browser verwendet werden & {\footnotesize \(\text{Browser Usage Statistics}\)} \\ \hline
+    Gerätetypen & Verteilung der Besuche auf Desktop, Tablet und Mobile & {\footnotesize \(\text{Device Usage Statistics}\)} \\ \hline
+    Quellen & Direkter Zugriff, Suchmaschinen, soziale Netzwerke, externe Links & {\footnotesize \(\text{Traffic Source Breakdown}\)} \\ \hline
+    Betriebssysteme & Welches Betriebssystem verwendet wird & {\footnotesize \(\text{Operating System Share}\)} \\ \hline
+    Interaktionen mit Überschriften & Durchschnittliche Anzahl aufgeklappter Überschriften pro Nutzer & {\footnotesize \(\text{Count(Headline Interactions)}\)} \\ \hline
+    Suchverhalten (häufigste Begriffe) & Welche Begriffe am häufigsten gesucht werden & {\footnotesize \(\text{Top Search Queries}\)} \\ \hline
+    Suchverhalten (keine Ergebnisse) & Anteil der Suchanfragen ohne Ergebnisse & {\footnotesize \(\frac{\text{Suchanfragen ohne Ergebnisse}}{\text{Gesamtanzahl Suchanfragen}} \cdot 100\)} \\ \hline
+    User Paths & Reihenfolge der Seitenaufrufe durch Nutzer & {\footnotesize \(\text{User Journey}\)} \\ \hline
+    Verwendung von externen Quellen & Anteil der Nutzer, die externe Links nutzen & {\footnotesize \(\frac{\text{Nutzer mit externen Klicks}}{\text{Gesamtnutzer}} \cdot 100\)} \\ \hline
+    Audiodateien & Anzahl oder Anteil der Nutzer, die Audiodateien abgespielt haben & {\footnotesize \(\text{Count(Audio Plays)}\)} \\ \hline
+    Videos (mindestens eines) & Anteil der Nutzer, die mindestens ein Video angeschaut haben & {\footnotesize \(\frac{\text{Nutzer mit Videoaufrufen}}{\text{Gesamtnutzer}} \cdot 100\)} \\ \hline
+    Videos (alle) & Anteil der Nutzer, die alle Videos angeschaut haben & {\footnotesize \(\frac{\text{Nutzer mit allen Videos}}{\text{Gesamtnutzer}} \cdot 100\)} \\ \hline
+\end{xltabular}
+
+\section{KPIs für die Dashboardseite \textit{Tagebuch}}
+Die nachfolgende Tabelle enthält die KPIs, welche auf der Dashboardseite \textit{Tagebuch} dargestellt werden.
+
+\renewcommand{\arraystretch}{1.5} % Erhöht die Zeilenhöhe
+\begin{xltabular}{\textwidth}{|X|X|X|}
+    \caption{KPIs für die Webseite \textit{http://evaschiffmann.de/zum-tagebuch}} \label{tab:kpi_tagebuch} \\
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endfirsthead
+
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    Tagebuch Interaktionen & Wie viele Tagebucheinträge schaut sich ein Nutzer im Schnitt pro Session an & {\footnotesize \(\text{Durchschnitt(Tagebucheinträge)}\)} \\ \hline
+    Am häufigsten aufgerufene Tagebucheinträge & Ranking der am häufigsten aufgerufenen Tagebucheinträge & {\footnotesize \(\text{Ranking(Pageviews)}\)} \\ \hline
+    Am wenigsten aufgerufene Tagebucheinträge & Ranking der am wenigsten aufgerufenen Tagebucheinträge & {\footnotesize \(\text{Ranking(Pageviews)}\)} \\ \hline
+    Merkliste & Anteil der Nutzer, welche mindestens 1 Tagebucheintrag auf die Merkliste packen & {\footnotesize \(\frac{\text{Nutzer mit Merklistenaktionen}}{\text{Gesamtnutzer}} \cdot 100\)} \\ \hline
+    Suchfunktion - Anteil der Nutzer & Anteil der Nutzer, welche die Suchfunktion verwenden & {\footnotesize \(\frac{\text{Suchende Nutzer}}{\text{Gesamtnutzer}} \cdot 100\)} \\ \hline
+    Suchfunktion - keine Ergebnisse & Anteil der Suchanfragen, welche zu keinem Ergebnis führen & {\footnotesize \(\frac{\text{Suchanfragen ohne Ergebnisse}}{\text{Gesamtanzahl Suchanfragen}} \cdot 100\)} \\ \hline
+    Suchfunktion - Begriffe & Am meisten gesuchte Begriffe & {\footnotesize \(\text{Top Search Queries}\)} \\ \hline
+    Suchfunktion - Filter & Anteil der Suchanfragen, welche den eingebauten Filter verwenden & {\footnotesize \(\frac{\text{Suchanfragen mit Filter}}{\text{Gesamtanzahl Suchanfragen}} \cdot 100\)} \\ \hline
+    Verwendung des Originalauszuges & Wie hoch ist die Wahrscheinlichkeit, dass, wenn ein Nutzer einen Tagebucheintrag öffnet, dieser auch mit der Originalquelle interagiert & {\footnotesize \(\frac{\text{Interaktionen mit Originalquelle}}{\text{Gesamtnutzer}} \cdot 100\)} \\ \hline
+\end{xltabular}
+
+\section{KPIs für die Dashboardseite \textit{Wer war Eva Schiffmann}}
+Die nachfolgende Tabelle enthält die KPIs, welche auf der Dashboardseite \textit{Wer war Eva Schiffmann} dargestellt werden.
+
+\renewcommand{\arraystretch}{1.5} % Erhöht die Zeilenhöhe
+\begin{xltabular}{\textwidth}{|X|X|X|}
+    \caption{KPIs für die Unterseite „Wer war Eva Schiffmann?“} \label{tab:kpi_eva_schiffmann} \\
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endfirsthead
+
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    Häufig besuchte Unterseiten & Ranking der beliebtesten Unterseiten & {\footnotesize \(\text{Ranking(Pageviews)}\)} \\ \hline
+    Kopplung mit Thema - Danach & Wahrscheinlichkeit, dass ein Nutzer direkt danach die korrespondierende Unterseite von „Themen“ aufruft & {\footnotesize \(\frac{\text{Aufrufe der korrespondierenden Seite}}{\text{Gesamtaufrufe}}\)} \\ \hline
+    Kopplung mit Thema - Davor & Wahrscheinlichkeit, dass ein Nutzer direkt davor die korrespondierende Unterseite von „Themen“ aufgerufen hat & {\footnotesize \(\frac{\text{Aufrufe der korrespondierenden Seite}}{\text{Gesamtaufrufe}}\)} \\ \hline
+    Überschriften & Durchschnittliche Anzahl aufgeklappter Überschriften pro Nutzer & {\footnotesize \(\text{Durchschnitt(Überschriften)}\)} \\ \hline
+    Überschriften (6x) & Interessanteste Überschrift auf jeder Unterseite von „Wer war Eva Schiffmann?“ & {\footnotesize \(\text{Ranking(Interaktionen)}\)} \\ \hline
+    Tagebucheinträge & Wahrscheinlichkeit, dass „Tagebucheinträge“ auf einer Unterseite von „Wer war Eva Schiffmann?“ ausgeklappt werden & {\footnotesize \(\frac{\text{Interaktionen mit Tagebucheinträgen}}{\text{Gesamtinteraktionen}}\)} \\ \hline
+    Tagebucheinträge (häufigste) & Für welche Unterseite werden am häufigsten „Tagebucheinträge“ ausgeklappt? & {\footnotesize \(\text{Ranking(Tagebuchinteraktionen)}\)} \\ \hline
+\end{xltabular}
+
+\section{KPIs für die Dashboardseite \textit{Themen}}
+Die nachfolgende Tabelle enthält die KPIs, welche auf der Dashboardseite \textit{Themen} dargestellt werden.
+
+\renewcommand{\arraystretch}{1.5} % Erhöht die Zeilenhöhe
+\begin{xltabular}{\textwidth}{|X|X|X|}
+    \caption{KPIs für die Unterseite „Themen“} \label{tab:kpi_themen} \\
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endfirsthead
+
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    Häufig besuchte Unterseiten & Ranking der beliebtesten Unterseiten & {\footnotesize \(\text{Ranking(Pageviews)}\)} \\ \hline
+    Kopplung mit „Wer war Eva Schiffmann? - Davor“ & Wahrscheinlichkeit, dass ein Nutzer direkt davor die korrespondierende Unterseite von „Wer war Eva Schiffmann?“ aufgerufen hat & {\footnotesize \(\frac{\text{Vorherige Interaktionen}}{\text{Gesamtinteraktionen}}\)} \\ \hline
+    Kopplung mit „Wer war Eva Schiffmann? - Danach“ & Wahrscheinlichkeit, dass ein Nutzer direkt danach die korrespondierende Unterseite von „Wer war Eva Schiffmann?“ aufruft & {\footnotesize \(\frac{\text{Nachfolgende Interaktionen}}{\text{Gesamtinteraktionen}}\)} \\ \hline
+    Überschriften & Durchschnittliche Anzahl aufgeklappter Überschriften pro Nutzer & {\footnotesize \(\text{Durchschnitt(Überschriften)}\)} \\ \hline
+    Überschriften (6x) & Für jede Unterseite von „Themen“ - Interessanteste Überschrift & {\footnotesize \(\text{Ranking(Interaktionen)}\)} \\ \hline
+\end{xltabular}
+
+\section{KPIs für die Dashboardseite \textit{Orte}}
+Die nachfolgende Tabelle enthält die KPIs, welche auf der Dashboardseite \textit{Orte} dargestellt werden.
+
+\renewcommand{\arraystretch}{1.5} % Erhöht die Zeilenhöhe
+\begin{xltabular}{\textwidth}{|X|X|X|}
+    \caption{KPIs für die Unterseite Orte} \label{tab:kpi_orte} \\
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endfirsthead
+
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    Häufig besuchte Orte & Ranking der am häufigsten angeklickten Orte & {\footnotesize \(\text{Ranking(Orte-Interaktionen)}\)} \\ \hline
+    Tagebucheinträge & Wenn ein Ort ausgewählt wurde, wird dann ebenfalls der verwandte Tagebucheintrag geöffnet? & {\footnotesize \(\frac{\text{Interaktionen mit Tagebucheinträgen}}{\text{Gesamtnutzer}}\)} \\ \hline
+\end{xltabular}
+
+\section{KPIs für die Dashboardseite \textit{Evas Lektüren}}
+Die nachfolgende Tabelle enthält die KPIs, welche auf der Dashboardseite \textit{Evas Lektüren} dargestellt werden.
+
+\renewcommand{\arraystretch}{1.5} % Erhöht die Zeilenhöhe
+\begin{xltabular}{\textwidth}{|X|X|X|}
+    \caption{KPIs für die Unterseite Orte} \label{tab:kpi_evas_lektueren} \\
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endfirsthead
+
+    \hline
+    \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    Überschriften (Ranking) & Ranking, welche Überschriften am meisten aufgeklappt werden & {\footnotesize \(\text{Ranking(Interaktionen)}\)} \\ \hline
+    Überschriften (mindestens eine) & Wie hoch ist die Wahrscheinlichkeit, dass mindestens eine Überschrift ausgeklappt wird & {\footnotesize \(\frac{\text{Nutzer mit Überschriftenaktionen}}{\text{Gesamtnutzer}} \cdot 100\)} \\ \hline
+    Überschriften (Auszug) & Wenn eine Überschrift ausgeklappt wird, wie hoch ist die Wahrscheinlichkeit, dass der Auszug ebenfalls ausgeklappt wird & {\footnotesize \(\frac{\text{Interaktionen mit Auszügen}}{\text{Interaktionen mit Überschriften}} \cdot 100\)} \\ \hline
+\end{xltabular}
+
+
+
 \clearpage
