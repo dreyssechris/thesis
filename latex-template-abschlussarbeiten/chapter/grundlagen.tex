@@ -89,6 +89,7 @@ Zusätzlich wird in der Logfile auch die Aufrufmethode (z. B. GET oder POST),  g
 Der große Nachteil dieses serverseitigen Verfahrens ist es, dass clientseitige Informationen, welche nicht an den Webserver übertragen werden, nicht erfasst werden können. Ebenso werden Interaktionen wie das Anklicken eines Bildes, die Scrolltiefe oder Verweildauer, die das Nutzerverhalten genauer beschreiben, nicht berücksichtigt. Zudem können Seitenaufrufe (engl. Page Views), welche aus dem Browser- Cache geladen werden, nicht in den Logfiles erfasst werden. Ein Verfahren, welches für dieses Problem abhilfe schafft und Nutzer einer Website nicht aus der Sicht des Servers, sondern aus Sicht des Clients betrachtet, ist das sogenannte Page Tagging. [COUNTER, 2021]
 
 \subsection{Page Tagging}
+\label{sec:pagetagging}
 Unter Page Tagging versteht man die Einbindung eines kurzen Codeausschnittes (engl. Snippet) in den HTML-Code einer Webseite um Nutzerdaten zu erfassen. Dieses Snippet ist meistens in der Programmiersprache Javascript geschrieben. Das Snippet ermöglicht die Datenerfassung, indem es eine Javascript-Bibliothek herunterlädt, die im Cache-Speicher des Webbrowsers hinterlegt wird, um bei zukünftigen Seitenaufrufen schneller geladen zu werden. Nachdem das Page Tag die Bibliothek geladen hat, wird der Code ausgeführt, um verschiedene Daten aus dem Browser zu sammeln [Dykes, 2014, S.70-71]. Es können zum einen Daten abegerufen werden, welche per Browser Object Model (BOM) bezüglich der Einstellungen für den Webbrowser zu Verfügung stehen und zum anderen auch Informationen, welche das Document Object Model (DOM) enthält. Hierbei lassen sich unter anderem folgende Informationen per Page Tag sammeln [Hassler, 2019, Kap.2.3]:  
 
 \begin{itemize}
@@ -112,6 +113,7 @@ Ein Event beschreibt eine gezielte Aktion, die auf einer Webseite durch einen Nu
 Für das Bildungsportal \textit{evaschiffmann.de} spielen Events somit eine essenzielle Rolle, wenn es um die Erfassung von Interaktionen mit Video- und Audioelementen geht. Ebenso werden Events unter anderem genutzt, um KPIs zu berechnen, welche sich auf die Nutzung der Suchfunktion, die Interaktionen mit der Karte oder das aufklappen von Überschriften beziehen. Events werden ebenfalls für die Aufzeichnung von Interaktionen mit eingebetteten Links verwendet [AT Internet, o.D]. Wie zum Beispiel das anklicken von Links, welche zu einem bestimmten Tagebucheintrag führen.
 
 \subsection{Datenschutz und rechtliche Anforderungen}
+\label{sec:datenschutz}
 Die Analyse der Logfiles und besonders das Page Tagging, bieten umfangreiche Möglichkeiten zur Erfassung von Nutzerdaten. Im Umgang mit diesen personenbezogenen Daten muss allerdings einiges beachtet werden, um den gesetzlichen Datenschutzanforderungen gerecht zu werden. Im Folgenden werden die rechtlichen Aspekte und deren Auswirkungen auf die Webanalyse näher beleuchtet.
 
 Der Datenschutz ist ein übergeordnetes Konzept, das in verschiedenen Ländern auf unterschiedliche Art und Weise geregelt ist. Die DSGVO hingegen stellt eine spezifische gesetzliche Regelung der EU dar, die alle Mitgliedstaaten gleichermaßen betrifft. Während Datenschutz allgemein darauf abzielt, die Privatsphäre der Menschen zu schützen, legt die DSGVO detaillierte Anforderungen an den Umgang mit personenbezogenen Daten fest und sieht hohe Bußgelder bei Verstoßen vor. Insbesondere für international tätige Unternehmen ist die Einhaltung der DSGVO essenziell, da sie auch außerhalb der EU gilt, wenn Daten von EU-Bürgern verarbeitet werden (Voigt \& Von dem Bussche, 2017, Kap.1; Kap.2).
@@ -120,7 +122,7 @@ Nach Art. 4 Abs. 1 DSGVO gelten alle Informationen, die sich auf eine identifizi
 
 Art. 6 Abs. 1 DSGVO gibt vor, dass die Verarbeitung personenbezogener Daten nur rechtmäßig ist, wenn sie auf einer rechtlichen Grundlage beruht. Im Kontext der Webanalyse ist häufig die Einwilligung (Art. 6 Abs. 1 lit. a) relevant, welche vor der Datenerhebung eingeholt werden muss. Alternativ kann ein berechtigtes Interesse des Verantwortlichen (Art. 6 Abs. 1 lit. f) geltend gemacht werden, sofern die Interessen der Nutzer gewahrt bleiben (Europäische Union, 2016).
 
-Die rechtlichen Anforderungen der DSGVO haben direkte Auswirkungen auf die Gestaltung und den Betrieb der Webanalyse. Wichtige Aspekte sind:
+Die rechtlichen Anforderungen der DSGVO haben direkte Auswirkungen auf die Gestaltung und den Betrieb der Webanalyse. Als wichtige Aspekte gelten: 
 
 \begin{itemize}
     \item \textbf{Transparenz:} Nutzer müssen darüber informiert werden, welche Daten erfasst werden und zu welchem Zweck [Hanschke, 2020, Kap.2.4].
@@ -136,7 +138,30 @@ Cookies spielen eine zentrale Rolle in der Webanalyse, da sie es ermöglichen, N
 Zusätzlich müssen Nutzer die Möglichkeit haben, ihre Einwilligung jederzeit zu widerrufen. Dies stellt hohe Anforderungen an die technische Umsetzung von Cookie-Bannern und Consent-Management-Plattformen (Trepte, 2021).
 
 \section{Tools zur Webanalyse} %3 Seiten
+Es gibt eine überwältigende Anzahl von Webanalyse-Tools, welche sich in ihren Funktionen, Kosten und technischen Ansätzen erheblich unterscheiden [Böhm \& Rittberger, 2016, S.244]. Grundsätzlich ist das Page Tagging besser geeignet, um detaillierte Informationen über das Nutzerverhalten auf Webseiten zu erfassen [vgl. Hassler, 2019, Kap.2.5.3]. Logfiles hingegen wurden ursprünglich zur technischen Überwachung entwickelt und enthalten nicht die dafür erforderlichen Daten [vgl. Hassler, 2019, Kap.2.5.3]. Somit und mit den Erkenntnissen aus Kapitel~\ref{sec:pagetagging} wird deutlich, dass Page Tagging nicht nur umfangreiche Nutzerdaten liefert, sondern auch alle Informationen abdeckt, die durch die Analyse von Logfiles erfasst werden können. Weshalb bei der Auswahl einer Tool-Lösung ebenfalls darauf geachtet wird, dass die Daten per Page Tagging beziehungsweise per Events erhoben werden. 
 
-\subsection{Google Analytics (GA)}
+Bei der Auswahl eines geeigneten Tools für das Bildungsportal \textit{evaschiffmann.de} wurden daher die folgenden Kriterien berücksichtigt [vgl. Matomo, o.D.; CiteUp, 2024; Hassler, 2019, Kap.1.6]:
+
+\begin{itemize}
+    \item \textbf{Kosten:} Zunächst soll die kostenlose Variante eines Tools implementiert werden, um die grundlegenden Funktionen und die Eignung für das Bildungsportal zu testen, ohne dabei sofort finanzielle Mittel aufzuwenden.
+    \item \textbf{Integration in TYPO3:} Ebenfalls ist darauf zu achten, dass das Bildungsportal mithilfe des Content-Management-Systems (CMS) TYPO3 implementiert wurde. Daher ist bei der Auswahl des Webanalyse-Tools wichtig, sicherzustellen, dass eine Integration in TYPO3 möglich ist.
+    \item \textbf{Funktionsumfang:} Das Tool muss grundsätzlich in der Lage sein, alle KPIs für das Bildungsportal zu erfassen. Da für manche KPIs eigene Events definiert werden müssen, muss das Tool diese Möglichkeit ebenfalls bieten. 
+    \item \textbf{Dokumentation:} Um die Implementierung zu erleichtern ist eine ausführliche Dokumentation entscheidened.
+    \item \textbf{Datengenauigkeit:} Es soll ein Tool ausgewählt werden, welches Datenaktualisierung in Echtzeit bietet um eine unverfälschte Basis für datengetriebene Entscheidungen zu gewährleisten. Ungenauigkeiten können sonst zu fehlerhaften Schlussfolgerungen führen.
+    \item \textbf{Datenschutz und DSGVO-Konformität:} Wie in Kapitel~\ref{sec:datenschutz} erläutert, sind Datenschutz und die Einhaltung der DSGVO grundlegende Anforderungen an ein Webanalyse-Tool. Somit sollte dieses in der Lage sein, die geltenden Datenschutzgesätze einzuhalten.
+\end{itemize}
+
+Im Folgenden werden drei Tools – Google Analytics (GA), Matomo (ehemals Piwik) und PostHog – hinsichtlich ihrer Eignung evaluiert. Die Bewertung erfolgt anhand der genannten Kriterien, welche die Anforderungen des Bildungsportals \textit{evaschiffmann.de} berücksichtigen.
+
+\subsection{Google Analytics}
+Google Analytics ist mit einem Marktanteil von 82,0 \% unter den Websites, die Webanalyse-Tools verwenden, das mit Abstand am weitesten verbreitete Tool [W3Techs, 2025].
+
+ 
+
+
+GA hat allerdings insbesondere in Europa stark an Akzeptanz verloren, da es wiederholt in Konflikt mit den Vorgaben der DSGVO geraten ist. Seit dem Ende des EU-US Privacy Shield ist die rechtliche Grundlage für die Übertragung von Nutzerdaten in die USA weggefallen, was dazu führte, dass Google Analytics mehrfach als nicht datenschutzkonform eingestuft wurde. [Förster, 2024]
+
 \subsection{Matomo (Piwik)}
+Matomo hat einen Marktanteil von 2,8 \% unter den Websites, welche Webanalyse-Tools einsetzen [W3Techs, 2025]. 
 \subsection{PostHog}
+kurze beschreibung, stärken, schwächen, Eignung für Anwendungsfall
