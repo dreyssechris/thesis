@@ -1,51 +1,34 @@
-% zusammen mit Umsetzung und Bewertung ca. 50 %
-\chapter{Dashboardvisualisierung} 
+\chapter{Dashboardvisualisierung} % 5-6 Seiten? 
 \label{ch:auswahl}
+Im vorherigen Kapitel wurde beschrieben, wie Nutzerdaten erfasst werden können. Hierfür wurden relevante KPIs für das Bildungsportal definiert und verschiedene Methoden der Datenerhebung sowie deren DSGVO-konforme Umsetzung beschrieben. Um die gesammelten Daten strukturiert und übersichtlich darzustellen und der Professur für Geschichtsdidaktik eine fundierte Grundlage für datenbasierte Erkenntnisse zu bieten, sollen die KPIs visuell auf einem Dashboard aufbereitet werden. Dazu werden zunächst die Anforderungen an das Dashboard erörtert. Anschließend werden geeignete Visualisierungsmethoden für die KPIs vorgestellt und die Struktur sowie der Aufbau des Dashboards festgelegt. Abschließend wird Grafana als Visualisierungslösung evaluiert. Hierbei wird auf das Kapitel~\ref{sec:anforderungen} Bezug genommen und beschrieben wie technisch-funktionale-,sowie Usability- und Design Anforderungen in Grafana realisiert werden können. 
 
+\section{Anforderungen an das Dashboard}
+\label{sec:anforderungen}
+\subsection{Technisch-funktionale Anforderungen}
+Die technisch-funktionalen Anforderungen definieren, welche Funktionen ein Dashboard bereitstellen muss und welche technologischen Rahmenbedingungen erfüllt sein sollten, um eine effiziente und stabile Nutzung zu gewährleisten. Diese Anforderungen sind: 
 \begin{itemize}
-    \item Untersuchung, wie andere Forscher und Entwickler an ähnliche Aufgabenstellungen herangegangen sind
-    \item Idee: Herausfinden, welche Tools für bestehende Bildungswebsites verwendet werden (in Grafik visualisieren)
+    \item \textbf{Datenintegration und Aggregation:} Das Dashboard Tool soll in der Lage sein, Daten aus Matomo oder alternativ direkt aus der Datenbank zu beziehen und zu aggregieren. Außerdem sollen die per Webanalysetool erfassten Daten automatisch aktualisiert werden. Entweder in definierten Intervallen oder in Echtzeit.
+    \item \textbf{Datenintegration und Aggregation:}
 \end{itemize}
 
-\section{Kriterien für die Tools}
+\subsection{Usability- und Design Anforderungen}
 
-\subsection{Kriterien für Webanalyse-Tools}
-Für die Bewertung der Webanalyse-Tools werden folgende Kriterien herangezogen (vorab):
-\begin{itemize}
-    \item \textbf{DSGVO-Konformität}: Die Einhaltung der Datenschutz-Grundverordnung ist eine essenzielle Voraussetzung für Bildungswebsites, da häufig personenbezogene Daten verarbeitet werden.
-    \item \textbf{Kosten}: Die Tools sollten kosteneffizient sein und idealerweise Open-Source-Lizenzen besitzen, um langfristige Nutzung zu ermöglichen.
-    \item \textbf{Flexibilität der Datenerfassung}: Die Möglichkeit, benutzerdefinierte Events zu erfassen und verschiedene Arten von Nutzerdaten zu tracken, ist entscheidend.
-    \item \textbf{Skalierbarkeit}: Die Tools sollten in der Lage sein, auch bei steigendem Nutzeraufkommen zuverlässig zu funktionieren.
-    \item \textbf{Integration in bestehende Systeme}: Die Kompatibilität mit der bestehenden Infrastruktur (z. B. TYPO3) und API-Schnittstellen zur Weiterverarbeitung der Daten ist wichtig.
-    \item \textbf{Export der erfassten Daten}: Eine einfache Möglichkeit zum Exportieren der erfassten Daten in verschiedenen Formaten ist von Vorteil.
-    \item \textbf{Dokumentation}: Die Qualität der Dokumentation beeinflusst die Implementierungszeit und Wartbarkeit des Tools erheblich.
-\end{itemize}
+\section{Visualisierungsmethoden}
+Neben den Funktionalen und Technischen Anforderungen an das Dashboard Lösung, sollten diese ebenfalls  
 
-\subsection{Kriterien für Dashboardvisualisierungstools}
-Für die Bewertung der Dashboardvisualisierungstools werden folgende Kriterien definiert:
-\begin{itemize}
-    \item \textbf{Visualisierungsoptionen}: Die Tools sollten eine breite Palette an Diagrammtypen und Layouts bieten, um die Daten effektiv darzustellen.
-    \item \textbf{Interaktivität}: Die Möglichkeit, Filter und Drill-Down-Funktionen zu nutzen, um tiefere Einblicke zu erhalten, ist essenziell.
-    \item \textbf{Benutzerfreundlichkeit}: Ein intuitives Interface ist wichtig, damit auch nicht-technische Benutzer die Dashboards bedienen können.
-    \item \textbf{Kosten und Lizenzierung}: Die Tools sollten möglichst kostengünstig sein und idealerweise unter einer Open-Source-Lizenz stehen.
-    \item \textbf{Kompatibilität}: Die Tools müssen nahtlos mit dem ausgewählten Webanalyse-Tool und der bestehenden Infrastruktur zusammenarbeiten.
-    \item \textbf{Dashboard-Funktionalität}: Das Tool sollte die Möglichkeit bieten, benutzerdefinierte Dashboards zu erstellen und diese individuell anzupassen.
-\end{itemize}
+\section{Struktur und Aufbau des Dashboards}
+Ein Dashboard hat die Aufgabe komplexe Daten verständlich und übersichtlich darzustellen. Durch die visuelle Aufbereitung können Muster und Zusammenhänge leichter erkannt werden. Eine klare und intuitive Benutzeroberfläche reduzieren nicht nur die kognitive Belastung, sondern erleichtern ebenfalls die Informationssuche. Hierzu ist es wichtig relevante Daten zu priorisieren. Um dies zu erreichen wird eine progressive Drill-Down-Struktur angestrebt. Eine solche Struktur sorgt dafür, dass allgemeinere KPIs, wie Seitenaufrufe oder die Absprungrate weiter oben im Dashboard angezeigt werden.
+\section{Grafana als Visualisierungslösung}
+Für Vergleich der Datenanbindungsmöglichkeiten: https://alexandre.deverteuil.net/post/visualize-matomo-metrics-in-grafana/
 
-\subsection{Begründung und Gewichtung der Kriterien}
-(*unfertig)Die oben genannten Kriterien wurden ausgewählt, um sicherzustellen, dass die eingesetzten Tools den Anforderungen einer Bildungswebsite gerecht werden. Dabei spielt insbesondere die DSGVO-Konformität eine zentrale Rolle, da Bildungswebsites häufig von minderjährigen Nutzern besucht werden. Die Gewichtung der Kriterien erfolgt auf Basis ihrer Relevanz für die Website evaschiffmann.de. So wird der DSGVO-Konformität und der Benutzerfreundlichkeit ein besonders hohes Gewicht beigemessen, da diese Faktoren entscheidend für den langfristigen Betrieb und die Akzeptanz der Lösung sind.
 
-\section{Vergleich der Tools}
 
-\subsection{Vergleich der Webanalyse-Tools}
 
-\subsection{Vergleich der Dashboardvisualisierungstools}
-Die Dashboardvisualisierungstools werden anhand der festgelegten Kriterien verglichen. Der Fokus liegt dabei auf der Interaktivität, der Benutzerfreundlichkeit und der Möglichkeit zur Erstellung benutzerdefinierter Dashboards.
 
-\section{Ergebnisse des Vergleichs}
-\begin{itemize}
-    \item Bildung eines Rankings basierend auf der Bewertung der Tools
-    \item Bestimmung des theoretisch am besten geeigneten Webanalyse-Tools und Dashboardvisualisierungstools basierend auf den Kriterien und der Bewertung
-\end{itemize}
 
-Die Ergebnisse des Vergleichs bilden die Grundlage für die praktische Implementierung der ausgewählten Tools in Kapitel \ref{ch:implementierung}.
+
+
+
+
+
+
