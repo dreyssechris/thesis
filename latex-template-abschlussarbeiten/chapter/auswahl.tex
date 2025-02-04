@@ -1,64 +1,78 @@
 \chapter{Dashboardvisualisierung} % 5-6 Seiten? 
 \label{ch:auswahl}
-Im vorherigen Kapitel wurde beschrieben, wie Nutzerdaten erfasst werden können. Hierfür wurden relevante KPIs für das Bildungsportal definiert und verschiedene Methoden der Datenerhebung sowie deren DSGVO-konforme Umsetzung beschrieben. Um die gesammelten Daten strukturiert und übersichtlich darzustellen und der Professur für Geschichtsdidaktik eine fundierte Grundlage für datenbasierte Erkenntnisse zu bieten, sollen die KPIs visuell auf einem Dashboard aufbereitet werden. Dazu werden zunächst die eigenen Anforderungen an das Dashboard erörtert. Anschließend werden geeignete Visualisierungsmethoden für die KPIs vorgestellt und die Struktur sowie der Aufbau des Dashboards festgelegt. Abschließend wird Grafana als Visualisierungslösung evaluiert. Hierbei wird auf das Kapitel~\ref{sec:anforderungen} Bezug genommen und beschrieben wie selbst definierten technisch-funktionalen-,sowie Usability- und Design Anforderungen in Grafana realisiert werden können. 
+Im vorherigen Kapitel wurde beschrieben, wie Nutzerdaten erfasst werden können. Hierfür wurden relevante KPIs für das Bildungsportal definiert und verschiedene Methoden der Datenerhebung sowie deren DSGVO-konforme Umsetzung beschrieben. Um die gesammelten Daten strukturiert und übersichtlich darzustellen und der Professur für Geschichtsdidaktik eine fundierte Grundlage für datenbasierte Erkenntnisse zu bieten, sollen die KPIs visuell auf einem Dashboard aufbereitet werden. Dazu werden zunächst die eigenen Anforderungen an das Dashboard aufgezählt. Anschließend wird die Struktur sowie der Aufbau des Dashboards festgelegt. Es werden geeignete Visualisierungsmethoden für die KPIs vorgestellt und die . Abschließend wird Grafana als Visualisierungslösung evaluiert. Hierbei wird auf das Kapitel~\ref{sec:anforderungen} Bezug genommen und beschrieben wie selbst definierten technisch-funktionalen-,sowie Usability- und Design Anforderungen in Grafana realisiert werden können. 
 
 \section{Anforderungen an das Dashboard}
 \label{sec:anforderungen}
 \subsection{Technisch-funktionale Anforderungen}
-Die technisch-funktionalen Anforderungen sollen bei der Auswahl einer Dashboard Lösung Orientierung geben. Welche Funktionen ein Dashboard bereitstellen muss und welche technologischen Rahmenbedingungen erfüllt sein sollten, um eine effiziente und stabile Nutzung zu gewährleisten. Diese Anforderungen sind: 
+Die technisch-funktionalen Anforderungen sollen bei der Auswahl einer Dashboard Lösung Orientierung geben. Welche Funktionen ein Dashboard bereitstellen muss und welche technologischen Rahmenbedingungen erfüllt sein müssen, um eine effiziente Nutzung zusammen mit Matomo zu gewährleisten. Diese Anforderungen sind: 
 \begin{itemize}
     \item \textbf{Datenintegration und Aggregation:} Das Dashboard Tool soll in der Lage sein, Daten aus Matomo oder alternativ direkt aus der Datenbank zu beziehen und zu aggregieren. Außerdem sollen die per Webanalysetool erfassten Daten automatisch aktualisiert werden. Entweder in definierten Intervallen oder in Echtzeit.
-    \item \textbf{Interaktive Funktionen:} Es soll die Möglichkeit geboten werden, die Daten nach einem Datum, Zeitraum und Benutzergruppen zu filtern. (evtl. weitere)
+    \item \textbf{Filtermöglichkeiten} Es soll die Möglichkeit geboten werden, die Daten nach einem Datum, Zeitraum und Benutzergruppen zu filtern.
     \item \textbf{Skalierbarkeit und Performance:} Um die Ladezeit des Dashboards zu optimieren, muss es möglich sein Datenabfragen zu optimieren. Um eine bessere Performance zu erreichen sollen die Elemente des Dashboards nach bedarf geladen werden und nicht gleichzeitig. Ebenfalls ist es wichtig, dass das Dashboard bei größer werdenden Datenmengen weiterhin effizient arbeitet.
-    \item \textbf{Sicherheit und Zugriffskontrolle:} Um sicherzustellen, dass nur authentifzierte Benutzer zugriff auf das Dashboard haben, muss es eine Anmeldefunktion geben. Ebenfalls soll das Tool über eine HTTPS-Verbindung laufen. API- und Datenquellen- Zugriffe müssen gesichert werden, um unbefugten Zugriff zu verhindern. Ebenfalls soll eine Rollenbasierte Zugriffskontrolle (engl Roll based Access Controll (RBAC)) implementiert werden.
+    \item \textbf{Sicherheit und Zugriffskontrolle:} Um sicherzustellen, dass nur authentifzierte Benutzer zugriff auf das Dashboard haben, muss es eine Anmeldefunktion geben. Ebenfalls soll das Tool über eine HTTPS-Verbindung laufen. API- und Datenquellen- Zugriffe müssen gesichert werden, um unbefugten Zugriff zu verhindern. Außerdem soll eine Rollenbasierte Zugriffskontrolle (engl. Roll based Access Controll (RBAC)) implementiert werden.
 \end{itemize}
 
 \subsection{Usability- und Design Anforderungen}
-Neben technischen Aspekten ist die Benutzerfreundlichkeit des Dashboards nicht zu vernachlässigen. Gerade weil das Dashboard in erster Linie von Nicht-Informatikern verwendet wird, ist eine intuitive Gestaltung wichtig, um einen guten Überblick und eine schnelle Orientierung zu ermöglichen. Wichtige Anforderungen sind hierbei: 
+Neben technischen Aspekten ist die Benutzerfreundlichkeit des Dashboards nicht zu vernachlässigen. Gerade weil das Dashboard in erster Linie von Nicht-Informatikern verwendet wird, ist eine intuitive Gestaltung wichtig, um einen guten Überblick und eine schnelle Orientierung zu ermöglichen. Wichtige Anforderungen sind hierbei:
 \begin{itemize}
     \item \textbf{Anordnung der Inhalte:} Die KPIs sollten so dargestellt werden, dass verwandte Indikatoren auch im Dashboard nebeneinander zu finden sind.
-    \item \textbf{Konsistenz in Farben \& Darstellungen:} Ein einheitliches Farbschema soll die Orientierung erleichtern und dient positive (z.B. in grün) und negative (z.B. in rot) Trends einer KPI auf dem ersten Blick zu erkennen. Ebenfalls sollen konsistente Darstellungen für identische KPIs verwendet werden.
+    \item \textbf{Konsistenz in Farben \& Darstellungen:} Ein einheitliches Farbschema soll die Orientierung erleichtern. Es soll dazu dienen positive (z.B. in grün) und negative (z.B. in rot) Trends einer KPI auf dem ersten Blick zu erkennen. Ebenfalls sollen konsistente Darstellungen für identische KPIs verwendet werden.
     \item \textbf{Interaktive Elemente:} Für KPIs, für welche es sinnvoll ist, sollte das Dashboard eine Drill-Down-Funktion bieten, um detailliertere Analysen zu ermöglichen.
 \end{itemize}
 
 \section{Struktur und Aufbau des Dashboards}
-Bei der Gestaltung eines Dashboards ist es sinnvoll, inhaltlich zusammenhängende KPIs zu gruppieren, um eine klare Struktur und eine bessere Übersichtlichkeit zu gewährleisten. Besonders bei einer großen Anzahl an Kennzahlen hilft diese Form der Gruppierung dabei, die relevanten Informationen gezielt darzustellen, ohne den Gesamtüberblick zu verlieren. [vlg. Hassler, 2019, Kap. 14.3]
+Bei der Gestaltung eines Dashboards ist es sinnvoll, verwandte KPIs zu gruppieren, um eine klare Struktur und eine bessere Übersichtlichkeit zu gewährleisten. Besonders bei einer großen Anzahl an Kennzahlen hilft diese Form der Gruppierung dabei, die relevanten Informationen gezielt darzustellen, ohne den Gesamtüberblick zu verlieren. [vlg. Hassler, 2019, Kap. 14.3]
 
-Laut Stephen Few kann die Möglichkeit zur Navigation zwischen unterschiedlichen Ansichten eine sinnvolle Funktion sein, doch sie sollte nur dort eingesetzt werden, wo sie zur Strukturierung beiträgt. Andernfalls kann eine zu starke Fragmentierung die Effizienz eines Dashboards erheblich einschränken, da zusammengehörige Informationen nicht mehr in einem sinnvollen Kontext betrachtet werden können. [Few, 2006, Kap. 3.1.1]
+Ebenso kann laut Stephen Few die Möglichkeit zur Navigation zwischen unterschiedlichen Dashboardseiten (engl. Screens) eine sinnvolle Funktion sein. Die Aufteilung der KPIs in solche Screens ist allerdings nur dann sinnvoll, wenn dadurch keine Daten fragmentiert werden, welche eigentlich zusammenhängend betrachtet werden sollte. Andernfalls kann eine solche Fragmentierung die Effizienz eines Dashboards erheblich einschränken, da zusammengehörige Informationen schwerer in einem sinnvollen Kontext betrachtet werden können. [Few, 2006, Kap. 3.1.1]
 
-Auch die Notwendigkeit, innerhalb eines Dashboards vertikal oder horizontal zu scrollen, kann die Übersichtlichkeit beeinträchtigen. Laut Few führt dies dazu, dass Nutzer nicht auf einen Blick alle wichtigen Daten erfassen können und häufig nicht bemerken, dass sich weitere relevante Informationen außerhalb ihres sichtbaren Bereichs befinden. Elemente, die nicht sofort sichtbar sind, werden oft als weniger wichtig wahrgenommen oder gar übersehen, was die Effektivität eines Dashboards erheblich einschränken kann. [Few, 2006, Kap. 3.1.1]
+Auch die Notwendigkeit, innerhalb eines Dashboards vertikal oder horizontal zu scrollen, kann die Übersichtlichkeit und Effizienz beeinträchtigen. Laut Few führt dies dazu, dass Nutzer nicht auf einen Blick alle wichtigen Daten erfassen können und häufig nicht bemerken, dass sich weitere relevante Informationen außerhalb ihres sichtbaren Bereichs befinden. Elemente, die nicht sofort sichtbar sind, werden oft als weniger wichtig wahrgenommen oder gar übersehen, was die Effektivität eines Dashboards erheblich einschränken kann. [Few, 2006, Kap. 3.1.1]
 
 Für das Bildungsportal evaschiffmann.de ist es daher sinnvoll, die KPIs auf dedizierten Dashboard-Seiten darzustellen, da diese jeweils demselben Kontext dienen und somit das scrollen vermieden werden kann, welches ohne eine solche Aufteilung auf Grund der Menge unumgänglich wäre. Die KPIs wurden in Kapitel~\ref{sec:kpis} bereits entsprechend für die einzelnen Webseiten des Bildungsportals definiert. Diese Struktur ermöglicht eine gezielte Analyse der verschiedenen Bereiche, weshalb das Dashboard ebenso aufgebaut wird.
 
 \subsection{Anordnung der Elemente}
-Um nun die einzelnen KPIs der jeweiligen Dashboardseiten so anzuordnen, dass Indikatoren, welche dem selben Kontext dienen nah bei einander angezeigt werden, empfiehlt sich eine Gruppierung nach Untersuchungsthema [vlg. Hassler, 2019, Kap. 14.3]. Um eine solche Gruppierung zu realisieren, ist es sinnvoll das Dashboard in Dimensionen einzuteilen und die einzelnen KPIs an eine Dimension zu binden. Hierzu gibt folgendes Modell in Abbildung ~\ref{fig:dimensionen} auskunft: 
+Um nun die KPIs der jeweiligen Dashboardseiten so anzuordnen, dass Indikatoren, welche dem selben Kontext dienen nah bei einander angezeigt werden, empfiehlt sich eine Gruppierung nach Untersuchungsthema [vlg. Hassler, 2019, Kap. 14.3.1]. Um eine solche Gruppierung zu realisieren, ist es sinnvoll das Dashboard einzuteilen und die einzelnen KPIs an eine Dimension zu binden. Hierzu gibt folgendes Modell in Abbildung ~\ref{fig:dimensionen} auskunft: 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{images/dimensionen.png}%
-    \caption{Dimensionen einer Website [Has19]}%
+    \caption{Metriken beleuchten hauptsächlich vier Dimensionen einer Website. [Has19]}%
     \label{fig:dimensionen}%
 \end{figure}
 
-Durch die Anordnung der Indikatoren in vier Dimensionen – Quellen, Besucher, Inhalte und Verhalten – wird deutlich, dass die Ziele im Zentrum aus der Analyse der Bereiche abgeleitet werden. Die Zuordnung der KPIs zu den entsprechenden Dimensionen ist den Tabelle~\ref{tab:kpi_uebersicht} anahnd der Farbauswahl zu erkennen.
+Durch die Anordnung der Indikatoren in vier Dimensionen – \textbf{Quellen}, \textbf{Besucher}, \textbf{Inhalte} und \textbf{Verhalten} – wird deutlich, dass die Ziele im Zentrum aus der Analyse der Bereiche abgeleitet werden. Die Zuordnung der KPIs zu den entsprechenden Dimensionen ist den Tabellen B.1 bis B.6 anahnd der Farbauswahl zu erkennen.
 
-Die KPIs aus Tabelle~\ref{tab:kpi_allgemein} werden dementsprechend auf jeder Dashboardseite in der Dimension Besucher angezeigt.
+Auf der Dashboardseite \glqq Übersicht\grqq{} bezieht sich die Dimension \textbf{Quellen} auf externe Traffic-Quellen von welchen ein Besucher auf das Bildungsportal gelangt ist. Hierbei soll die Frage: \textit{\glqq Wo kommt denn unser Traffic eigentlich her?\grqq{}} beantwortet werden [Hassler, 2019, Kap.6.2]. Auf den anderen Dashboardseiten wird für diese Dimension die interne Navigation zwischen den einzelnen Webseiten betrachtet. 
 
-Auf der Dashboardseite "Übersicht" bezieht sich die Dimension "Quellen" auf externe Traffic-Quellen von welchen ein Besucher auf das Bildungsportal gelangt ist. Hierbei soll die Frage: "Wo kommt denn unser Traffic eigentlich her? [Hassler,2019,Kap.6.2]" beantwortet werden. Auf den anderen Dashboardseiten wird für diese Dimension die interne Navigation zwischen den einzelnen Webseiten betrachtet.
+Die KPIs aus Tabelle~\ref{tab:kpi_allgemein} werden auf jeder Dashboardseite in der Dimension \textbf{Besucher} angezeigt.
+
+
+Dimension Verhalten...
 
 Dimension Inhalte..
 
-Dimension Verhalten...
 
 -> Tabellen einteilen + färben, KPIs besser formulieren, und beschreiben
 
 \section{Visualisierungsmethoden}
 %Nachdem die Struktur des Dashboards und die Organisation der %KPIs definiert wurden, stellt sich die Frage, welche %Visualisierungsmethoden am besten geeignet sind, um die %Daten verständlich und aussagekräftig darzustellen.
 
-\section{Grafana als Visualisierungslösung}
-Für Vergleich der Datenanbindungsmöglichkeiten: https://alexandre.deverteuil.net/post/visualize-matomo-metrics-in-grafana/
+\section{Grafana als Dashboardtool}
+Ebenso wie das Webanalyse-Tool Matomo ist Grafana Open Source und lässt sich sowohl in einer Cloud-Version als auch in einer On-Premise-Version auf einem eigenen Server betreiben. Die Selbst-Hosting-Variante kann unter anderem auf Linux (Debian/Ubuntu), Windows oder macOS installiert werden. Alternativ kann Grafana auch als Docker-Container über ein offizielles Docker-Image bereitgestellt werden Grafana verwendet außerdem standardmäßig eine SQLite-Datenbank um das Dashboard, die Datenquellen und die Benutzer der Anwendung zu speichern. Für größere Dashboard-Umgebungen, welche eine sehr hohe Verfügbarkeit aufweisen müssen kann diese SQLite-Datenbank auch durch MySQL oder PostgreSQL Datenbanken ausgetauscht werden. Nach der Installation ist Grafana über eine Web-Oberfläche zugänglich, über die Konfigurationen und Dashboards verwaltet werden können. Um diese Web-Oberfläche nutzen zu können muss Javascript im Browser aktiviert sein und die Browser Chrome, Firefox, Safari und Microsoft Edge können verwendet werden. [Grafana Labs, 2025]
 
--> außerdem Grafana Labs als Quelle für die Anforderungen und wie diese im Grafana umgesetzt werden können
+\subsection{Datenintegration und Aggregation:}
+Die Anbindung von Grafana an Matomo, sowie die Aggregation der erfassten Daten kann über diese beiden Varianten erfolgen [De Verteuil, 2022; Matomo, o.D.]:
+
+\begin{enumerate}
+    \item \textbf{Anbindung über die Matomo-Datenbank:}  
+    Grafana kann direkt mit der Matomo-Datenbank verbunden werden, indem eine entsprechende Datenquelle eingerichtet wird. Durch SQL-Abfragen auf Datenbanktabellen wie \verb|site| oder \verb|log_visit| können KPIs wie Seitenaufrufe, Verweildauer sowie die URL der besuchten Seite extrahiert werden.
+
+    \item \textbf{Anbindung über die Matomo Reporting API:}  
+    Alternativ kann Grafana die Matomo Reporting API (Matomo Analytics API) unter anderem als JSON- oder CSV-Datenquelle nutzen. Dadurch können vordefinierte Matomo-Reports und Kennzahlen abgerufen werden, ohne direkt auf die Datenbank zuzugreifen. Diese API ermöglicht es, Reports zu Metriken wie Besucherzahlen, Nutzergeräten, Suchmaschinen, Referrer-Websites, etc. für eine bestimmte Website und einen definierten Zeitraum abzurufen. Das JSON-Format ist hierbei sauberer strukturiert und leichter nachzuvollziehen als CSV, was die Integration und Verarbeitung der Daten vereinfacht. -> Bilder CSV und JSON
+\end{enumerate}
+
+
+
 
 
 
