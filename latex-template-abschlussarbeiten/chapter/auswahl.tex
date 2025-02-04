@@ -9,7 +9,6 @@ Die technisch-funktionalen Anforderungen sollen bei der Auswahl einer Dashboard 
 \begin{itemize}
     \item \textbf{Datenintegration und Aggregation:} Das Dashboard Tool soll in der Lage sein, Daten aus Matomo oder alternativ direkt aus der Datenbank zu beziehen und zu aggregieren. Außerdem sollen die per Webanalysetool erfassten Daten automatisch aktualisiert werden. Entweder in definierten Intervallen oder in Echtzeit.
     \item \textbf{Filtermöglichkeiten} Es soll die Möglichkeit geboten werden, die Daten nach einem Datum, Zeitraum und Benutzergruppen zu filtern.
-    \item \textbf{Skalierbarkeit und Performance:} Um die Ladezeit des Dashboards zu optimieren, muss es möglich sein Datenabfragen zu optimieren. Um eine bessere Performance zu erreichen sollen die Elemente des Dashboards nach bedarf geladen werden und nicht gleichzeitig. Ebenfalls ist es wichtig, dass das Dashboard bei größer werdenden Datenmengen weiterhin effizient arbeitet.
     \item \textbf{Sicherheit und Zugriffskontrolle:} Um sicherzustellen, dass nur authentifzierte Benutzer zugriff auf das Dashboard haben, muss es eine Anmeldefunktion geben. Ebenfalls soll das Tool über eine HTTPS-Verbindung laufen. API- und Datenquellen- Zugriffe müssen gesichert werden, um unbefugten Zugriff zu verhindern. Außerdem soll eine Rollenbasierte Zugriffskontrolle (engl. Roll based Access Controll (RBAC)) implementiert werden.
 \end{itemize}
 
@@ -24,9 +23,9 @@ Neben technischen Aspekten ist die Benutzerfreundlichkeit des Dashboards nicht z
 \section{Struktur und Aufbau des Dashboards}
 Bei der Gestaltung eines Dashboards ist es sinnvoll, verwandte KPIs zu gruppieren, um eine klare Struktur und eine bessere Übersichtlichkeit zu gewährleisten. Besonders bei einer großen Anzahl an Kennzahlen hilft diese Form der Gruppierung dabei, die relevanten Informationen gezielt darzustellen, ohne den Gesamtüberblick zu verlieren. [vlg. Hassler, 2019, Kap. 14.3]
 
-Ebenso kann laut Stephen Few die Möglichkeit zur Navigation zwischen unterschiedlichen Dashboardseiten (engl. Screens) eine sinnvolle Funktion sein. Die Aufteilung der KPIs in solche Screens ist allerdings nur dann sinnvoll, wenn dadurch keine Daten fragmentiert werden, welche eigentlich zusammenhängend betrachtet werden sollte. Andernfalls kann eine solche Fragmentierung die Effizienz eines Dashboards erheblich einschränken, da zusammengehörige Informationen schwerer in einem sinnvollen Kontext betrachtet werden können. [Few, 2006, Kap. 3.1.1]
+Ebenso kann laut Stephen Few die Möglichkeit zur Navigation zwischen unterschiedlichen Dashboardseiten (engl. Screens) eine sinnvolle Funktion sein. Die Aufteilung der KPIs in solche Screens ist allerdings nur dann sinnvoll, wenn dadurch keine Daten fragmentiert werden, welche eigentlich zusammenhängend betrachtet werden sollte. Andernfalls kann eine solche Aufteilung die Effizienz eines Dashboards erheblich einschränken, da zusammengehörige Informationen schwerer in einem sinnvollen Kontext betrachtet werden können. [Few, 2006, Kap. 3.1.1]
 
-Auch die Notwendigkeit, innerhalb eines Dashboards vertikal oder horizontal zu scrollen, kann die Übersichtlichkeit und Effizienz beeinträchtigen. Laut Few führt dies dazu, dass Nutzer nicht auf einen Blick alle wichtigen Daten erfassen können und häufig nicht bemerken, dass sich weitere relevante Informationen außerhalb ihres sichtbaren Bereichs befinden. Elemente, die nicht sofort sichtbar sind, werden oft als weniger wichtig wahrgenommen oder gar übersehen, was die Effektivität eines Dashboards erheblich einschränken kann. [Few, 2006, Kap. 3.1.1]
+Auch die Notwendigkeit, innerhalb eines Dashboards vertikal oder horizontal zu scrollen, kann die Übersichtlichkeit und Effizienz beeinträchtigen. Laut Few führt dies dazu, dass Nutzer nicht auf einen Blick alle wichtigen Daten erfassen können und häufig nicht bemerken, dass sich weitere relevante Informationen außerhalb des sichtbaren Bereichs befinden. Elemente, die nicht sofort sichtbar sind, werden oft als weniger wichtig wahrgenommen oder gar übersehen, was die Effektivität eines Dashboards erheblich einschränken kann. [Few, 2006, Kap. 3.1.1]
 
 Für das Bildungsportal evaschiffmann.de ist es daher sinnvoll, die KPIs auf dedizierten Dashboard-Seiten darzustellen, da diese jeweils demselben Kontext dienen und somit das scrollen vermieden werden kann, welches ohne eine solche Aufteilung auf Grund der Menge unumgänglich wäre. Die KPIs wurden in Kapitel~\ref{sec:kpis} bereits entsprechend für die einzelnen Webseiten des Bildungsportals definiert. Diese Struktur ermöglicht eine gezielte Analyse der verschiedenen Bereiche, weshalb das Dashboard ebenso aufgebaut wird.
 
@@ -40,7 +39,7 @@ Um nun die KPIs der jeweiligen Dashboardseiten so anzuordnen, dass Indikatoren, 
     \label{fig:dimensionen}%
 \end{figure}
 
-Durch die Anordnung der Indikatoren in vier Dimensionen – \textbf{Quellen}, \textbf{Besucher}, \textbf{Inhalte} und \textbf{Verhalten} – wird deutlich, dass die Ziele im Zentrum aus der Analyse der Bereiche abgeleitet werden. Die Zuordnung der KPIs zu den entsprechenden Dimensionen ist den Tabellen B.1 bis B.6 anahnd der Farbauswahl zu erkennen.
+Durch die Anordnung der Indikatoren in vier Dimensionen – \textbf{Quellen}, \textbf{Besucher}, \textbf{Inhalte} und \textbf{Verhalten} – wird deutlich, dass die Ziele im Zentrum aus der Analyse der Bereiche abgeleitet werden. Die Zuordnung der KPIs zu den entsprechenden Dimensionen ist in den Tabellen B.1 bis B.6 anahnd der Farbauswahl zu erkennen.
 
 Auf der Dashboardseite \glqq Übersicht\grqq{} bezieht sich die Dimension \textbf{Quellen} auf externe Traffic-Quellen von welchen ein Besucher auf das Bildungsportal gelangt ist. Hierbei soll die Frage: \textit{\glqq Wo kommt denn unser Traffic eigentlich her?\grqq{}} beantwortet werden [Hassler, 2019, Kap.6.2]. Auf den anderen Dashboardseiten wird für diese Dimension die interne Navigation zwischen den einzelnen Webseiten betrachtet. 
 
@@ -58,30 +57,51 @@ Dimension Inhalte..
 %Nachdem die Struktur des Dashboards und die Organisation der %KPIs definiert wurden, stellt sich die Frage, welche %Visualisierungsmethoden am besten geeignet sind, um die %Daten verständlich und aussagekräftig darzustellen.
 
 \section{Grafana als Dashboardtool}
-Ebenso wie das Webanalyse-Tool Matomo ist Grafana Open Source und lässt sich sowohl in einer Cloud-Version als auch in einer On-Premise-Version auf einem eigenen Server betreiben. Die Selbst-Hosting-Variante kann unter anderem auf Linux (Debian/Ubuntu), Windows oder macOS installiert werden. Alternativ kann Grafana auch als Docker-Container über ein offizielles Docker-Image bereitgestellt werden Grafana verwendet außerdem standardmäßig eine SQLite-Datenbank um das Dashboard, die Datenquellen und die Benutzer der Anwendung zu speichern. Für größere Dashboard-Umgebungen, welche eine sehr hohe Verfügbarkeit aufweisen müssen kann diese SQLite-Datenbank auch durch MySQL oder PostgreSQL Datenbanken ausgetauscht werden. Nach der Installation ist Grafana über eine Web-Oberfläche zugänglich, über die Konfigurationen und Dashboards verwaltet werden können. Um diese Web-Oberfläche nutzen zu können muss Javascript im Browser aktiviert sein und die Browser Chrome, Firefox, Safari und Microsoft Edge können verwendet werden. [Grafana Labs, 2025]
+Ebenso wie das Webanalyse-Tool Matomo, ist Grafana Open Source und lässt sich sowohl in einer Cloud-Version als auch in einer On-Premise-Version auf einem eigenen Server betreiben. Die Selbst-Hosting-Variante kann unter anderem auf Linux (Debian/Ubuntu), Windows oder macOS installiert werden. Alternativ kann Grafana auch als Docker-Container über ein offizielles Docker-Image bereitgestellt werden. Grafana verwendet außerdem standardmäßig eine SQLite-Datenbank um das Dashboard, die Datenquellen und die Benutzer der Anwendung zu speichern. Für größere Dashboard-Umgebungen, welche eine sehr hohe Verfügbarkeit aufweisen müssen kann diese SQLite-Datenbank auch durch MySQL oder PostgreSQL Datenbanken ausgetauscht werden. Nach der Installation ist Grafana über eine Web-Oberfläche zugänglich, über die Konfigurationen und Dashboards verwaltet werden können. Um diese Web-Oberfläche nutzen zu können muss Javascript im Browser aktiviert sein und die Browser Chrome, Firefox, Safari und Microsoft Edge können verwendet werden. [Grafana Labs, 2025]
 
-\subsection{Datenintegration und Aggregation:}
+\subsection{Datenintegration und Aggregation}
 Die Anbindung von Grafana an Matomo, sowie die Aggregation der erfassten Daten kann über diese beiden Varianten erfolgen [De Verteuil, 2022; Matomo, o.D.]:
 
 \begin{enumerate}
     \item \textbf{Anbindung über die Matomo-Datenbank:}  
-    Grafana kann direkt mit der Matomo-Datenbank verbunden werden, indem eine entsprechende Datenquelle eingerichtet wird. Durch SQL-Abfragen auf Datenbanktabellen wie \verb|site| oder \verb|log_visit| können KPIs wie Seitenaufrufe, Verweildauer sowie die URL der besuchten Seite extrahiert werden.
-
+    Grafana kann direkt mit der Matomo-Datenbank verbunden werden, indem eine entsprechende Datenquelle eingerichtet wird. Durch SQL-Abfragen auf Datenbanktabellen wie \verb|site| oder \verb|log_visit| können KPIs wie Seitenaufrufe, Verweildauer sowie die URL der besuchten Seite extrahiert werden. Außerdem können über die Tabelle \verb|reports| standardisierte und benutzerdefinierte Reports abgerufen werden. In Abbilung~\ref{fig:site} ist die Entität (engl. Entity) \verb|site| mit den zugehörigen Attributen abgebildet. In Abbildung~\ref{fig:report} ist die Struktur der Entity \verb|reports| dargestellt. 
     \item \textbf{Anbindung über die Matomo Reporting API:}  
-    Alternativ kann Grafana die Matomo Reporting API (Matomo Analytics API) unter anderem als JSON- oder CSV-Datenquelle nutzen. Dadurch können vordefinierte Matomo-Reports und Kennzahlen abgerufen werden, ohne direkt auf die Datenbank zuzugreifen. Diese API ermöglicht es, Reports zu Metriken wie Besucherzahlen, Nutzergeräten, Suchmaschinen, Referrer-Websites, etc. für eine bestimmte Website und einen definierten Zeitraum abzurufen. Das JSON-Format ist hierbei sauberer strukturiert und leichter nachzuvollziehen als CSV, was die Integration und Verarbeitung der Daten vereinfacht. -> Bilder CSV und JSON
+    Alternativ kann Grafana die Matomo Reporting API (Matomo Analytics API) unter anderem als JSON- oder CSV-Datenquelle nutzen. Dadurch können ebenfalls KPIs und standardisierte Matomo-Reports abgerufen werden, ohne direkt auf die Datenbank zuzugreifen. Diese API ermöglicht es, Reports zu KPIs wie Besucherzahlen, Nutzergeräten, Suchmaschinen, Referrer-Websites, etc. für eine bestimmte Website und einen definierten Zeitraum abzurufen. Das JSON-Format ist hierbei sauberer strukturiert und leichter nachzuvollziehen als CSV, was die Integration und Verarbeitung der Daten vereinfacht. In Abbildung... ist ein solcher Datenexport im JSON-Format dargestellt. -> später eigene Abbildung hierzu einfügen
 \end{enumerate}
 
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/site.png}
+        \captionsetup{skip=5pt}
+        \caption{Erste Bildbeschreibung.}
+        %
+        \label{fig:site}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/report.png}
+        \captionsetup{skip=-1pt}
+        \caption{Zweite Bildbeschreibung.}
+        %
+        \label{fig:report}
+    \end{minipage}
+\end{figure}
 
+\subsection{Filtermöglichkeiten}
+Grafana erlaubt es, alle auf dem Dashboard oder in den einzelnen Panels angezeigten Daten nach Datum, Zeitraum und Benutzergruppen zu filtern. Für die Filterung nach einem bestimmten Zeitbereich kann in Grafana ein Zeitbereichsfilter (engl. Time Range) konfiguriert werden. Hierbei lassen sich sowohl relative Zeiträume (z. B. die letzten fünf Minuten, der letzte Tag oder die letzte Woche) als auch absolute Zeitangaben mit einem exakt definierten Start- und Enddatum festlegen. Die grafische Oberfläche hierfür, der sogenannte Time Picker, ist in Abbildung~\ref{fig:timerange} dargestellt. Auf der linken Seite können absolute Zeitangaben definiert werden. Auf der rechten Seite gibt es eine Auswahl über relative Zeitangaben, wobei hierbei noch zahlreiche weitere verfügbar sind. Im unteren Bereich des Filters ist es außerdem möglich die Zeitzone zu konfigurieren. [Grafana Labs, o.D.]
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/timerange.png}
+    %
+    \caption{Grafana Time Picker}%
+    \label{fig:timerange}%
+\end{figure}
 
+Neben der Filterung nach Zeiträumen bietet Grafana auch die Möglichkeit, Daten unter anderem nach Benutzergruppen zu filtern. Hierfür stellt Grafana Variablen bereit, die als dynamische Parameter innerhalb von Abfragen verwendet werden. Eine Variable kann beispielsweise als Query Variable definiert werden und eine SQL-Abfrage ausführen, um nur Daten für eine bestimmte Benutzergruppe, wie Erstbesucher, zu laden. Über ein Dropdwon-Menü können die definierten Variablen ausgewählt werden. Durch diese Auswahl werden nur noch Datensätze aus der Datenbank abgerufen, welche mit dem Wert der Variable übereinstimmen. Die angezeigten Daten auf dem Dashboard werden danach automatisch angepasst. [Grafana Labs, o.D.]
 
-
-
-
-
-
-
-
-
-
-
+\subsection{Sicherheit und Zugriffskontrolle}
+Um sicherzustellen, dass nur authentifizierte Benutzer Zugriff auf das Dashboard haben, sind eine Benutzerauthentifizierung, eine verschlüsselte Verbindung sowie die Absicherung von API- und Datenquellen-Zugriffen erforderlich.
