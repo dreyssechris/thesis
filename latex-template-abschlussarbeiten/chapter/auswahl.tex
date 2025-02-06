@@ -93,7 +93,7 @@ Die Anbindung von Grafana an Matomo, sowie die Aggregation der erfassten Daten k
 \subsection{Filtermöglichkeiten}
 Grafana erlaubt es, alle auf dem Dashboard oder in den einzelnen Panels angezeigten Daten nach Datum, Zeitraum und Benutzergruppen zu filtern. Für die Filterung nach einem bestimmten Zeitbereich kann in Grafana ein Zeitbereichsfilter (engl. Time Range) konfiguriert werden. Hierbei lassen sich sowohl relative Zeiträume (z. B. die letzten fünf Minuten, der letzte Tag oder die letzte Woche) als auch absolute Zeitangaben mit einem exakt definierten Start- und Enddatum festlegen. Die grafische Oberfläche hierfür, der sogenannte Time Picker, ist in Abbildung~\ref{fig:timerange} dargestellt. Auf der linken Seite können absolute Zeitangaben definiert werden. Auf der rechten Seite gibt es eine Auswahl über relative Zeitangaben, wobei hierbei noch zahlreiche weitere verfügbar sind. Im unteren Bereich des Filters ist es außerdem möglich die Zeitzone zu konfigurieren. [Grafana Labs, o.D.]
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{images/timerange.png}
     %
@@ -105,3 +105,18 @@ Neben der Filterung nach Zeiträumen bietet Grafana auch die Möglichkeit, Daten
 
 \subsection{Sicherheit und Zugriffskontrolle}
 Um sicherzustellen, dass nur authentifizierte Benutzer Zugriff auf das Dashboard haben, sind eine Benutzerauthentifizierung, eine verschlüsselte Verbindung sowie die Absicherung von API- und Datenquellen-Zugriffen erforderlich.
+
+Um den Zugriff auf das Dashboard zu schützen und die Sicherheit der übertragenen Daten zu gewährleisten, stellt Grafana standardmäßig eine integrierte Authentifizierungsfunktion bereit. Bei der ersten Anmeldung wird ein vordefiniertes Admin-Konto mit dem Benutzernamen admin und einem Standardpasswort eingerichtet. Aus Sicherheitsgründen sollte dieses Passwort unmittelbar nach dem ersten Login geändert werden.[Grafana Labs, o.D.]  
+
+Außerdem liefert Grafana ein rollenbasiertes Zugriffssystem (RBAC). In der Open Source Version stehen die drei vordefinierte Rollen Viewer, Editor und Admin zur Verfügung. Viewer können Dashboards nur anzeigen, während Editoren zusätzlich Dashboards bearbeiten und neue Panels erstellen dürfen. Administratoren haben vollständigen Zugriff auf alle Konfigurationen innerhalb der Grafana-Instanz. Eine erweiterte rollenbasierte Zugriffskontrolle, die eine feingranulare Berechtigungsverwaltung für Benutzergruppen und API-Zugriffe ermöglicht, ist nur in Grafana Enterprise und Grafana Cloud verfügbar. [Grafana Labs, o.D.]
+
+Um die Sicherheit der Verbindung zu Grafana zu gewährleisten, sollte die Weboberfläche ausschließlich über HTTPS aufgerufen werden. Standardmäßig läuft Grafana über HTTP (Port 3000), jedoch kann eine verschlüsselte HTTPS-Verbindung aktiviert werden, indem in der \texttt{grafana.ini}-Datei entsprechende Konfigurationen vorgenommen werden: \\
+
+\lstinputlisting[caption=Konfiguration der Datei \texttt{grafana.ini} für HTTPS, label={lst:grafanaini}, language=Apache]{listings/grafanaini.txt}
+
+Da das Bildungsportal evaschiffmann.de derzeit auf einem Server gehostet wird, der bereits ein gültiges SSL/TLS-Zertifikat für HTTPS besitzt, muss lediglich die \texttt{grafana.ini} entsprechend angepasst werden, um die sichere Verbindung zu aktivieren. [Grafana Labs, o.D]
+
+
+
+
+

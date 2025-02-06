@@ -1,0 +1,3 @@
+protocol  = https
+cert_file = /path/to/certificate.crt
+cert_key  = /path/to/private.key
