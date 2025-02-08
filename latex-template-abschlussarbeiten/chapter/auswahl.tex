@@ -55,6 +55,7 @@ Dimension Inhalte..
 
 \section{Visualisierungsmethoden}
 %Nachdem die Struktur des Dashboards und die Organisation der %KPIs definiert wurden, stellt sich die Frage, welche %Visualisierungsmethoden am besten geeignet sind, um die %Daten verständlich und aussagekräftig darzustellen.
+-> Beschreiben, welche Visualisierungsmethoden geeignet sind für welche Arten von KPIs. Farbdesign + Größe
 
 \section{Grafana als Dashboardtool}
 Ebenso wie das Webanalyse-Tool Matomo, ist Grafana Open Source und lässt sich sowohl in einer Cloud-Version als auch in einer On-Premise-Version auf einem eigenen Server betreiben. Die Selbst-Hosting-Variante kann unter anderem auf Linux (Debian/Ubuntu), Windows oder macOS installiert werden. Alternativ kann Grafana auch als Docker-Container über ein offizielles Docker-Image bereitgestellt werden. Grafana verwendet außerdem standardmäßig eine SQLite-Datenbank um das Dashboard, die Datenquellen und die Benutzer der Anwendung zu speichern. Für größere Dashboard-Umgebungen, welche eine sehr hohe Verfügbarkeit aufweisen müssen kann diese SQLite-Datenbank auch durch MySQL oder PostgreSQL Datenbanken ausgetauscht werden. Nach der Installation ist Grafana über eine Web-Oberfläche zugänglich, über die Konfigurationen und Dashboards verwaltet werden können. Um diese Web-Oberfläche nutzen zu können muss Javascript im Browser aktiviert sein und die Browser Chrome, Firefox, Safari und Microsoft Edge können verwendet werden. [Grafana Labs, 2025]
@@ -69,7 +70,7 @@ Die Anbindung von Grafana an Matomo, sowie die Aggregation der erfassten Daten k
     Alternativ kann Grafana die Matomo Reporting API (Matomo Analytics API) unter anderem als JSON- oder CSV-Datenquelle nutzen. Dadurch können ebenfalls KPIs und standardisierte Matomo-Reports abgerufen werden, ohne direkt auf die Datenbank zuzugreifen. Diese API ermöglicht es, Reports zu KPIs wie Besucherzahlen, Nutzergeräten, Suchmaschinen, Referrer-Websites, etc. für eine bestimmte Website und einen definierten Zeitraum abzurufen. Das JSON-Format ist hierbei sauberer strukturiert und leichter nachzuvollziehen als CSV, was die Integration und Verarbeitung der Daten vereinfacht. In Abbildung... ist ein solcher Datenexport im JSON-Format dargestellt. -> später eigene Abbildung hierzu einfügen
 \end{enumerate}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
@@ -93,7 +94,7 @@ Die Anbindung von Grafana an Matomo, sowie die Aggregation der erfassten Daten k
 \subsection{Filtermöglichkeiten}
 Grafana erlaubt es, alle auf dem Dashboard oder in den einzelnen Panels angezeigten Daten nach Datum, Zeitraum und Benutzergruppen zu filtern. Für die Filterung nach einem bestimmten Zeitbereich kann in Grafana ein Zeitbereichsfilter (engl. Time Range) konfiguriert werden. Hierbei lassen sich sowohl relative Zeiträume (z. B. die letzten fünf Minuten, der letzte Tag oder die letzte Woche) als auch absolute Zeitangaben mit einem exakt definierten Start- und Enddatum festlegen. Die grafische Oberfläche hierfür, der sogenannte Time Picker, ist in Abbildung~\ref{fig:timerange} dargestellt. Auf der linken Seite können absolute Zeitangaben definiert werden. Auf der rechten Seite gibt es eine Auswahl über relative Zeitangaben, wobei hierbei noch zahlreiche weitere verfügbar sind. Im unteren Bereich des Filters ist es außerdem möglich die Zeitzone zu konfigurieren. [Grafana Labs, o.D.]
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{images/timerange.png}
     %
@@ -106,7 +107,7 @@ Neben der Filterung nach Zeiträumen bietet Grafana auch die Möglichkeit, Daten
 \subsection{Sicherheit und Zugriffskontrolle}
 Um sicherzustellen, dass nur authentifizierte Benutzer Zugriff auf das Dashboard haben, sind eine Benutzerauthentifizierung, eine verschlüsselte Verbindung sowie die Absicherung von API- und Datenquellen-Zugriffen erforderlich.
 
-Um den Zugriff auf das Dashboard zu schützen und die Sicherheit der übertragenen Daten zu gewährleisten, stellt Grafana standardmäßig eine integrierte Authentifizierungsfunktion bereit. Bei der ersten Anmeldung wird ein vordefiniertes Admin-Konto mit dem Benutzernamen admin und einem Standardpasswort eingerichtet. Aus Sicherheitsgründen sollte dieses Passwort unmittelbar nach dem ersten Login geändert werden.[Grafana Labs, o.D.]  
+Um den Zugriff auf das Dashboard zu schützen und die Sicherheit der übertragenen Daten zu gewährleisten, stellt Grafana standardmäßig eine integrierte Authentifizierungsfunktion bereit. Bei der ersten Anmeldung wird ein vordefiniertes Admin-Konto mit dem Benutzernamen admin und einem Standardpasswort eingerichtet. Aus Sicherheitsgründen sollte dieses Passwort unmittelbar nach dem ersten Login geändert werden. [Grafana Labs, o.D.]
 
 Außerdem liefert Grafana ein rollenbasiertes Zugriffssystem (RBAC). In der Open Source Version stehen die drei vordefinierte Rollen Viewer, Editor und Admin zur Verfügung. Viewer können Dashboards nur anzeigen, während Editoren zusätzlich Dashboards bearbeiten und neue Panels erstellen dürfen. Administratoren haben vollständigen Zugriff auf alle Konfigurationen innerhalb der Grafana-Instanz. Eine erweiterte rollenbasierte Zugriffskontrolle, die eine feingranulare Berechtigungsverwaltung für Benutzergruppen und API-Zugriffe ermöglicht, ist nur in Grafana Enterprise und Grafana Cloud verfügbar. [Grafana Labs, o.D.]
 
@@ -115,6 +116,9 @@ Um die Sicherheit der Verbindung zu Grafana zu gewährleisten, sollte die Webobe
 \lstinputlisting[caption=Konfiguration der Datei \texttt{grafana.ini} für HTTPS, label={lst:grafanaini}, language=Apache]{listings/grafanaini.txt}
 
 Da das Bildungsportal evaschiffmann.de derzeit auf einem Server gehostet wird, der bereits ein gültiges SSL/TLS-Zertifikat für HTTPS besitzt, muss lediglich die \texttt{grafana.ini} entsprechend angepasst werden, um die sichere Verbindung zu aktivieren. [Grafana Labs, o.D]
+
+Wenn Matomo für HTTPS konfiguriert wurde, ist die Matomo Reporting API ebenfalls über HTTPS erreichbar. Zusätzlich ist für den Zugriff auf die Reporting API ein Authentifizierungs-Token erforderlich, sofern auf private Daten zugegriffen wird. Da Matomo-Statistiken standardmäßig nicht öffentlich zugänglich sind, müssen API-Anfragen einen gültigen Token enthalten. Dieser sollte vertraulich behandelt werden, da er nicht nur den Zugriff auf die API ermöglicht, sondern auch zur Manipulation von Daten genutzt werden könnte. Matomo empfiehlt zudem, den Authentifizierungs-Token ausschließlich für POST-Anfragen zu verwenden und diesen im Request-Body der Anfrage statt als Parameter in der URL zu übergeben, um eine ungewollte Offenlegung, beispielsweise durch das Teilen einer URL, zu vermeiden. [Matomo, o.D.]
+
 
 
 

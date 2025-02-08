@@ -47,6 +47,69 @@
       \field{title}{Einführung in die Webanalyse}
       \field{year}{2019}
     \endentry
+    \entry{Voigt2020}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=3454f7629cc8c48718e33318fd4ab8a8}{%
+           family={Axel\bibnamedelimb Von\bibnamedelimb Dem\bibnamedelima Bussche},
+           familyi={A\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Paul\bibnamedelimb Voigt\bibnamedelima \&},
+           giveni={P\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim \\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{3454f7629cc8c48718e33318fd4ab8a8}
+      \strng{fullhash}{3454f7629cc8c48718e33318fd4ab8a8}
+      \strng{fullhashraw}{3454f7629cc8c48718e33318fd4ab8a8}
+      \strng{bibnamehash}{3454f7629cc8c48718e33318fd4ab8a8}
+      \strng{authorbibnamehash}{3454f7629cc8c48718e33318fd4ab8a8}
+      \strng{authornamehash}{3454f7629cc8c48718e33318fd4ab8a8}
+      \strng{authorfullhash}{3454f7629cc8c48718e33318fd4ab8a8}
+      \strng{authorfullhashraw}{3454f7629cc8c48718e33318fd4ab8a8}
+      \field{labelalpha}{Axe20}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-319-57958-0}
+      \field{title}{The EU General Data Protection Regulation (GDPR)}
+      \field{year}{2020}
+    \endentry
+    \entry{ClickUp2024}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=a2c32e08c56682407f0c50a678b9060b}{%
+           family={ClickUp},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{a2c32e08c56682407f0c50a678b9060b}
+      \strng{fullhash}{a2c32e08c56682407f0c50a678b9060b}
+      \strng{fullhashraw}{a2c32e08c56682407f0c50a678b9060b}
+      \strng{bibnamehash}{a2c32e08c56682407f0c50a678b9060b}
+      \strng{authorbibnamehash}{a2c32e08c56682407f0c50a678b9060b}
+      \strng{authornamehash}{a2c32e08c56682407f0c50a678b9060b}
+      \strng{authorfullhash}{a2c32e08c56682407f0c50a678b9060b}
+      \strng{authorfullhashraw}{a2c32e08c56682407f0c50a678b9060b}
+      \field{labelalpha}{Cli24}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{20}
+      \field{month}{10}
+      \field{note}{[Zugriff: 27.01.2025]}
+      \field{title}{10 beste Google Analytics-Alternativen für die Berichterstellung von Website-Statistiken im Jahr 2025}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://clickup.com/de/blog/116498/google-analytics-alternatives
+      \endverb
+      \verb{url}
+      \verb https://clickup.com/de/blog/116498/google-analytics-alternatives
+      \endverb
+    \endentry
     \entry{Dykes2014}{book}{}{}
       \name{author}{1}{}{%
         {{hash=9e6f4f9926664055f45222795756718b}{%
@@ -201,6 +264,325 @@
       \field{title}{Digital und Web Analytics: Metriken auswerten, Besucherverhalten verstehen, Website optimieren}
       \field{year}{2019}
     \endentry
+    \entry{ATInternet}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=a9017587686d9928a8067def0babd4e2}{%
+           family={Internet},
+           familyi={I\bibinitperiod},
+           given={AT},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a9017587686d9928a8067def0babd4e2}
+      \strng{fullhash}{a9017587686d9928a8067def0babd4e2}
+      \strng{fullhashraw}{a9017587686d9928a8067def0babd4e2}
+      \strng{bibnamehash}{a9017587686d9928a8067def0babd4e2}
+      \strng{authorbibnamehash}{a9017587686d9928a8067def0babd4e2}
+      \strng{authornamehash}{a9017587686d9928a8067def0babd4e2}
+      \strng{authorfullhash}{a9017587686d9928a8067def0babd4e2}
+      \strng{authorfullhashraw}{a9017587686d9928a8067def0babd4e2}
+      \field{labelalpha}{Int}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Zugriff: 22.01.2025]}
+      \field{title}{Was ist ein Event (Analytik) ? - AT Internet Definition}
+      \verb{urlraw}
+      \verb https://www.atinternet.com/de/glossar/event-analytik
+      \endverb
+      \verb{url}
+      \verb https://www.atinternet.com/de/glossar/event-analytik
+      \endverb
+    \endentry
+    \entry{GrafanaLabsInstall}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=3e9771a55288d8d734fcdf357714fa0d}{%
+           family={Labs},
+           familyi={L\bibinitperiod},
+           given={Grafana},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{fullhash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{fullhashraw}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{bibnamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorbibnamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authornamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorfullhash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorfullhashraw}{3e9771a55288d8d734fcdf357714fa0d}
+      \field{extraname}{1}
+      \field{labelalpha}{Lab}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Zugriff: 30.01.2025]}
+      \field{title}{Install Grafana}
+      \verb{urlraw}
+      \verb https://grafana.com/docs/grafana/latest/setup-grafana/installation
+      \endverb
+      \verb{url}
+      \verb https://grafana.com/docs/grafana/latest/setup-grafana/installation
+      \endverb
+      \warn{\item online entry 'GrafanaLabsInstall' (bib/literatur.bib): Invalid format 'o.D.' of date field 'date' - ignoring}
+    \endentry
+    \entry{GrafanaRBAC}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=3e9771a55288d8d734fcdf357714fa0d}{%
+           family={Labs},
+           familyi={L\bibinitperiod},
+           given={Grafana},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{fullhash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{fullhashraw}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{bibnamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorbibnamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authornamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorfullhash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorfullhashraw}{3e9771a55288d8d734fcdf357714fa0d}
+      \field{extraname}{2}
+      \field{labelalpha}{Lab}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Zugriff: 05.02.2025]}
+      \field{title}{Role-based access control (RBAC)}
+      \verb{urlraw}
+      \verb https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/access-control
+      \endverb
+      \verb{url}
+      \verb https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/access-control
+      \endverb
+      \warn{\item online entry 'GrafanaRBAC' (bib/literatur.bib): Invalid format 'o.D.' of date field 'date' - ignoring}
+    \endentry
+    \entry{GrafanaLabsDocker}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=3e9771a55288d8d734fcdf357714fa0d}{%
+           family={Labs},
+           familyi={L\bibinitperiod},
+           given={Grafana},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{fullhash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{fullhashraw}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{bibnamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorbibnamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authornamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorfullhash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorfullhashraw}{3e9771a55288d8d734fcdf357714fa0d}
+      \field{extraname}{3}
+      \field{labelalpha}{Lab}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extraalpha}{3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Zugriff: 30.01.2025]}
+      \field{title}{Run Grafana Docker image}
+      \verb{urlraw}
+      \verb https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker
+      \endverb
+      \verb{url}
+      \verb https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker
+      \endverb
+      \warn{\item online entry 'GrafanaLabsDocker' (bib/literatur.bib): Invalid format 'o.D.' of date field 'date' - ignoring}
+    \endentry
+    \entry{GrafanaHTTPS}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=3e9771a55288d8d734fcdf357714fa0d}{%
+           family={Labs},
+           familyi={L\bibinitperiod},
+           given={Grafana},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{fullhash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{fullhashraw}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{bibnamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorbibnamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authornamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorfullhash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorfullhashraw}{3e9771a55288d8d734fcdf357714fa0d}
+      \field{extraname}{4}
+      \field{labelalpha}{Lab}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extraalpha}{4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Zugriff: 05.02.2025]}
+      \field{title}{Set up Grafana HTTPS for secure web traffic}
+      \verb{urlraw}
+      \verb https://grafana.com/docs/grafana/latest/setup-grafana/set-up-https/
+      \endverb
+      \verb{url}
+      \verb https://grafana.com/docs/grafana/latest/setup-grafana/set-up-https/
+      \endverb
+      \warn{\item online entry 'GrafanaHTTPS' (bib/literatur.bib): Invalid format 'o.D.' of date field 'date' - ignoring}
+    \endentry
+    \entry{GrafanaSignIn}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=3e9771a55288d8d734fcdf357714fa0d}{%
+           family={Labs},
+           familyi={L\bibinitperiod},
+           given={Grafana},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{fullhash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{fullhashraw}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{bibnamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorbibnamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authornamehash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorfullhash}{3e9771a55288d8d734fcdf357714fa0d}
+      \strng{authorfullhashraw}{3e9771a55288d8d734fcdf357714fa0d}
+      \field{extraname}{5}
+      \field{labelalpha}{Lab}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extraalpha}{5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Zugriff: 05.02.2025]}
+      \field{title}{Sign in to Grafana}
+      \verb{urlraw}
+      \verb https://grafana.com/docs/grafana/latest/setup-grafana/sign-in-to-grafana/
+      \endverb
+      \verb{url}
+      \verb https://grafana.com/docs/grafana/latest/setup-grafana/sign-in-to-grafana/
+      \endverb
+      \warn{\item online entry 'GrafanaSignIn' (bib/literatur.bib): Invalid format 'o.D.' of date field 'date' - ignoring}
+    \endentry
+    \entry{MatomoAnalyticsAPI}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=440e46d0e89145432434f153b8c34fb5}{%
+           family={Matomo},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{fullhash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{fullhashraw}{440e46d0e89145432434f153b8c34fb5}
+      \strng{bibnamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorbibnamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authornamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorfullhash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorfullhashraw}{440e46d0e89145432434f153b8c34fb5}
+      \field{extraname}{1}
+      \field{labelalpha}{Mat}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Zugriff: 30.01.2025]}
+      \field{title}{Analytics API}
+      \verb{urlraw}
+      \verb https://matomo.org/guide/apis/analytics-api
+      \endverb
+      \verb{url}
+      \verb https://matomo.org/guide/apis/analytics-api
+      \endverb
+      \warn{\item online entry 'MatomoAnalyticsAPI' (bib/literatur.bib): Invalid format 'o.D.' of date field 'date' - ignoring}
+    \endentry
+    \entry{MatomoDBSchema}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=440e46d0e89145432434f153b8c34fb5}{%
+           family={Matomo},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{fullhash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{fullhashraw}{440e46d0e89145432434f153b8c34fb5}
+      \strng{bibnamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorbibnamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authornamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorfullhash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorfullhashraw}{440e46d0e89145432434f153b8c34fb5}
+      \field{extraname}{2}
+      \field{labelalpha}{Mat}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Zugriff: 30.01.2025]}
+      \field{title}{Database schema}
+      \verb{urlraw}
+      \verb https://developer.matomo.org/guides/database-schema
+      \endverb
+      \verb{url}
+      \verb https://developer.matomo.org/guides/database-schema
+      \endverb
+      \warn{\item online entry 'MatomoDBSchema' (bib/literatur.bib): Invalid format 'o.D.' of date field 'date' - ignoring}
+    \endentry
+    \entry{MatomovsGA}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=440e46d0e89145432434f153b8c34fb5}{%
+           family={Matomo},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{fullhash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{fullhashraw}{440e46d0e89145432434f153b8c34fb5}
+      \strng{bibnamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorbibnamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authornamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorfullhash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorfullhashraw}{440e46d0e89145432434f153b8c34fb5}
+      \field{extraname}{3}
+      \field{labelalpha}{Mat}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extraalpha}{3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Zugriff: 27.01.2025]}
+      \field{title}{Matomo Analytics vs Google Analytics}
+      \verb{urlraw}
+      \verb https://matomo.org/matomo-vs-google-analytics-comparison
+      \endverb
+      \verb{url}
+      \verb https://matomo.org/matomo-vs-google-analytics-comparison
+      \endverb
+      \warn{\item online entry 'MatomovsGA' (bib/literatur.bib): Invalid format 'o.D.' of date field 'date' - ignoring}
+    \endentry
+    \entry{MatomoReportingAPI}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=440e46d0e89145432434f153b8c34fb5}{%
+           family={Matomo},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{fullhash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{fullhashraw}{440e46d0e89145432434f153b8c34fb5}
+      \strng{bibnamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorbibnamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authornamehash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorfullhash}{440e46d0e89145432434f153b8c34fb5}
+      \strng{authorfullhashraw}{440e46d0e89145432434f153b8c34fb5}
+      \field{extraname}{4}
+      \field{labelalpha}{Mat}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extraalpha}{4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Zugriff: 05.02.2025]}
+      \field{title}{Reporting API Reference}
+      \verb{urlraw}
+      \verb https://developer.matomo.org/api-reference/reporting-api
+      \endverb
+      \verb{url}
+      \verb https://developer.matomo.org/api-reference/reporting-api
+      \endverb
+      \warn{\item online entry 'MatomoReportingAPI' (bib/literatur.bib): Invalid format 'o.D.' of date field 'date' - ignoring}
+    \endentry
     \entry{Potomac}{online}{}{}
       \name{author}{1}{}{%
         {{hash=101d698c96f03d74123c5314716111b5}{%
@@ -271,8 +653,72 @@
       \verb https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32016R0679
       \endverb
     \endentry
+    \entry{W3Techs2025}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=b8c88a0b473eb9cabd5c6ab5589ea50d}{%
+           family={W3Techs},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{fullhash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{fullhashraw}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{bibnamehash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{authorbibnamehash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{authornamehash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{authorfullhash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{authorfullhashraw}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \field{labelalpha}{W3T28}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{28}
+      \field{month}{1}
+      \field{note}{[Zugriff: 28.01.2025]}
+      \field{title}{Usage statistics and market shares of traffic analysis tools for websites}
+      \field{year}{2028}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://w3techs.com/technologies/overview/traffic_analysis
+      \endverb
+      \verb{url}
+      \verb https://w3techs.com/technologies/overview/traffic_analysis
+      \endverb
+    \endentry
+    \entry{WAA2008}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c7d8db43fd8d7d35e50a3d1c164b1053}{%
+           family={{Web Analytics Association (WAA)}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{c7d8db43fd8d7d35e50a3d1c164b1053}
+      \strng{fullhash}{c7d8db43fd8d7d35e50a3d1c164b1053}
+      \strng{fullhashraw}{c7d8db43fd8d7d35e50a3d1c164b1053}
+      \strng{bibnamehash}{c7d8db43fd8d7d35e50a3d1c164b1053}
+      \strng{authorbibnamehash}{c7d8db43fd8d7d35e50a3d1c164b1053}
+      \strng{authornamehash}{c7d8db43fd8d7d35e50a3d1c164b1053}
+      \strng{authorfullhash}{c7d8db43fd8d7d35e50a3d1c164b1053}
+      \strng{authorfullhashraw}{c7d8db43fd8d7d35e50a3d1c164b1053}
+      \field{labelalpha}{Web08}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{22}
+      \field{month}{9}
+      \field{note}{[Zugriff: 22.01.2025]}
+      \field{title}{Web Analytics Definitions}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.bibliotecheoggitrends.it/media/download/get/13996aba-0e6e-4795-a894-077edf6f1722/original
+      \endverb
+      \verb{url}
+      \verb https://www.bibliotecheoggitrends.it/media/download/get/13996aba-0e6e-4795-a894-077edf6f1722/original
+      \endverb
+    \endentry
   \enddatalist
-  \missing{VoigVonDemBussche2017}
+  \missing{foerster2024}
 \endrefsection
 \endinput
 
