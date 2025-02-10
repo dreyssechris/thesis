@@ -144,7 +144,6 @@ Neben der Methode der Datenerhebung wurden noch weitere Anforderungen an das Web
 
 \begin{itemize}
     \item \textbf{Kosten:} Zunächst soll die kostenlose Variante eines Tools implementiert werden, um die grundlegenden Funktionen und die Eignung für das Bildungsportal zu testen, ohne dabei sofort finanzielle Mittel aufzuwenden.
-    \item \textbf{Integration in TYPO3:} Ebenfalls ist darauf zu achten, dass das Bildungsportal mithilfe des Content-Management-Systems (CMS) TYPO3 implementiert wurde. Daher ist bei der Auswahl des Webanalyse-Tools wichtig, sicherzustellen, dass eine Integration in TYPO3 möglich ist.
     \item \textbf{Dokumentation:} Um die Implementierung zu erleichtern ist eine ausführliche Dokumentation entscheidened.
     \item \textbf{Datengenauigkeit:} Es soll ein Tool ausgewählt werden, welches Datenaktualisierung in Echtzeit bietet um eine unverfälschte Basis für datengetriebene Entscheidungen zu gewährleisten. Ungenauigkeiten können sonst zu fehlerhaften Schlussfolgerungen führen.
     \item \textbf{Datenschutz und DSGVO-Konformität:} Wie in Kapitel~\ref{sec:datenschutz} erläutert, sind Datenschutz und die Einhaltung der DSGVO grundlegende Anforderungen an ein Webanalyse-Tool. Somit sollte dieses in der Lage sein, die geltenden Datenschutzgesätze einzuhalten.
@@ -153,7 +152,12 @@ Neben der Methode der Datenerhebung wurden noch weitere Anforderungen an das Web
 \section{Matomo als Webanalyse-Tool}
 Google Analytics (GA) ist mit einem Marktanteil von 82,0 \% unter den Websites, die Webanalyse-Tools verwenden, das mit Abstand am weitesten verbreitete Tool [W3Techs, 2025]. GA hat allerdings insbesondere in Europa stark an Akzeptanz verloren, da es wiederholt in Konflikt mit den Vorgaben der DSGVO geraten ist. Seit dem Ende des EU-US Privacy Shield ist die rechtliche Grundlage für die Übertragung von Nutzerdaten in die USA weggefallen, was dazu führte, dass Google Analytics mehrfach als nicht datenschutzkonform eingestuft wurde. [vgl. Förster, 2024]
 
-Auf Grundlage dessen ist es keine Option GA für das Sammeln von Nutzerdaten auf dem Bildungsportal zu verwenden. Ein Tool welches eine datenschutzkonforme Erhebung der Nutzerdaten ermöglicht und ebenfalls selbst auf einem eigenen Server gehostet werden kann (engl. on-premise) ist Matomo [vgl. Förster, 2024]. Matomo sorgt dafür, dass Analysedaten auf einer Website gesammelt, gespeichert und in Form von Bereichten (engl. Reports) ausgeliefert werden können. Wenn das Page Tag eingebunden wurde, wird der enthaltene Code bei jedem Seitenaufruf ausgeführt  und Daten werden an den Matomo-Server gesendet. Das Page Tag verweist auf die Datei matomo.js, die als zentraler JavaScript Tracker fungiert und die eigentliche Tracking-Logik enthält. Nach der Datenerfassung sendet matomo.js die gesammelten Informationen in Form einer HTTP-Request an die Tracking-API (matomo.php) der Matomo-Instanz. Diese Instanz nimmt die Anfragen entgegen, verarbeitet sie und speichert die Rohdaten anschließend in der zugrunde liegenden Datenbank. Damit die Daten effizient abgerufen werden können, durchläuft Matomo einen Archivierungsprozess, bei dem die Rohdaten aggregiert und für die Erstellung von Reports optimiert werden. Diese Reports können über die Matomo Reporting API abgerufen werden. [Matomo, o.D.]
+Auf Grundlage dessen ist es keine Option GA für das Sammeln von Nutzerdaten auf dem Bildungsportal zu verwenden. 
+
+Ein Tool welches eine datenschutzkonforme Erhebung der Nutzerdaten ermöglicht und ebenfalls selbst auf einem eigenen Server gehostet werden kann (engl. on-premise) ist Matomo [vgl. Förster, 2024]. Matomo sorgt dafür, dass Analysedaten auf einer Website gesammelt, gespeichert und in Form von Bereichten (engl. Reports) ausgeliefert werden können.
+Das Tool ist Open-Source und kann auf verschiedenen Betriebsystemen wie Linux, Windows und macOS installiert werden. Alternativ dazu steht ebenfalls ein offizielles Docker-Image für die Bereitstellung in Container-Umgebungen zur Verfügung. Matomo benötigt eine MySQL oder MariaDB Datenbank um die Analysedaten zu speichern. 
+
+Nachdem Matomo installiert und konfiguriert wurde, kann das Page Tag in den Quellcode der Website eingebunden werden, um die Erfassung und Übertragung von Nutzerdaten an den Matomo-Server zu ermöglichen. Dabei wird der enthaltene Code bei jedem Seitenaufruf ausgeführt und sendet die gesammelten Daten an den Server. Das Page Tag verweist auf die Datei \texttt{matomo.js}, die als zentraler JavaScript Tracker fungiert und die eigentliche Tracking-Logik enthält. Nach der Datenerfassung sendet matomo.js die gesammelten Informationen in Form einer HTTP-Request an die Tracking-API \texttt{matomo.php} der Matomo-Instanz. Diese Instanz nimmt die Anfragen entgegen, verarbeitet diese und speichert die Rohdaten anschließend in der zugrunde liegenden Datenbank. Damit die Daten effizient abgerufen werden können, durchläuft Matomo einen Archivierungsprozess, bei dem die Rohdaten aggregiert und für die Erstellung von Reports optimiert werden. Diese Reports können über die Matomo Reporting API abgerufen werden. [Matomo, o.D.]
 
 In der Datei \texttt{matomo.js} können ebenfalls eigenen Events definiert werden, um zum Beispiel Nutzerinteraktionen mit Tagebucheinträgen oder das Anklicken von Links auf dem Bildungsportal zu erfassen. Jedes Event besteht aus einer Kategorie und einer Aktion. Optional können Events ebenfalls noch einen Namen und einen Wert enthalten. Ein Beispiel für eine Funktion, welche ein solches Event triggert ist in Listing~\ref{lst:exampleEvent} zu sehen: 
 
@@ -175,19 +179,16 @@ Um nun das Event an der entsprechenden Stelle auszulösen, kann die Funktion inn
 \lstinputlisting[caption=Event-Tracking für einen Klick auf einen Tagebucheintrag in Matomo, label={lst:exampleEventCall}, language=Apache]{listings/exampleEventCall.txt}
 \end{minipage}
 
-Hierbei wird das in Listing~\ref{lst:exampleEvent} definierte Event innerhalb des HTML-Elementes \texttt{<a>} ausgelöst und über das \texttt{onclick}-Attribut wird die Javascript-Funktion aufgerufen. 
+Hierbei wird das in Listing~\ref{lst:exampleEvent} definierte Event innerhalb des HTML-Elementes \texttt{<a>} ausgelöst und über das \texttt{onclick}-Attribut wird die Javascript-Funktion aufgerufen.
 
 \textbf{Kosten} \\
 Matomo kann neben einer kostenpflichtigen Cloud-Variante auch kostenlos auf eigenen Servern betrieben werden. 
 
-\textbf{Integration in TYPO3} \\
-->...
-
 \textbf{Dokumentation} \\
-->...
+Matomo wurde bereits 2007 gegründet und war zunächst unter dem Namen Piwik bekannt [Matomo, o.D.]. Durch die langjährige Marktpräsenz hat sich eine umfassende Wissensbasis entwickelt, die sowohl eine offizielle Matomo Knowledge Base als auch eine Developer-Dokumentation umfasst. Ergänzt wird diese durch eine Vielzahl an praxisnahen Guides, Tutorials und Best-Practice-Beispielen. Somit bietet Matomo im Vergleich zu Tools wie PostHog, welches erst 2024 eine Webanalyse-Funktion eingeführt hat eine größere Wissensbasis, was die Einarbeitung in das Tool erheblich erleichtert. [vgl. Förster, 2024; Matomo, o.D]
 
 \textbf{Datengenauigkeit} \\
-->...
+->...kein Datasampling etc...
 
 \textbf{Datenschutz und DSGVO-Konformität} \\
-->...
+->vollkommen dsgvo-konform konfigurierbar, Cookieloses tracking möglich -> kein Cookie Banner notwendig
