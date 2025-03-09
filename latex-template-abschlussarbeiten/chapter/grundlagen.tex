@@ -2,68 +2,84 @@
 \label{ch:webanalyse} 
 
 \section{Definitionen und Abgrenzung} % 1-1,5 Seiten
-Die Webanalyse (engl. Web Analytics) ist ein Teilgebiet der Digitalanalyse (engl. Digital Analytics) und hat als Aufgabe, Webseiten zu analysieren und zu optimieren. Die Abgrenzung zwischen Webanalyse und Digitalanalyse zeigt, dass sich die Webanalyse primär auf Daten bezieht, die aus dem Besuch und der Nutzung von Websites entstehen, wobei die Digitalanalyse den Rahmen erweitert und sich mit der kanalfübergreifenden Ermittlung von Nutzerbezogenen Daten beschäftigt [Hassler, 2019, Kap.1.2]. Die Webanalyse wird von der Web Analytics Association (WAA) wie folgt definiert: \textit{``Web Analytics is the measurement, collection, analysis and reporting of Internet data for the purposes of understanding and optimizing Web usage.''} [WAA, 2008, S.3].
+Die Webanalyse (engl. Web Analytics) ist ein Teilgebiet der Digitalanalyse (engl. Digital Analytics) und hat als Aufgabe, Webseiten zu analysieren und zu optimieren. Die Abgrenzung zwischen Webanalyse und Digitalanalyse zeigt, dass sich die Webanalyse primär auf Daten bezieht, die aus dem Besuch und der Nutzung von Websites entstehen, wobei die Digitalanalyse den Rahmen erweitert und sich mit der kanalfübergreifenden Ermittlung von Nutzerbezogenen Daten beschäftigt \parencite[Kap.1.2]{Hassler2019}. Die Webanalyse wird von der Web Analytics Association (WAA) wie folgt definiert: \textit{``Web Analytics is the measurement, collection, analysis and reporting of Internet data for the purposes of understanding and optimizing Web usage.''} \parencite[3]{WAA2008}.
 
-Eine weitere Definition liefert die ISO 19731:2017, welche Webanalyse als Analyse und Berichterstattung über das Verhalten, Aussagen und Stimmungen von Nutzern auf Online-Plattformen beschreibt [International Organization for Standardization (ISO), 2017, Kap.3.40]. Diese Definition verdeutlicht noch einmal die Bedeutung von qualitativen und stimmungsbasierten Daten bei der Webanalyse. 
+Eine weitere Definition liefert die ISO 19731:2017, welche Webanalyse als Analyse und Berichterstattung über das Verhalten, Aussagen und Stimmungen von Nutzern auf Online-Plattformen beschreibt \parencite[Kap.3.40]{ISO2017}. Diese Definition verdeutlicht noch einmal die Bedeutung von qualitativen und stimmungsbasierten Daten bei der Webanalyse.
 
-Sie dient unter anderem dazu, die Herkunft von Nutzern (Kanäle), deren Klickverhalten (Klickpfade) sowie die Effektivität von Kampagnen und die Leistung einer Website zu analysieren. Erkenntnisse aus der Webanalyse unterstützen Unternehmen oder Organisationen dabei, ihre Inhalte entsprechend des Nutzerverhaltens zu personalisieren, Schwachstellen in der Customer Journey zu identifizieren und die Nutzererfahrung (User Experience) zu verbessern.
+Sie dient unter anderem dazu, die Herkunft von Nutzern, deren Klickverhalten sowie die Effektivität von Kampagnen und die Leistung einer Website zu analysieren. Erkenntnisse aus der Webanalyse unterstützen Unternehmen oder Organisationen dabei, ihre Inhalte entsprechend des Nutzerverhaltens zu personalisieren, Schwachstellen in der Nutzerreise auf der Plattform (engl. Customer Journey) zu identifizieren und die Nutzererfahrung (engl. User Experience) zu verbessern. \parencite[o. D]{PiwikProWebanalyse}
 
--> Abgrenzung von Webanalyse und Webmonitoring
--> Es gibt viele Bezeichnungen für die Webanalyse.. Digital Analytics, Webanalytics usw... im weiteren Verlauf der Arbeit sollen einfachheitshalber diese Begriffe alle unter der Bezeichnung Webanalyse verschmolzen werden 
+Man könnte also sagen, die Webanalyse ist vergleichbar mit dem Beobachten und Dokumentieren des Verhaltens von Personen auf einem öffentlichen Platz. In beiden Szenarien wird erfasst, welche Wege die Besucher bevorzugen, welche Stellen eher gemieden werden oder auch wo sie am liebsten verweilen. Man kann beobachten woher die Leute kommen und auf welchem Weg.
 
-\section{Ziele} %1,5 Seiten
-(evtl. Verkürzen und in Zielsetzung der Einleitung packen)Die Webanalyse im Allgemeinem hat das Ziel, auf Grundlage von Daten Erkenntnisse zur Optimierung digitaler Kanäle zu gewinnen. Dabei ist jedoch zu berücksichtigen, dass die Webanalyse keine exakte Wissenschaft ist. Zum Beispiel unterliegen Daten zur Nutzeraktivität, wie Besucher- und Nutzungszahlen, unvermeidbaren Ungenauigkeiten, welche bereits bei der Erhebung und Verarbeitung entstehen können. Fragen nach der genauen Messung aller Besucher, der Unterscheidung von menschlichen und automatisierten Zugriffen sowie der Interpretation von Nutzungsverhalten verdeutlichen die Grenzen dieser Methode. Dennoch liegt der Fokus nicht auf absoluter Präzision, sondern auf der Ableitung verwertbarer Trends und Veränderungen, etwa durch prozentuale Vergleiche. Dieser pragmatische Ansatz ermöglicht es, relevante Erkenntnisse für die Optimierung digitaler Angebote zu gewinnen, ohne dabei auf vollständige Genauigkeit angewiesen zu sein [Hassler, 2019, Kap.1.4].
+\section{Ziele der Webanalyse} %1,5 Seiten
+Die Webanalyse im Allgemeinem hat das Ziel, auf Grundlage von Daten Erkenntnisse zur Optimierung digitaler Kanäle zu gewinnen. Dabei ist jedoch zu berücksichtigen, dass die Webanalyse keine exakte Wissenschaft ist. Zum Beispiel unterliegen Daten zur Nutzeraktivität, wie Besucher- und Nutzungszahlen, unvermeidbaren Ungenauigkeiten, welche bereits bei der Erhebung und Verarbeitung entstehen können. Fragen nach der genauen Messung aller Besucher, der Unterscheidung von menschlichen und automatisierten Zugriffen sowie der Interpretation von Nutzungsverhalten verdeutlichen die Grenzen der Webanalyse. Dennoch liegt der Fokus nicht auf absoluter Präzision, sondern auf der Ableitung verwertbarer Trends und Veränderungen, etwa durch prozentuale Vergleiche. Dieser Ansatz ermöglicht es, relevante Erkenntnisse für die Optimierung digitaler Angebote zu gewinnen, ohne dabei auf vollständige Genauigkeit angewiesen zu sein. \parencite[Kap.1.4]{Hassler2019}
 
-Der Zweck der Analyse des Bildungsportals \textit{evaschiffmann.de} ist es zunächst, einen Überblick über das aktuelle Nutzerverhalten auf dem Bildungsportal zu bekommen. Dies umfasst sowohl die Identifikation der am häufigsten genutzten Inhalte und Funktionen als auch die Ermittlung möglicher Schwachstellen in der Benutzerführung. Dadurch können gezielte Maßnahmen abgeleitet werden, um die Effektivität und Attraktivität des Portals nachhaltig zu steigern. Somit kann die Lösung ebenfalls dafür verwendet werden folgende Ziele zu erreichen: 
-\begin{enumerate}
-    \item \textbf{Verbesserung der Lernprozesse:}
-    Durch die Analyse von Webdaten können Bildungsportale herausfinden, welche Inhalte von Nutzern effektiv genutzt werden und welche weniger relevant sind. Dies ermöglicht eine gezielte Optimierung der Lerninhalte und eine Anpassung an die Bedürfnisse der Lernenden [Piwik PRO, o. J.].
-    \item \textbf{Steigerung der Benutzerfreundlichkeit:}
-    Die Untersuchung von Nutzerinteraktionen erlaubt es, die Benutzeroberfläche so zu gestalten, dass sie einfacher zu bedienen ist und den Lernprozess unterstützt. Dies trägt zu einer besseren Lernerfahrung bei und erleichtert die Navigation auf der Plattform [Piwik PRO, o. J.].
-    \item \textbf{Personalisierung des Lernens:}
-    Daten aus der Webanalyse ermöglichen es, individuelle Lernpfade zu entwickeln, die an die Fähigkeiten und Bedürfnisse einzelner Nutzer angepasst sind. Dies sorgt für eine effektivere und nachhaltigere Lernerfahrung [StudySmarter, o. J.].
-    \item \textbf{Identifikation von Schwachstellen:} Die Analyse der Interaktionen und Nutzungsdaten kann Schwachstellen in der Customer Journey aufdecken, die anschließend gezielt beseitigt werden können, um die Lernerfahrung weiter zu optimieren [Piwik PRO, o. J.].
-\end{enumerate} 
+Der Zweck der Analyse des Bildungsportals \textit{evaschiffmann.de} ist es zunächst, einen Überblick über das aktuelle Nutzerverhalten auf dem Bildungsportal zu bekommen. Dies umfasst sowohl die Identifikation der am häufigsten genutzten Inhalte und Funktionen als auch die Ermittlung möglicher Schwachstellen in der Benutzerführung. Dadurch können gezielte Maßnahmen abgeleitet werden, um die Effektivität und Attraktivität des Portals zu steigern. 
 
-Der erste Schritt zur Erreichung dieser Ziele ist es, eine fundierte Grundlage zu schaffen, um Optimierungspotenziale zu identifizieren und Fortschritte zu messen. Hierbei spielt die Auswahl geeigneter Metriken, Kennzahlen und Key Performance Indicators (KPIs) eine entscheidende Rolle. Sie ermöglichen es, die Interaktionen mit dem Bildungsportal quantifierbar zu machen, um datenbasierte Entscheidungen treffen zu können. Im folgenden Kapitel werden die wichtigsten Metriken, Kennzahlen und KPIs, sowie deren Bedeutung näher erläutert. [Piwik PRO, o. J.; Hassler, 2019]
+%Somit kann die Lösung ebenfalls dafür verwendet werden folgende Ziele zu erreichen:
+%\begin{enumerate}
+%    \item \textbf{Verbesserung der Lernprozesse:}
+%    Durch die Analyse der Daten können die Anwender herausfinden, welche Inhalte von Nutzern effektiv genutzt werden und welche weniger relevant sind. Somit gibt es eine datenbasierte Grundlage, wenn später eventuell.
+%    \item \textbf{Steigerung der Benutzerfreundlichkeit:}
+%    Die Untersuchung von Nutzerinteraktionen erlaubt es, die Benutzeroberfläche so zu gestalten, dass sie einfacher zu bedienen ist und den Lernprozess unterstützt. Dies trägt zu einer besseren Lernerfahrung bei und erleichtert die Navigation auf der Plattform.
+%    \item \textbf{Personalisierung des Lernens:}
+%    Daten aus der Webanalyse ermöglichen es, individuelle Lernpfade zu entwickeln, die an die Fähigkeiten und Bedürfnisse einzelner Nutzer angepasst sind. Dies sorgt für eine effektivere und nachhaltigere Lernerfahrung.
+%    \item \textbf{Identifikation von Schwachstellen:} Die Analyse der Interaktionen und Nutzungsdaten kann Schwachstellen in der Customer Journey aufdecken, die anschließend gezielt beseitigt werden können, um die Lernerfahrung weiter zu optimieren.
+%\end{enumerate}
+
+Die Grundlage für die Erreichung der Ziele bilden die Metriken, beziehungsweise die Key Performance Indicators (KPIs). Sie ermöglichen es, die Interaktionen mit dem Bildungsportal quantifizierbar zu machen, um datenbasierte Entscheidungen treffen zu können und Anhaltspunkte zu haben um das Nutzerverhalten einzuordnen. Im folgenden Kapitel werden die wichtigsten Metriken, sowie deren Bedeutung näher erläutert.
 
 \section{Metriken, Kennzahlen und KPIs} % 1-2
 \label{sec:kpis}
-Um die im vorherigen Kapitel beschriebenen Ziele zu erreichen, sollen im Folgenden die relevanten Indikatoren, welche ein Verständnis über das Nutzerverhalten schaffen sollen näher erläutert werden. Zunächst ist es allerdings erst einmal notwendig die Begriffe \textbf{ Metrik"}, \textbf{"Kennzahl"} und \textbf{"Performance Indicator (KPI)"} zu definieren und voneinander abzugrenzen.
+Um die im vorherigen Kapitel beschriebenen Ziele zu erreichen, sollen im Folgenden die relevanten Indikatoren, welche ein Verständnis über das Nutzerverhalten schaffen sollen näher erläutert werden. Zunächst ist es allerdings erst einmal notwendig die Begriffe \textbf{ Metrik"}, \textbf{"Kennzahl"} und \textbf{" Key Performance Indicator (KPI)"} zu definieren und voneinander abzugrenzen.
 
-Eine \textbf{Metrik} ist ein Rohwert, der bestimmte Aspekte quantifiziert, wie beispielsweise die Anzahl der Klicks auf einer Website. Metriken dienen als Grundlage für weiterführende Analysen, liefern jedoch keine kontextbezogenen Aussagen. [Lammenett, 2019, S.10].
+Eine \textbf{Metrik} ist ein Rohwert, der bestimmte Aspekte quantifiziert, wie beispielsweise die Anzahl der Klicks auf einer Website. Metriken dienen als Grundlage für weiterführende Analysen, liefern jedoch keine kontextbezogenen Aussagen. [Lammenett, 2019, S.10]
 
-Eine \textbf{Kennzahl} baut auf Metriken auf, indem sie diese interpretiert und in einen spezifischen Zusammenhang stellt. Beispiele hierfür sind die Absprungrate oder auch eine Konversionsrate. Sie ermöglichen eine erste Bewertung, bleiben jedoch ohne eine klare Zieldefinition begrenzt in ihrer Aussagekraft. [Lammenett, 2019, S.10;S.20;S.27].
+Eine \textbf{Kennzahl} baut auf Metriken auf, indem sie diese interpretiert und in einen spezifischen Zusammenhang stellt. Ein Beispiel hierfür ist eine Konversionsrate, die angibt, welcher Anteil der Besucher einen Tagebucheintrag auf dem Bildungsportal öffnet. Kennzahlen ermöglichen eine erste Bewertung, bleiben jedoch ohne eine klare Zieldefinition begrenzt in ihrer Aussagekraft. [Lammenett, 2019, S.10;S.20;S.27]
 
-Ein \textbf{Key Performance Indicator (KPI)} entsteht, wenn eine Kennzahl mit einem konkreten Ziel verknüpft wird. Diese Zielbindung macht aus der Kennzahl einen strategischen Indikator, der zeigt, wie effektiv bestimmte Maßnahmen sind oder wie gut ein Ziel erreicht wird [Lammenett, 2019, S.10].
+Ein \textbf{Key Performance Indicator} entsteht, wenn eine Kennzahl mit einem konkreten Ziel verknüpft wird. Diese Zielbindung macht aus der Kennzahl einen strategischen Indikator, der zeigt, wie effektiv bestimmte Maßnahmen sind oder wie gut ein Ziel erreicht wird. Fügt man also beispielsweise der Konversionsrate zu dem Tagebucheintrag noch zeinen Indikator hinzu, der angibt ob der erhaltene Wert gut oder schlecht ist, handelt es sich um eine KPI. [Lammenett, 2019, S.10]
 
-Da alle im Rahmen dieser Arbeit definierten Metriken auf konkrete Ziele des Bildungsportals \textit{evaschiffmann.de} ausgerichtet sind, wird im weiteren Verlauf der Begriff KPI stellvertretend für alle verwendet. Dies dient in erster Linie der Lesbarkeit und verdeutlicht ebenfalls, dass übergeordnete Ziel, die Interaktionen der Nutzer mit dem Bildungsportal möglichst umfassend darzustellen.
+Auf Grundlage der Anforderungen an das Analysetool von Herr Staack wurden spezifische Kennzahlen, Metriken und KPIs für das Bildungsportal \textit{evaschiffmann.de} definiert. Diese Analysewerte basieren auf den Gegebenheiten des Bildungsportals und dem Content der Unterseiten, um die Nutzungsmerkmale jeder Seite detailliert zu erfassen. Insgesamt sollen die Analysewerte eine umfassende Analyse des Nutzerverhaltens bieten. Somit wurde darauf geachtet Daten zu allen Dimensionen einer Website zu erfassen. Der Autor Marco Hassler beschreibt in seinem Buch "Digital und Web Analytics" vier Dimensionen der Analyse: 
 
-In Zusammenarbeit mit der Professur für Geschichtsdidaktik wurden spezifische KPIs für das Bildungsportal \textit{evaschiffmann.de} entwickelt. Diese Indikatoren basieren auf den Gegebenheiten und dem Content der Unterseiten, um die Nutzungsmerkmale jeder Seite detailliert zu erfassen. Zudem wurden allgemeine KPIs definiert, welche für alle Unterseiten separat erhoben werden und einen direkten Vergleich der Attraktivität der Seiten ermöglichen. Insgesamt sollen die KPIs eine umfassende Analyse des Nutzerverhaltens bieten und als Grundlage für die Bewertung der Zielerreichung dienen. KPIs, die für alle Unterseiten erfasst werden, sind in Tabelle~\ref{tab:kpi_allgemein} dargestellt:
+\begin{itemize}
+    \item \textbf{Quellen (Woher?)}  
+    \item \textbf{Besucher (Wer?)}  
+    \item \textbf{Inhalte (Was?)}  
+    \item \textbf{Verhalten (Wie?)}  
+\end{itemize}
 
-\begin{table}[h]
+Zusätzlich zu diesen vier Dimensionen gibt es ebenfalls ziele marko hassler blabla zeug kram
+
+In der Tabelle~\ref{tab:analysewerte} werden alle Kennzahlen, Metriken und KPIs, welche erfasst werden sollen mit der jeweiligen Dimension zu welcher sie zählen aufgelistet. Zudem ist in einer separaten Spalte aufgeführt um was für eine Art Analysewert es sich handelt.
+
+\begin{table}[H]
     \centering
-    \caption{Allgemeine KPIs für das Bildungsportal \textit{evaschiffmann.de}}
-    \label{tab:kpi_allgemein}
-    \renewcommand{\arraystretch}{1.5} % Erhöht die Zeilenhöhe
-    \begin{tabularx}{\textwidth}{|X|X|X|}  
+    \begin{tabularx}{\textwidth}{l l l}
         \hline
-        \textbf{KPI} & \textbf{Beschreibung} & \textbf{Berechnung} \\ \hline
-        Anzahl Besucher & Anzahl der Nutzer, welche diese Webseite aufgerufen haben & {\footnotesize \(\text{Unique Visitors}\)} \\ \hline
-        Verweildauer & Durchschnittliche Zeit, welche Nutzer auf der Webseite verbringen & 
-        {\footnotesize \(\frac{\sum (\text{letzter Pageview} - \text{erster Pageview})}{\text{Anzahl der Sitzungen}}\)} \\ \hline
-        Absprungrate & Anteil der Nutzer, welche die Website nach Aufruf dieser Webseite verlassen & 
-        {\footnotesize \(\frac{\text{Sitzungen mit nur einer Seite}}{\text{Gesamtanzahl der Sitzungen}} \cdot 100\)} \\ \hline 
-        Scrolltiefe & Wie tief scrollen Nutzer im Schnitt & 
-        {\footnotesize \(\frac{\text{Gesamtscrollhöhe des Nutzers}}{\text{Gesamthöhe der Seite}} \cdot 100\)} \\ \hline
-        Seitenaufrufe & Anzahl der aufgerufenen Seiten pro Sitzung & 
-        {\footnotesize \(\frac{\sum \text{Pageviews}}{\text{Gesamtanzahl der Sitzungen}}\)} \\ \hline
+        \textbf{Analysewert} & \textbf{Dimension} & \textbf{Art der Daten} \\
+        \hline
+        Ranking der Referer Seiten & Quellen & Kennzahl \\
+        Verteilung der Traffic Quellen (Pie Chart) & Quellen & Kennzahl \\
+        Verteilung der Gerätetypen (Pie Chart) & Besucher & Kennzahl \\
+        Anzahl der Besuche (Stat Panel) & Besucher & Metrik \\
+        Anzahl der wiederkehrenden Besucher (Stat Panel) & Besucher & Metrik \\
+        Anteil der wiederkehrenden Besucher (Gauge Panel) & Besucher & Kennzahl \\
+        Aufrufe der einzelnen Unterseiten (Balkendiagramm) & Inhalte & Metrik \\
+        Ranking der am häufigsten aufgeklappten Überschriften & Inhalte & Kennzahl \\
+        Verweildauer (Stat Panel) & Verhalten & Metrik \\
+        Bounce Rate (Stat Panel) & Verhalten & Metrik \\
+        Konversion: min. 1 Tagebucheintrag geöffnet & Ziel & KPI \\
+        Konversion: min. 3 Tagebucheinträge geöffnet & Ziel & KPI \\
+        Konversion: min. 1 Überschrift aufgeklappt & Ziel & KPI \\
+        Konversion: min. 3 Überschriften aufgeklappt & Ziel & KPI \\
+        \hline
     \end{tabularx}
+    \caption{Analysewerte und ihre Klassifizierung nach Dimensionen}
+    \label{tab:analysewerte}
 \end{table}
 
-Indikatoren wie die Anzahl der eindeutigen Besucher (engl. Unique Visitors) oder die Absprungrate (engl. Bounce Rate) sind für den ersten Vergleich der Seiten von großer Bedeutung. Andere KPIs wie die durchschnittliche Scrolltiefe oder die Verweildauer geben Auskunft darüber, wie Intensiv sich Nutzer mit dem Inhalt beschäftigen. Außerdem sollen die KPIs aus Tabelle~\ref{tab:kpi_uebersicht} allgemeinere Informationen, welche sich nicht speziell einer Unterseite zuordnen lassen erfassen. Zu diesen allgemeineren Informationen gehören unter anderem die Zugriffsquellen (engl. Traffic Source) oder auch Informationen über die Verwendung der seitenübergreifenden Suchfunktion. Für die Unterseite ``Zum Tagebuch'' werden die relevanten KPIs in Tabelle~\ref{tab:kpi_tagebuch} im Anhang dargestellt. Für die Unterseiten ``Wer war Eva Schiffmann?'' [Tabelle~\ref{tab:kpi_eva_schiffmann}], ``Themen'' [Tabelle~\ref{tab:kpi_themen}], ``Orte'' [Tabelle~\ref{tab:kpi_orte}] und ``Evas Lektüren'' [Tabelle~\ref{tab:kpi_evas_lektueren}] werden ebenfalls KPIs im Anhang abgebildet.
+Im weiteren Verlauf der Arbeit wird der Begriff „Analysewerte“ stellvertretend für Metriken, Kennzahlen und Key Performance Indicators (KPIs) verwendet, um die Lesbarkeit zu erleichtern.
 
-\section{Datenerfassung} % 2-2,5 Seiten
+\section{Datenerfassung}
 
 \subsection{Logfile-Analyse}
 Logdateien (engl. Logfiles) gehören zu den ältesten Methoden, um Nutzungsdaten von Webseiten zu erfassen. Webserver protokollieren seit den Anfängen des Internets sämtliche Anfragen, die an sie gestellt werden, sowie die Antworten, die sie daraufhin liefern [De Verteuil, 2022]. Diese Protokolle werden in Form von Textdateien gespeichert und bieten eine strukturierte Übersicht über alle Interaktionen, auch „Hits“ genannt, die auf dem Server stattfinden. Die Erstellung von Logfiles erfolgt durch den Webserver, der alle Interaktionen zwischen Nutzer und Webseite aufzeichnet. Sobald ein Nutzer eine Webseite aufruft, sendet sein Browser mehrere Anforderungen (Requests) an den Server, um die verschiedenen Elemente der Seite wie Texte, Bilder oder Skripte zu laden. Der Server liefert daraufhin die angeforderten Inhalte zurück (Responses) und speichert diese Vorgänge zeitgleich in einer Logdatei. Diese Dateien, die in der Regel täglich neu generiert werden, dienen als Quelle für die Analyse von Zugriffen auf die Website. [Hassler, 2019, Kap. 2.2] 
