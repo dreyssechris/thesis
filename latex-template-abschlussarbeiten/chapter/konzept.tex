@@ -1,2 +1,45 @@
 \chapter{Konzept} % 5-6 Seiten? 
 \label{ch:konzept}
+In den vorherigen Kapiteln wurden die Anforderungen an das Webanalysetool und das Dashboard definiert sowie geeignete Tools ausgewählt, die diese Anforderungen erfüllen können. Die Implementierung setzt diese Anforderungen technisch um, indem die ausgewählten Tools entsprechend konfiguriert und integriert werden. Dieses Kapitel beschreibt die methodische Herangehensweise an die Implementierung sowie die zugrunde liegende Architektur der Projektumgebung. Dabei wird erläutert, wie die definierten Anforderungen in der technischen Umsetzung berücksichtigt werden, welcher Aufbau für das Projekt gewählt wurde und welche Einschränkungen sich durch die Nutzung einer gespiegelten Website ergeben. Zudem wird erklärt wie die implementierte Lösung evaluiert wird.
+
+\section{Methodische Umsetzung der Lösung}
+\label{sec:umsetzungloesung}
+Die Umsetzung der Analyselösung erfolgt in mehreren Schritten. Zunächst wird die gespiegelte Website aufgesetzt. Anschließend wird Matomo als Webanalysetool integriert und konfiguriert, sodass die Datensammlung erfolgen kann. Um die DSGVO-Vorgaben einzuhalten, werden Datenschutzmaßnahmen wie eine IP-Anonymisierung, eine Opt-out-Möglichkeit und die Erweiterung des bestehenden Cookie-Consent-Banners umgesetzt.
+
+Danach wird Grafana installiert und mit Matomo verbunden, um die erfassten Daten auszulesen. Dabei wurde die direkte Anbindung an die Datenbank gewählt, da sie eine schnellere Verfügbarkeit der Daten sowie flexible SQL-Abfragen ermöglicht. Eine Anbindung über die Matomo Reporting API wurde geprüft, erwies sich jedoch als weniger geeignet, da sie nur vordefinierte, aggregierte Berichte liefert und weniger individuell konfigurierbar ist.
+
+Sobald die Datenübertragung sichergestellt ist, werden die SQL-Abfragen für die relevanten Metriken und KPIs erstellt und in den entsprechenden Grafana-Panels visualisiert. Dabei werden interaktive Filtermöglichkeiten integriert, um gezielte Analysen für die Unterseiten ermöglichen.
+
+Zusätzlich wird darauf geachtet, dass alle Komponenten sicher in die Umgebung integriert werden. Dazu zählen eine verschlüsselte Verbindung über HTTPS sowie eine rollenbasierte Zugriffskontrolle für Matomo und Grafana. Die detaillierte Umsetzung dieser Maßnahmen wird in Kapitel~\ref{ch:implementierung} beschrieben.
+
+\section{Projektaufbau}
+\label{sec:projektaufbau}
+Das Projekt wird in einer containerisierten Umgebung bereitgestellt, um eine leicht übertragbare Lösung für die spätere Bereitstellung auf den Servern der Thüringer Universitäts- und Landesbibliothek (ThULB) zu gewährleisten. Durch die Nutzung von Docker Compose kann die gesamte Umgebung mit einem einzigen Befehl (\texttt{docker-compose up}) gestartet werden, wodurch eine einheitliche und reproduzierbare Konfiguration sichergestellt wird.
+
+Die Architektur besteht aus mehreren Containern, die über ein internes Docker-Netzwerk miteinander kommunizieren. Über einen Reverse Proxy (Nginx), wird der Zugriff auf alle Dienste gesteuert. Die Dienste können somit über eine einheitliche Domain verfügbar gemacht werden.
+
+Das Projekt umfasst folgende Container:
+
+\begin{itemize}
+    \item \textbf{Reverse Proxy (Nginx)}  
+    Steuert den Zugriff auf alle Web-Dienste (Website, Matomo, Grafana), stellt diese sicher über HTTPS bereit und leitet Anfragen weiter.
+
+    \item \textbf{Matomo}  
+    Bindet das Webanalysetool ein.
+
+    \item \textbf{Matomo Webserver (Nginx)}  
+    Dient als Webserver für Matomo und leitet die Anfragen an die Matomo-Instanz weiter.
+
+    \item \textbf{Grafana-Instanz}  
+    Bindet das Dashboard-Tool ein und wird direkt über den Reverse Proxy bereitgestellt, da es einen eigenen Webserver hat.
+
+    \item \textbf{Nginx als Reverse Proxy für Grafana}  
+    Absicherung und Bereitstellung der Grafana-Oberfläche.
+
+    \item \textbf{Portal (Bildungsportal evaschiffmann.de)}  
+    Bindet die Website ein.
+\end{itemize}
+
+
+\section{Bewertungskriterien für die Evaluation}
+\label{sec:bewertungskriterien}

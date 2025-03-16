@@ -6,7 +6,7 @@ Die Webanalyse (engl. Web Analytics) ist ein Teilgebiet der Digitalanalyse (engl
 
 Eine weitere Definition liefert die ISO 19731:2017, welche Webanalyse als Analyse und Berichterstattung über das Verhalten, Aussagen und Stimmungen von Nutzern auf Online-Plattformen beschreibt \parencite[Kap.3.40]{ISO2017}. Diese Definition verdeutlicht noch einmal die Bedeutung von qualitativen und stimmungsbasierten Daten, welche auch bei der Analyse des Bildungsportals von Bedeutung sind.
 
-Sie dient unter anderem dazu, die Herkunft von Nutzern, deren Klickverhalten sowie die Effektivität von Kampagnen und die Leistung einer Website zu analysieren. Erkenntnisse aus der Webanalyse unterstützen Unternehmen oder Organisationen dabei, ihre Inhalte entsprechend des Nutzerverhaltens zu personalisieren, Schwachstellen in der Nutzerreise auf der Plattform (engl. Customer Journey) zu identifizieren und die Nutzererfahrung (engl. User Experience) zu verbessern. \parencite[o. D]{PiwikProWebanalyse}
+Sie dient unter anderem dazu, die Herkunft von Nutzern, deren Klickverhalten sowie die Effektivität von Kampagnen und die Leistung einer Website zu analysieren. Erkenntnisse aus der Webanalyse unterstützen Unternehmen oder Organisationen dabei, ihre Inhalte entsprechend des Nutzerverhaltens zu personalisieren, Schwachstellen in der Nutzerreise auf der Plattform (engl. Customer Journey) zu identifizieren und die Nutzererfahrung (engl. User Experience) zu verbessern. \parencite{PiwikProWebanalyse}
 
 \textcolor{red}{
     (wissenschaftlich sinnvoll/zielführend?, eigene Aussage:)Man könnte also sagen, die Webanalyse ist vergleichbar mit dem Beobachten und Dokumentieren des Verhaltens von Personen auf einem öffentlichen Platz. In beiden Szenarien wird erfasst, welche Wege die Besucher bevorzugen, welche Stellen eher gemieden werden oder auch wo sie am liebsten verweilen. Man kann beobachten woher die Leute kommen und auf welchem Weg.
@@ -16,26 +16,32 @@ Dabei ist jedoch zu berücksichtigen, dass die Webanalyse keine exakte Wissensch
 
 Die Webanalyse basiert auf Metriken, beziehungsweise die Key Performance Indicators (KPIs). Sie ermöglichen es, die Interaktionen mit Websiten quantifizierbar zu machen, um datenbasierte Entscheidungen treffen zu können und Anhaltspunkte zu haben um das Nutzerverhalten einzuordnen. Im folgenden Kapitel werden die wichtigsten Metriken, sowie deren Bedeutung näher erläutert.
 
-\section{Metriken und KPIs} % 1-2
+\section{Metriken, KPIs und Ziele} % 1-2
 \label{sec:kpis}
-Die von Herrn Staack beschriebenen Anforderungen werden im Folgenden spezifiziert. Die Analysewerte werden so gewählt, dass sie diesen gerecht werden. Zunächst ist es jedoch notwendig, die Begriffe \textbf{\glqq Metrik\grqq{}} und \textbf{\glqq Key Performance Indicator\grqq{}} zu definieren und voneinander abzugrenzen.
+Die von Herrn Staack beschriebenen Anforderungen werden im Folgenden spezifiziert. Hiebei sollen die Analysewerte so gewählt werden, dass sie zur Erfüllung der Anforderungen an die Nutzeranalyse beitragen. Zunächst ist es jedoch notwendig, die Begriffe \textbf{\glqq Metrik\grqq{}} und \textbf{\glqq Key Performance Indicator\grqq{}}, welche in Summe die Analysewerte darstellen zu definieren.
 
-Eine \textbf{Metrik} ist ein Rohwert, der bestimmte Aspekte quantifiziert, wie beispielsweise die Anzahl der Klicks auf einer Website. Metriken dienen als Grundlage für weiterführende Analysen, liefern jedoch keine kontextbezogenen Aussagen. [Lammenett, 2019, S.10]
+Eine \textbf{Metrik} ist eine messbare Größe, die eine bestimmte Eigenschaft beschreibt, ohne sie direkt zu bewerten. In der Webanalyse umfassen Metriken Werte wie Seitenaufrufe (engl. Pageviews), Besucherzahlen oder auch Besuche in Form von Sitzungen. Metriken helfen dabei, das Nutzerverhalten objektiv zu erfassen und die Leistung einer Website besser einzuschätzen. In der Webanalyse werden sie dafür eingesetzt, die online-Aktivität auf einer Website quantitativ zu messen. \parencite[Kap.5.1]{Hassler2019} \parencite[S.26]{Dykes2014}
 
-Ein \textbf{Key Performance Indicator} entsteht, wenn eine Kennzahl mit einem konkreten Ziel verknüpft wird. Diese Zielbindung macht aus der Kennzahl einen strategischen Indikator, der zeigt, wie effektiv bestimmte Maßnahmen sind oder wie gut ein Ziel erreicht wird. Fügt man also beispielsweise der Konversionsrate zu dem Tagebucheintrag noch zeinen Indikator hinzu, der angibt ob der erhaltene Wert gut oder schlecht ist, handelt es sich um eine KPI. [Lammenett, 2019, S.10]
+Ein \textbf{Key Performance Indicator} wird oftmals mit einer Metrik gleichgesetzt. Allerdings handelt es sich hierbei um einen Teilbereich der Metriken. Eine KPI ensteht, wenn eine Messgröße mit einem konkreten Ziel verknüpft wird. Diese Zielbindung sorgt dafür, dass ein Indikator entsteht, welcher aufzeigt, wie gut oder schlecht ein Ziel erreicht wurde. Man kann also sagen, obwohl alle KPIs Metriken sind, sind nicht alle Metriken KPIs. \parencite[S.9-13]{Lammenett2019} \parencite[S.46]{Dykes2014}
 
-Auf Grundlage der Anforderungen an das Analysetool von Herr Staack wurden spezifische Kennzahlen, Metriken und KPIs für das Bildungsportal \textit{evaschiffmann.de} definiert. Diese Analysewerte basieren auf den Gegebenheiten des Bildungsportals und dem Content der Unterseiten, um die Nutzungsmerkmale jeder Seite detailliert zu erfassen. Insgesamt sollen die Analysewerte eine umfassende Analyse des Nutzerverhaltens bieten. Somit wurde darauf geachtet Daten zu allen Dimensionen einer Website zu erfassen. Der Autor Marco Hassler beschreibt in seinem Buch "Digital und Web Analytics" vier Dimensionen der Analyse: 
+Um die relevanten Metriken für das Bildungsportal \textit{evaschiffmann.de} zu identifizieren, wurden die spezifischen Gegebenheiten der Website sowie der Inhalt der Unterseiten berücksichtigt. Um das Nutzerverhalten detailiert zu erfassen wird darauf geachtet, dass die Analysewerte eine umfassende Analyse des Nutzerverhaltens ermöglichen. Somit wurde darauf geachtet Daten zu allen Kategorien einer Website zu erfassen. Der Autor Marco Hassler beschreibt in seinem Buch \glqq Digital und Web Analytics\grqq{} vier Kategorien oder auch Dimensionen einer Website, diese werden in Abbildung~\ref{fig:dimensionen} dargestellt \parencite[Kap.5.7]{Hassler2019}.: 
 
-\begin{itemize}
-    \item \textbf{Quellen (Woher?)}  
-    \item \textbf{Besucher (Wer?)}  
-    \item \textbf{Inhalte (Was?)}  
-    \item \textbf{Verhalten (Wie?)}  
-\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=6cm, height=5cm, keepaspectratio]{images/dimensionen.png}
+    \caption{Metriken beleuchten hauptsächlich vier Dimensionen einer Website. \parencite[Kap.5.7]{Hassler2019}}%
+    \label{fig:dimensionen}%
+\end{figure}
 
-Zusätzlich zu diesen Dimensionen beschreibt Hassler in seinem Buch die Wichtigkeit von Zielen bei der Webanalyse. Ziele sind essenziell, um den Erfolg der Website zu bewerten und sollten so gewählt werden, dass sie konkrete, messbare Nutzerinteraktionen widerspiegeln. Somit bieten Ziele einen Orientierungspunkt, um das Verhalten der Besucher besser einschätzen zu können. Um die Zielerreichung messbar zu machen kommen in der Webanalyse oftmals sogenannte Konversionen zum Einsatz. Bei einer Konversion handelt es sich um eine Nutzerinteraktion, welche aus Sicht des Betreibers der Website als erwünschtes Verhalten gilt. 
+Zusätzlich zu diesen Dimensionen beschreibt Hassler in seinem Buch \glqq Digital und Web Analytics\grqq{} die Wichtigkeit von Zielen bei der Webanalyse. Ziele sind essenziell, um den Erfolg der Website zu bewerten und sollten so gewählt werden, dass sie konkrete, messbare Nutzerinteraktionen widerspiegeln. Somit bieten Ziele einen Orientierungspunkt, um das Verhalten der Besucher besser einschätzen zu können. Um die Zielerreichung messbar zu machen kommen in der Webanalyse oftmals sogenannte Konvertierungen (engl. Conversions) zum Einsatz. Bei einer Conversion handelt es sich um eine Nutzerinteraktion, welche aus Sicht des Betreibers der Website als erwünschtes Verhalten gilt. \parencite[Kap.13]{Hassler2019}
 
-In der Tabelle~\ref{tab:analysewerte} werden alle Kennzahlen, Metriken und KPIs, welche erfasst werden sollen mit der jeweiligen Dimension zu welcher sie zählen aufgelistet. Zudem ist in einer separaten Spalte aufgeführt um was für eine Art Analysewert es sich handelt.
+Um diese Conversions in ein Verhältnis zu setzen, wird eine Konversionsrate (engl. Conversion-Rate) genutzt. Sie gibt das Verhältnis der Besucher einer Website zu den tatsächlich erfolgten Conversions an und wird in Prozent angegeben. Da bei einer Conversion-Rate Messgrößen mit einem konkreten Ziel verknüpft werden, spricht man hierbei von KPIs. \parencite{RyteConversion}
+
+\textcolor{red}{
+    (eigene Aussage basierend auf Erfahrungen/Recherche, Quelle notwendig?)Da es sich bei der Website \textit{evaschiffmann.de} nicht um eine E-Commerce Website handelt, sind die Ziele also unüberlicherweise keine kommerziellen. Trotzdem lassen sich Ziele definieren, welche einen Aufschluss darüber liefern, wie oft Besucher mit den Kernelementen der Website interagieren.
+}
+
+In der Tabelle~\ref{tab:analysewerte} werden alle Analysewerte, welche erfasst werden sollen mit der jeweiligen Dimension zu welcher sie zählen aufgelistet. In der letzten Spalte ist zu erkennen, ob es sich um eine Metrik oder eine KPI handelt. Zu beachten ist hierbei, dass sich manche Analysewerte aus mehreren Metriken zusammensetzen, wie genau diese Zusammensetzung erfolgt wird in der Sektion~\ref{sec:Visualisierungsmethoden} und dem Kapitel~\ref{ch:implementierung} ausführlich beschrieben.
 
 \begin{table}[H]
     \centering
@@ -43,14 +49,14 @@ In der Tabelle~\ref{tab:analysewerte} werden alle Kennzahlen, Metriken und KPIs,
         \hline
         \textbf{Analysewert} & \textbf{Dimension} & \textbf{Art der Daten} \\
         \hline
-        Ranking der Referer Seiten & Quellen & Kennzahl \\
-        Verteilung der Traffic Quellen & Quellen & Kennzahl \\
-        Verteilung der Gerätetypen & Besucher & Kennzahl \\
+        Ranking der Referer Seiten & Quellen & Metrik \\
+        Verteilung der Traffic Quellen & Quellen & Metrik \\
+        Verteilung der Gerätetypen & Besucher & Metrik \\
         Anzahl der Besuche & Besucher & Metrik \\
         Anzahl der wiederkehrenden Besucher & Besucher & Metrik \\
-        Anteil der wiederkehrenden Besucher & Besucher & Kennzahl \\
+        Anteil der wiederkehrenden Besucher & Besucher & Metrik \\
         Aufrufe der einzelnen Unterseiten & Inhalte & Metrik \\
-        Ranking der am häufigsten aufgeklappten Überschriften & Inhalte & Kennzahl \\
+        Ranking der am häufigsten aufgeklappten Überschriften & Inhalte & Metrik \\
         Verweildauer & Verhalten & Metrik \\
         Bounce Rate & Verhalten & Metrik \\
         Konversion: min. 1 Tagebucheintrag geöffnet & Ziel & KPI \\
@@ -63,18 +69,19 @@ In der Tabelle~\ref{tab:analysewerte} werden alle Kennzahlen, Metriken und KPIs,
     \label{tab:analysewerte}
 \end{table}
 
-Im weiteren Verlauf der Arbeit wird der Begriff „Analysewerte“ stellvertretend für Metriken, Kennzahlen und Key Performance Indicators (KPIs) verwendet, um die Lesbarkeit zu erleichtern.
-
 \section{Datenerfassung}
-
+\label{sec:Datenerfassung}
 \subsection{Logfile-Analyse}
-Logdateien (engl. Logfiles) gehören zu den ältesten Methoden, um Nutzungsdaten von Webseiten zu erfassen. Webserver protokollieren seit den Anfängen des Internets sämtliche Anfragen, die an sie gestellt werden, sowie die Antworten, die sie daraufhin liefern [De Verteuil, 2022]. Diese Protokolle werden in Form von Textdateien gespeichert und bieten eine strukturierte Übersicht über alle Interaktionen, auch „Hits“ genannt, die auf dem Server stattfinden. Die Erstellung von Logfiles erfolgt durch den Webserver, der alle Interaktionen zwischen Nutzer und Webseite aufzeichnet. Sobald ein Nutzer eine Webseite aufruft, sendet sein Browser mehrere Anforderungen (Requests) an den Server, um die verschiedenen Elemente der Seite wie Texte, Bilder oder Skripte zu laden. Der Server liefert daraufhin die angeforderten Inhalte zurück (Responses) und speichert diese Vorgänge zeitgleich in einer Logdatei. Diese Dateien, die in der Regel täglich neu generiert werden, dienen als Quelle für die Analyse von Zugriffen auf die Website. [Hassler, 2019, Kap. 2.2] 
+Die ersten Webanalyse-Tools basierten auf der Analyse von Logdateien (engl. Logfiles). Jedes Mal, wenn ein Nutzer eine Webseite aufruft, sendet sein Browser eine Anfrage an den Webserver, um die Inhalte der Seite zu laden. Der Webserver zeichnet jede dieser Anfragen, auch „Hit“ genannt, in einer Logdatei auf. \parencite[S.8]{Dykes2014}
 
-Im Listing~\ref{lst:logfile} ist ein Beispiel eines Logfile-Eintrags im Common Logfile Format (CLF) zu sehen: 
+Diese Logfiles werden in Form von Textdateien gespeichert und bieten eine strukturierte Übersicht über alle Interaktionen auf dem Server. Die Erstellung von Logfiles erfolgt automatisch, indem der Webserver Interaktionen zwischen Nutzer und Webseite aufzeichnet. Sobald ein Nutzer eine Webseite aufruft, sendet sein Browser mehrere Anforderungen (Requests) an den Server, um die verschiedenen Elemente der Seite wie Texte, Bilder oder Skripte zu laden. Der Server liefert daraufhin die angeforderten Inhalte zurück (Responses) und speichert diese Vorgänge zeitgleich in einer Logdatei. Diese Dateien, die in der Regel täglich neu generiert werden, dienen als Quelle für die Analyse von Zugriffen auf die Website. \parencite[Kap.2.2]{Hassler2019}
 
-\lstinputlisting[caption=Logfile-Eintrag im CLF {[Fou]}, label={lst:logfile}, language=Apache]{listings/logfile_entry.txt}
+Im Listing~\ref{lst:logfile} ist ein Beispiel eines Logfile-Eintrags im Common Logfile Format (CLF) zu sehen:
 
-Aus diesem Beispiel Eintrag lassen sich folgende Informationen in entsprechender Reihenfolge entnehmen [Apache Software Foundation, o. D.?]: 
+\lstinputlisting[caption=Logfile-Eintrag im CLF \parencite{ApacheLogFiles}, label={lst:logfile}, language=Apache]{listings/logfile_entry.txt}
+
+Aus diesem Beispiel eines Eintrags lassen sich folgende Informationen in entsprechender Reihenfolge entnehmen \parencite{ApacheLogFiles}: \\
+
 
 \begin{itemize}
     \item IP-Adresse des Aufrufenden
@@ -87,8 +94,7 @@ Aus diesem Beispiel Eintrag lassen sich folgende Informationen in entsprechender
     \item Größe der zurückgegebenen Datei
 \end{itemize}
 
-Zusätzlich wird in der Logfile auch die Aufrufmethode (z. B. GET oder POST),  gespeichert, diese Angabe ist jedoch für eine spätere Analyse oft weniger relevant [Hassler, 2019, Kap. 2.2]. Der Vorteil dieser Methode ist es, dass die Datenerfassung unabhängig von Client-Technologien abläuft, da diese serverseitig erfolgt und keine zusätzlichen Technologien wie JavaScript notwendig sind. Zudem werden sämtliche HTTP-Requests, einschließlich der von Bots und Suchmaschinen-Crawlern, erfasst und können leicht in Textform archiviert werden. [Ryte Wiki, o.D.]
-Der große Nachteil dieses serverseitigen Verfahrens ist es, dass clientseitige Informationen, welche nicht an den Webserver übertragen werden, nicht erfasst werden können. Ebenso werden Interaktionen wie das Anklicken eines Bildes, die Scrolltiefe oder Verweildauer, die das Nutzerverhalten genauer beschreiben, nicht berücksichtigt. Zudem können Seitenaufrufe (engl. Page Views), welche aus dem Browser- Cache geladen werden, nicht in den Logfiles erfasst werden. Ein Verfahren, welches für dieses Problem abhilfe schafft und Nutzer einer Website nicht aus der Sicht des Servers, sondern aus Sicht des Clients betrachtet, ist das sogenannte Page Tagging. [COUNTER, 2021]
+Zusätzlich wird in der Logfile auch die Aufrufmethode (z. B. GET oder POST),  gespeichert, diese Angabe ist jedoch für eine spätere Analyse oft weniger relevant \parencite[Kap.2.2]{Hassler2019}. Der Vorteil dieser Methode ist es, dass die Datenerfassung unabhängig von Client-Technologien abläuft, da diese serverseitig erfolgt und keine zusätzlichen Technologien wie JavaScript notwendig sind \parencite{RyteLogFiles}. Der große Nachteil, wenn Nutzerdaten serverseitig erfasst werden ist es, dass clientseitige Informationen, welche nicht an den Webserver übertragen werden, nicht erfasst werden können. Somit werden Interaktionen mit der Website, welche keine Request auslösen nicht protokolliert und können nicht ausgewertet werden. Zudem können Seitenaufrufe (engl. Page Views), welche aus dem Browser-Cache geladen werden, nicht in den Logfiles erfasst werden. Ein Verfahren, welches für dieses Problem abhilfe schafft und Nutzer einer Website nicht aus der Sicht des Servers, sondern aus Sicht des Clients betrachtet, ist das sogenannte Page Tagging. \parencite{CounterCodePageTagging}, \parencite{CounterCodeLogFiles}
 
 \subsection{Page Tagging}
 \label{sec:pagetagging}
@@ -105,7 +111,7 @@ Unter Page Tagging versteht man die Einbindung eines kurzen Codeausschnittes (en
     \item alle Informationen, welche auch Logfiles liefern
 \end{itemize}
 
-Um die gesammelten Daten an den Webserver zu übertragen, wird ein Bild in der Größe eines Pixels erzeugt, weshalb dieses Verfahren ebenfalls als Pixel-Tracking bezeichnet wird [Hassler, 2019, S.31]. Der Webbrowser erkennt dieses Bild als fehlenden Inhalt an, der geladen werden muss und sendet eine HTTP-Anfrage um es abzurufen. Diese Anfrage wird auch als Image-Request bezeichnet und enthält alle zuvor gesammelten Daten als Parameter in der URL (Uniform Resource Locator). Die Image-Request wird allerdings nicht an den Webserver gesendet, auf welchem die Website hinterlegt ist, sondern an einen dedizierten Datensammlungsserver. Wurden die Daten vom Datensammlungsserver empfangen werden die Parameter aus der URL extrahiert und in einer Datenbank gespeichert. Anschließend können die Daten von einer Analyse-Engine verarbeitet werden um zusätzliche Einsichten in das Nutzerverhalten zu gewinnen. Neben der Verarbeitung der Daten kann der Datensammlungsserver in der HTTP-Antwort auch einen Cookie setzen. Dieser Cookie enthält eine eindeutige Kennung (Visitor-ID), die es ermöglicht, dass Gerät des Nutzers bei zukünftigen Besuchen wiederzuerkennen und weitere Informationen mit diesem zu verknüpfen [Dykes, 2014, S.70-71].
+Um die gesammelten Daten an den Webserver zu übertragen, wird ein Bild in der Größe eines Pixels erzeugt, weshalb dieses Verfahren ebenfalls als Pixel-Tracking bezeichnet wird [Hassler, 2019, S.31]. Der Webbrowser erkennt dieses Bild als fehlenden Inhalt an, der geladen werden muss und sendet eine HTTP-Anfrage um es abzurufen. Diese Anfrage wird auch als Image-Request bezeichnet und enthält alle zuvor gesammelten Daten als Parameter in der URL. Die Image-Request wird allerdings nicht an den Webserver gesendet, auf welchem die Website hinterlegt ist, sondern an einen dedizierten Datensammlungsserver. Wurden die Daten vom Datensammlungsserver empfangen werden die Parameter aus der URL extrahiert und in einer Datenbank gespeichert. Anschließend können die Daten von einer Analyse-Engine verarbeitet werden um zusätzliche Einsichten in das Nutzerverhalten zu gewinnen. Neben der Verarbeitung der Daten kann der Datensammlungsserver in der HTTP-Antwort auch einen Cookie setzen. Dieser Cookie enthält eine eindeutige Kennung (Visitor-ID), die es ermöglicht, dass Gerät des Nutzers bei zukünftigen Besuchen wiederzuerkennen und gesammelte Daten mit diesem zu verknüpfen [Dykes, 2014, S.70-71].
 
 - Grundlage von Page Tagging sind Events -> Überleitung
 
@@ -140,13 +146,14 @@ Cookies spielen eine zentrale Rolle in der Webanalyse, da sie es ermöglichen, N
 Zusätzlich müssen Nutzer die Möglichkeit haben, ihre Einwilligung jederzeit zu widerrufen. Dies stellt hohe Anforderungen an die technische Umsetzung von Cookie-Bannern und Consent-Management-Plattformen (Trepte, 2021).
 
 \section{Anforderungen an das Webanalyse-Tool} %3 Seiten
+\label{sec:anforderungenWebanalyseTool}
 Es gibt eine überwältigende Anzahl von Webanalyse-Tools, welche sich in ihren Funktionen, Kosten und technischen Ansätzen erheblich unterscheiden [Böhm \& Rittberger, 2016, S.244]. Grundsätzlich ist das Page Tagging besser geeignet, um detaillierte Informationen über das Nutzerverhalten auf Webseiten zu erfassen [vgl. Hassler, 2019, Kap.2.5.3]. Logfiles hingegen wurden ursprünglich zur technischen Überwachung entwickelt und enthalten nicht die hierfür erforderlichen Daten [vgl. Hassler, 2019, Kap.2.5.3]. Somit und mit den Erkenntnissen aus Kapitel~\ref{sec:pagetagging} wird deutlich, dass Page Tagging nicht nur umfangreiche Nutzerdaten liefert, sondern auch alle Informationen abdeckt, die durch die Analyse von Logfiles erfasst werden können. Weshalb bei der Auswahl einer Tool-Lösung ebenfalls darauf geachtet wird, dass die Daten per Page Tagging beziehungsweise per Events erhoben werden. 
 
 Neben der Methode der Datenerhebung wurden noch weitere Anforderungen an das Webanalyse Tool definiert [vgl. Matomo, o.D.; CiteUp, 2024; Hassler, 2019, Kap.1.6]:
 
 \begin{itemize}
     \item \textbf{Kosten:} Zunächst soll die kostenlose Variante eines Tools implementiert werden, um die grundlegenden Funktionen und die Eignung für das Bildungsportal zu testen, ohne dabei sofort finanzielle Mittel aufzuwenden.
-    \item \textbf{Dokumentation:} Um die Implementierung zu erleichtern ist eine ausführliche Dokumentation entscheidened.
+    \item \textbf{Dokumentation:} Um die Implementierung zu erleichtern ist eine ausführliche Dokumentation für das Tool entscheidened.
     \item \textbf{Datengenauigkeit:} Es soll ein Tool ausgewählt werden, welches Datenaktualisierung in Echtzeit bietet um eine unverfälschte Basis für datengetriebene Entscheidungen zu gewährleisten. Ungenauigkeiten können sonst zu fehlerhaften Schlussfolgerungen führen.
     \item \textbf{Datenschutz und DSGVO-Konformität:} Wie in Kapitel~\ref{sec:datenschutz} erläutert, sind Datenschutz und die Einhaltung der DSGVO grundlegende Anforderungen an ein Webanalyse-Tool. Somit sollte dieses in der Lage sein, die geltenden Datenschutzgesätze einzuhalten.
 \end{itemize}
@@ -156,15 +163,15 @@ Google Analytics (GA) ist mit einem Marktanteil von 82,0 \% unter den Websites, 
 
 Auf Grundlage dessen ist es keine Option GA für das Sammeln von Nutzerdaten auf dem Bildungsportal zu verwenden. 
 
-Ein Tool welches eine datenschutzkonforme Erhebung der Nutzerdaten ermöglicht und ebenfalls selbst auf einem eigenen Server gehostet werden kann (engl. on-premise) ist Matomo [vgl. Förster, 2024]. Matomo sorgt dafür, dass Analysedaten auf einer Website gesammelt, gespeichert und in Form von Bereichten (engl. Reports) ausgeliefert werden können.
+Ein Tool welches eine datenschutzkonforme Erhebung der Nutzerdaten ermöglicht und ebenfalls selbst auf einem eigenen Server gehostet werden kann (engl. on-premise) ist Matomo [vgl. Förster, 2024]. Matomo sorgt dafür, dass Analysedaten auf einer Website gesammelt, gespeichert und in Form von Bereichten (engl. Reports) oder direkt über Anfragen an die Matomo Datenbank ausgeliefert werden können.
 Das Tool ist Open-Source und kann auf verschiedenen Betriebsystemen wie Linux, Windows und macOS installiert werden. Alternativ dazu steht ebenfalls ein offizielles Docker-Image für die Bereitstellung in Container-Umgebungen zur Verfügung. Matomo benötigt eine MySQL oder MariaDB Datenbank um die Analysedaten zu speichern. 
 
-Nachdem Matomo installiert und konfiguriert wurde, kann das Page Tag in den Quellcode der Website eingebunden werden, um die Erfassung und Übertragung von Nutzerdaten an den Matomo-Server zu ermöglichen. Dabei wird der enthaltene Code bei jedem Seitenaufruf ausgeführt und sendet die gesammelten Daten an den Server. Das Page Tag verweist auf die Datei \texttt{matomo.js}, die als zentraler JavaScript Tracker fungiert und die eigentliche Tracking-Logik enthält. Nach der Datenerfassung sendet matomo.js die gesammelten Informationen in Form einer HTTP-Request an die Tracking-API \texttt{matomo.php} der Matomo-Instanz. Diese Instanz nimmt die Anfragen entgegen, verarbeitet diese und speichert die Rohdaten anschließend in der zugrunde liegenden Datenbank. Damit die Daten effizient abgerufen werden können, durchläuft Matomo einen Archivierungsprozess, bei dem die Rohdaten aggregiert und für die Erstellung von Reports optimiert werden. Diese Reports können über die Matomo Reporting API abgerufen werden. [Matomo, o.D.]
+Nachdem Matomo installiert und konfiguriert wurde, kann das Page Tag in den Quellcode der Website eingebunden werden, um die Erfassung und Übertragung von Nutzerdaten an den Matomo-Server (\texttt{matomo.php}) zu ermöglichen. Dabei wird der enthaltene Code bei jedem Seitenaufruf ausgeführt und sendet die gesammelten Daten an den Server. Das Page Tag verweist auf die Datei \texttt{matomo.js}, die als zentraler JavaScript Tracker fungiert und die eigentliche Tracking-Logik enthält. Nach der Datenerfassung sendet \texttt{matomo.js} die gesammelten Informationen in Form einer HTTP-Request an die Tracking-API \texttt{matomo.php} der Matomo-Instanz. Diese Instanz nimmt die Anfragen entgegen, verarbeitet diese und speichert die Rohdaten anschließend in der zugrunde liegenden Datenbank. Damit die Daten effizient abgerufen werden können, durchläuft Matomo einen Archivierungsprozess, bei dem die Rohdaten aggregiert und für die Erstellung von Reports optimiert werden. Diese Reports können über die Matomo Reporting API abgerufen werden. [Matomo, o.D.]
 
-In der Datei \texttt{matomo.js} können ebenfalls eigenen Events definiert werden, um zum Beispiel Nutzerinteraktionen mit Tagebucheinträgen oder das Anklicken von Links auf dem Bildungsportal zu erfassen. Jedes Event besteht aus einer Kategorie und einer Aktion. Optional können Events ebenfalls noch einen Namen und einen Wert enthalten. Ein Beispiel für eine Funktion, welche ein solches Event triggert ist in Listing~\ref{lst:exampleEvent} zu sehen: 
+Matomo ermölgicht es außerdem eigenen Events zu definieren, um zum Beispiel Nutzerinteraktionen mit den ausklappbaren Überschriften oder das Abspielen von Videos auf dem Bildungsportal zu erfassen. Jedes Event besteht aus einer Kategorie und einer Aktion. Optional können Events ebenfalls noch einen Namen und einen Wert enthalten. Ein Beispiel für eine Funktion, welche ein solches Event triggert ist in Listing~\ref{lst:exampleEvent} zu sehen: 
 
 \FloatBarrier
-\lstinputlisting[caption=JavaScript-Funktion zur Erfassung eines Klick-Events auf einen Tagebucheintrag in Matomo, label={lst:exampleEvent}, language=Apache]{listings/exampleEvent.txt}
+\lstinputlisting[caption=JavaScript-Funktion zur Erfassung eines Klick-Events auf einen Tagebucheintrag in Matomo, label={lst:exampleEvent}, language=java]{listings/exampleEvent.txt}
 
 In diesem Beispiel wird ein Event erstellt, welches erfasst, wenn ein Nutzer einen Tagebucheintrag öffnet. Die Methode \texttt{\detokenize{_paq.push([])}} weist Matomo an, Daten in die Plattform zu übertragen, während \textbf{trackEvent} den Typ der gesendeten Daten definiert. Matomo erkennt die folgenden Parameter als Event-Attribute:
 
@@ -178,7 +185,7 @@ Um nun das Event an der entsprechenden Stelle auszulösen, kann die Funktion inn
 
 \FloatBarrier
 \begin{minipage}{\linewidth}
-\lstinputlisting[caption=Event-Tracking für einen Klick auf einen Tagebucheintrag in Matomo, label={lst:exampleEventCall}, language=Apache]{listings/exampleEventCall.txt}
+\lstinputlisting[caption=Event-Tracking für einen Klick auf einen Tagebucheintrag in Matomo, label={lst:exampleEventCall}, language=html]{listings/exampleEventCall.txt}
 \end{minipage}
 
 Hierbei wird das in Listing~\ref{lst:exampleEvent} definierte Event innerhalb des HTML-Elementes \texttt{<a>} ausgelöst und über das \texttt{onclick}-Attribut wird die Javascript-Funktion aufgerufen.
