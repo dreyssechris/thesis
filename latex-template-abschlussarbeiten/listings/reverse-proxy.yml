@@ -1,0 +1,18 @@
+reverse_proxy:
+  image: nginx:alpine  # Nginx-Umgebung per Alpine Linux
+  restart: always  # Neustart bei Systemabsturz
+  volumes:
+    # Bindet die Konfigurationsdatei für den Reverse Proxy ein
+    - ./nginx/config/reverse_proxy.conf:/etc/nginx/conf.d/default.conf:ro
+    # Bindet die ssl Zertifikate ein, sodass HTTPS verwendet werden kann
+    - ./nginx/ssl:/etc/nginx/ssl:ro
+    # Mounten des Matomo-Volumes
+    - matomo:/var/www/html
+  ports:
+    - "443:443"  # HTTPS Traffic wird an den Proxy weitergeleitet
+  depends_on:
+    - portal  # Website muss gestartet sein
+    - grafana # Grafana muss gestartet sein
+    - matomo  # Matomo muss gestartet sein
+  networks:
+    - matomo_network  # Zugriff auf das intere Docker-Netzwerk

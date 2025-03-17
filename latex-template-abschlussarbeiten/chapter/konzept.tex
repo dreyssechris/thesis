@@ -1,6 +1,6 @@
 \chapter{Konzept} % 5-6 Seiten? 
 \label{ch:konzept}
-In den vorherigen Kapiteln wurden die Anforderungen an das Webanalysetool und das Dashboard definiert sowie geeignete Tools ausgewählt, die diese Anforderungen erfüllen können. Die Implementierung setzt diese Anforderungen technisch um, indem die ausgewählten Tools entsprechend konfiguriert und integriert werden. Dieses Kapitel beschreibt die methodische Herangehensweise an die Implementierung sowie die zugrunde liegende Architektur der Projektumgebung. Dabei wird erläutert, wie die definierten Anforderungen in der technischen Umsetzung berücksichtigt werden, welcher Aufbau für das Projekt gewählt wurde und welche Einschränkungen sich durch die Nutzung einer gespiegelten Website ergeben. Zudem wird erklärt wie die implementierte Lösung evaluiert wird.
+In den vorherigen Kapiteln wurden die Anforderungen an das Webanalysetool und das Dashboard definiert sowie geeignete Tools ausgewählt, die diese Anforderungen erfüllen können. Die Implementierung setzt diese Anforderungen technisch um, indem die ausgewählten Tools entsprechend konfiguriert und integriert werden. Dieses Kapitel beschreibt die methodische Herangehensweise an die Implementierung sowie die zugrunde liegende Architektur der Projektumgebung. Dabei wird erläutert, wie die definierten Anforderungen in der technischen Umsetzung berücksichtigt werden, welcher Aufbau für das Projekt gewählt wurde und welche Einschränkungen sich durch die Nutzung der gespiegelten Website des Bildungsportals \textit{evaschiffmann.de} ergeben. Zudem wird erklärt wie die implementierte Lösung evaluiert wird.
 
 \section{Methodische Umsetzung der Lösung}
 \label{sec:umsetzungloesung}
@@ -8,9 +8,9 @@ Die Umsetzung der Analyselösung erfolgt in mehreren Schritten. Zunächst wird d
 
 Danach wird Grafana installiert und mit Matomo verbunden, um die erfassten Daten auszulesen. Dabei wurde die direkte Anbindung an die Datenbank gewählt, da sie eine schnellere Verfügbarkeit der Daten sowie flexible SQL-Abfragen ermöglicht. Eine Anbindung über die Matomo Reporting API wurde geprüft, erwies sich jedoch als weniger geeignet, da sie nur vordefinierte, aggregierte Berichte liefert und weniger individuell konfigurierbar ist.
 
-Sobald die Datenübertragung sichergestellt ist, werden die SQL-Abfragen für die relevanten Metriken und KPIs erstellt und in den entsprechenden Grafana-Panels visualisiert. Dabei werden interaktive Filtermöglichkeiten integriert, um gezielte Analysen für die Unterseiten ermöglichen.
+Sobald die Datenübertragung sichergestellt ist, werden die SQL-Abfragen für die relevanten Metriken und KPIs erstellt und in den entsprechenden Grafana-Panels visualisiert. Dabei werden interaktive Filtermöglichkeiten integriert, um gezielte Analysen für die Unterseiten zu ermöglichen.
 
-Zusätzlich wird darauf geachtet, dass alle Komponenten sicher in die Umgebung integriert werden. Dazu zählen eine verschlüsselte Verbindung über HTTPS sowie eine rollenbasierte Zugriffskontrolle für Matomo und Grafana. Die detaillierte Umsetzung dieser Maßnahmen wird in Kapitel~\ref{ch:implementierung} beschrieben.
+Zusätzlich wird darauf geachtet, dass alle Komponenten sicher in die Umgebung integriert werden. Dazu zählen eine verschlüsselte Verbindung über HTTPS sowie eine rollenbasierte Zugriffskontrolle für Matomo und Grafana.
 
 \section{Projektaufbau}
 \label{sec:projektaufbau}
@@ -30,16 +30,26 @@ Das Projekt umfasst folgende Container:
     \item \textbf{Matomo Webserver (Nginx)}  
     Dient als Webserver für Matomo und leitet die Anfragen an die Matomo-Instanz weiter.
 
+    \item \textbf{MariaDB (Datenbank)}  
+    Speichert die von Matomo erfassten Nutzerdaten und stellt sie für die weitere Verarbeitung bereit.
+
     \item \textbf{Grafana-Instanz}  
     Bindet das Dashboard-Tool ein und wird direkt über den Reverse Proxy bereitgestellt, da es einen eigenen Webserver hat.
 
-    \item \textbf{Nginx als Reverse Proxy für Grafana}  
-    Absicherung und Bereitstellung der Grafana-Oberfläche.
-
     \item \textbf{Portal (Bildungsportal evaschiffmann.de)}  
-    Bindet die Website ein.
+    Bindet die gespiegelte Website ein.
 \end{itemize}
 
+\section{Einschränkungen durch die gespiegelte Website}
+\label{sec:einschränkungen }
+Auf Grund von Verzögerungen bei der Projektbereitstellung durch die ThULB, wird anstelle des eigentlichen Typo3-Projektes welches das Bildungsportal darstellt, zunächst eine gespiegelte Form der Website verwendet. Die Spiegelung wurde mithilfe eines Befehls zur Replikation des Frontends erstellt, der sämtliche verlinkten Ressourcen wie Bilder, Videos, Stylesheets und Skripte herunterlädt. Da es sich um eine statische Kopie handelt, sind dynamische Funktionen, die serverseitige Verarbeitung erfordern, nicht verfügbar. Dies betrifft die Merkliste, die Suchfunktion und die Seitennavigation innerhalb der Unterseite \textit{Zum Tagebuch}. Ebenfalls ist die Filterung nach Personen, Orten und Begriffen auf dieser Unterseite nicht möglich, da diese ebenfalls per Typo3-Plugin realisiert wurden. Nichts desto trotz können trotzdem alle Tagebucheinträge aufgerufen werden. Diese werden korrekt geladen und die Annotationen funktionieren. Zudem funktioniert die Karte auf der Unterseite \textit{Orte} nur eingeschränkt. Diese wird über eine externe Karten-API bereitgestellt und in die Website eingebunden. Aufgrund eines abgelaufenen API-Schlüssels wird der Kartenhintergrund nicht vollständig geladen, sodass die eigentliche Karte nur teilweise sichtbar ist. Die auf der Karte verzeichneten Orte mit den zugehörigen Überschriften und Tagebucheinträgen sind allerdings trotzdem klickbar und funktionieren ebenso wie auf der Originalseite. 
+
+Aufgrund der genannten Einschränkungen, lassen sich für die Suche und die Merkliste keine Analysewerte erfassen. Alle anderen Aspekte der Website funktionieren genauso wie bei der Originalseite und können somit analysiert werden.
 
 \section{Bewertungskriterien für die Evaluation}
 \label{sec:bewertungskriterien}
+Die Evaluation der implementierten Lösung erfolgt sowohl qualitativ als auch quantitativ. Die qualitative Evaluation basiert auf einer Nutzerbefragung in Form eines Fragebogens, der von dem Hauptanwender des Dashboards, Herrn Staack ausgefüllt wird. Der Fragebogen umfasst Fragen zur Beurteilung der Benutzerfreundlichkeit, der Übersichtlichkeit und des strukturellen Aufbaus des Dashboards sowie zur Aussagekraft und Relevanz der dargestellten Analysewerte. Zudem werden die interaktiven Filterfunktionen und die Verständlichkeit der Visualisierungen bewertet. Dadurch sollen Stärken und Verbesserungspotenziale identifiziert werden. Das Ergebnis der Bewertung gibt Auskunft darüber, inwiefern die Anforderungen von Herrn Staack an die zu analysierenden Aspekte des Bildungsportals erfüllt bzw. umgesetzt wurden.
+
+Für die quantitative Evaluation wird die technische Umsetzung betrachtet. Diese gilt als erfolgreich, wenn alle zuvor definierten Anforderungen an das Dashboard-Tool, das Analysetool sowie den Datenschutz vollständig und funktionsfähig umgesetzt wurden.
+
+Die Evaluation bildet die Grundlage zur Beantwortung der Forschungsfrage, indem sie aufzeigt, ob und inwiefern das entwickelte Analysetool die Anforderungen an eine datenschutzkonforme Erhebung und eine aussagekräftige Visualisierung von Nutzerdaten erfüllt. Sie gibt Aufschluss darüber, ob die Umsetzung sowohl technisch als auch inhaltlich den Anforderungen entspricht und das Dashboard eine sinnvolle Analyse des Nutzerverhaltens auf dem Bildungsportals ermöglicht.

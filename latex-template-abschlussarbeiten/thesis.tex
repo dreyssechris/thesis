@@ -41,6 +41,7 @@
 \addbibresource{bib/literatur.bib}	% verwendete Literatur eintragen
 %\include{misc/glossaryEntries}		% Glossar
 
+\definecolor{DarkGreen}{rgb}{0.0, 0.5, 0.0}
 
 \lstdefinelanguage{Apache}{
     basicstyle=\ttfamily,
@@ -50,6 +51,14 @@
     morecomment=[l]{\#}
 }
 
+\lstdefinestyle{yaml}{
+    basicstyle=\ttfamily,
+    rulecolor=\color{black},
+    stringstyle=\color{blue},         
+    commentstyle=\color{DarkGreen},        
+    morecomment=[l]{\#},               
+    keywordstyle=\color{black},        
+}
 
 
 
@@ -127,6 +136,9 @@
     \cite{GrafanaRBAC}
     \cite{MatomoReportingAPI}
     \cite{MatomoAboutUs}
+    \cite{AWS}
+    \cite{NginxReverseProxy}
+    \cite{PHPFPM}
 %--------------------------------------
 %   Glossar
 %--------------------------------------
