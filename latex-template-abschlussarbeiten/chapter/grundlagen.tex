@@ -28,10 +28,11 @@ Um die relevanten Metriken für das Bildungsportal \textit{evaschiffmann.de} zu 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=6cm, height=5cm, keepaspectratio]{images/dimensionen.png}
-    \caption{Metriken beleuchten hauptsächlich vier Dimensionen einer Website. \parencite[Kap.5.7]{Hassler2019}}%
-    \label{fig:dimensionen}%
+    \includegraphics[width=0.6\textwidth, keepaspectratio]{images/dimensionen.png}
+    \caption{Metriken beleuchten hauptsächlich vier Dimensionen einer Website. \parencite[Kap.5.7]{Hassler2019}}
+    \label{fig:dimensionen}
 \end{figure}
+
 
 Zusätzlich zu diesen Dimensionen beschreibt Hassler in seinem Buch \glqq Digital und Web Analytics\grqq{} die Wichtigkeit von Zielen bei der Webanalyse. Ziele sind essenziell, um den Erfolg der Website zu bewerten und sollten so gewählt werden, dass sie konkrete, messbare Nutzerinteraktionen widerspiegeln. Somit bieten Ziele einen Orientierungspunkt, um das Verhalten der Besucher besser einschätzen zu können. Um die Zielerreichung messbar zu machen kommen in der Webanalyse oftmals sogenannte Konvertierungen (engl. Conversions) zum Einsatz. Bei einer Conversion handelt es sich um eine Nutzerinteraktion, welche aus Sicht des Betreibers der Website als erwünschtes Verhalten gilt. \parencite[Kap.13]{Hassler2019}
 
@@ -55,7 +56,8 @@ In der Tabelle~\ref{tab:analysewerte} werden alle Analysewerte, welche erfasst w
         Anzahl der Besuche & Besucher & Metrik \\
         Anzahl der wiederkehrenden Besucher & Besucher & Metrik \\
         Anteil der wiederkehrenden Besucher & Besucher & Metrik \\
-        Aufrufe der einzelnen Unterseiten & Inhalte & Metrik \\
+        Anzahl der einmaligen Besucher & Besucher & Metrik \\
+        Seitenaufrufe nach Häufigkeit & Inhalte & Metrik \\
         Ranking der am häufigsten aufgeklappten Überschriften & Inhalte & Metrik \\
         Verweildauer & Verhalten & Metrik \\
         Bounce Rate & Verhalten & Metrik \\
@@ -68,6 +70,8 @@ In der Tabelle~\ref{tab:analysewerte} werden alle Analysewerte, welche erfasst w
     \caption{Analysewerte und ihre Klassifizierung nach Dimensionen}
     \label{tab:analysewerte}
 \end{table}
+
+Zusätzlich zu diesen Analysewerten soll auch die Möglichkeit bestehen, eine individuelle Nutzersitzung nachzuvollziehen. Dieser Analyseaspekt gehört sowohl zur Dimension Inhalte, da nachvollzogen werden kann, welche Seiteninhalte aufgerufen wurden, als auch zur Dimension Verhalten, da die Interaktionen wie Klickverläufe und Seitenaufrufe erfasst werden.
 
 \section{Datenerfassung}
 \label{sec:Datenerfassung}
@@ -122,7 +126,7 @@ Für das Bildungsportal \textit{evaschiffmann.de} spielen Events somit eine esse
 
 \subsection{Datenschutz und rechtliche Anforderungen}
 \label{sec:datenschutz}
-Die Analyse der Logfiles und besonders das Page Tagging, bieten umfangreiche Möglichkeiten zur Erfassung von Nutzerdaten. Im Umgang mit diesen personenbezogenen Daten muss allerdings einiges beachtet werden, um den gesetzlichen Datenschutzanforderungen gerecht zu werden. Im Folgenden werden die rechtlichen Aspekte und deren Auswirkungen auf die Webanalyse näher beleuchtet.
+Die Analyse der Logfiles und besonders das Page Tagging, bieten umfangreiche Möglichkeiten zur Erfassung von Nutzerdaten. Im Umgang mit diesen Daten muss allerdings einiges beachtet werden, um den gesetzlichen Datenschutzanforderungen gerecht zu werden. Im Folgenden werden die rechtlichen Aspekte und deren Auswirkungen auf die Webanalyse näher beleuchtet.
 
 Der Datenschutz ist ein übergeordnetes Konzept, das in verschiedenen Ländern auf unterschiedliche Art und Weise geregelt ist. Die DSGVO hingegen stellt eine spezifische gesetzliche Regelung der EU dar, die alle Mitgliedstaaten gleichermaßen betrifft. Während Datenschutz allgemein darauf abzielt, die Privatsphäre der Menschen zu schützen, legt die DSGVO detaillierte Anforderungen an den Umgang mit personenbezogenen Daten fest und sieht hohe Bußgelder bei Verstoßen vor. Insbesondere für international tätige Unternehmen ist die Einhaltung der DSGVO essenziell, da sie auch außerhalb der EU gilt, wenn Daten von EU-Bürgern verarbeitet werden (Voigt \& Von dem Bussche, 2017, Kap.1; Kap.2).
 
@@ -136,12 +140,11 @@ Die rechtlichen Anforderungen der DSGVO haben direkte Auswirkungen auf die Gesta
     \item \textbf{Transparenz:} Nutzer müssen darüber informiert werden, welche Daten erfasst werden und zu welchem Zweck [Hanschke, 2020, Kap.2.4].
     \item \textbf{Datenminimierung:} Analysesysteme sollten nur die für den jeweiligen Zweck erforderlichen Daten sammeln [Europäische Union, 2016, Art. 5 Abs. 1 lit. c].
     \item \textbf{Einwilligung:} Die Verarbeitung personenbezogener Daten geschieht oft durch den Einsatz von Cookies. Hierzu muss die Einwilligung der Nutzer eingeholt werden [Europäische Union, 2016, Art. 6 Abs. 1 lit. a]. 
-    \item \textbf{?Rechenschaftspflicht?:} Unternehmen müssen nachweisen können, dass sie die Anforderungen der DSGVO einhalten. Dies erfordert technische und organisatorische Maßnahmen wie Dokumentation und Auditierung (Voigt Von dem Bussche, 2017).
 \end{itemize}
 
-Die IP-Adresse wird von der DSGVO als personenbezogenes Datum eingestuft, da sie in Kombination mit weiteren Informationen eine Identifizierung der Person ermöglichen kann. Analytics-Systeme müssen daher besondere Maßnahmen ergreifen, um die Verarbeitung der IP-Adressen DSGVO-konform zu gestalten. Häufig wird die IP-Adresse anonymisiert, bevor sie gespeichert oder weiterverarbeitet wird. Google Analytics beispielsweise bietet eine Funktion zur IP-Anonymisierung, bei der die letzten Stellen der IP-Adresse entfernt werden (Google, o.D.). % noch quellen suchen + PostHog
+Die IP-Adresse wird von der DSGVO als personenbezogenes Datum eingestuft, da sie in Kombination mit weiteren Informationen eine Identifizierung der Person ermöglichen kann. Analytics-Systeme müssen daher besondere Maßnahmen ergreifen, um die Verarbeitung der IP-Adressen DSGVO-konform zu gestalten. Häufig wird die IP-Adresse anonymisiert, bevor sie gespeichert oder weiterverarbeitet wird. Google Analytics beispielsweise bietet eine Funktion zur IP-Anonymisierung, bei der die letzten Stellen der IP-Adresse entfernt werden \parencite{eRecht23}. 
 
-Cookies spielen eine zentrale Rolle in der Webanalyse, da sie es ermöglichen, Nutzer über verschiedene Sitzungen hinweg zu identifizieren. Die Verwendung von Cookies unterliegt jedoch strengen Anforderungen. Gemäß der E-Privacy-Richtlinie ("Cookie-Richtlinie") und der DSGVO ist für den Einsatz von Cookies, die nicht technisch notwendig sind, eine ausdrückliche Einwilligung der Nutzer erforderlich (Europäische Union, 2016). % Quelle + PostHog
+Cookies spielen ebenfalls eine wichtige Rolle in der Webanalyse, da sie es ermöglichen, Nutzer über verschiedene Sitzungen hinweg zu identifizieren. Die Verwendung von Cookies unterliegt jedoch strengen Anforderungen. Gemäß der E-Privacy-Richtlinie ("Cookie-Richtlinie") und der DSGVO ist für den Einsatz von Cookies, die nicht technisch notwendig sind, eine ausdrückliche Einwilligung der Nutzer erforderlich (Europäische Union, 2016). % Quelle + PostHog
 
 Zusätzlich müssen Nutzer die Möglichkeit haben, ihre Einwilligung jederzeit zu widerrufen. Dies stellt hohe Anforderungen an die technische Umsetzung von Cookie-Bannern und Consent-Management-Plattformen (Trepte, 2021).
 
@@ -185,7 +188,7 @@ Um nun das Event an der entsprechenden Stelle auszulösen, kann die Funktion inn
 
 \FloatBarrier
 \begin{minipage}{\linewidth}
-\lstinputlisting[caption=Event-Tracking für einen Klick auf einen Tagebucheintrag in Matomo, label={lst:exampleEventCall}, language=html]{listings/exampleEventCall.txt}
+\lstinputlisting[caption=Event-Tracking für einen Klick auf einen Tagebucheintrag in Matomo, label={lst:exampleEventCall}, language=Java]{listings/exampleEventCall.js}
 \end{minipage}
 
 Hierbei wird das in Listing~\ref{lst:exampleEvent} definierte Event innerhalb des HTML-Elementes \texttt{<a>} ausgelöst und über das \texttt{onclick}-Attribut wird die Javascript-Funktion aufgerufen.

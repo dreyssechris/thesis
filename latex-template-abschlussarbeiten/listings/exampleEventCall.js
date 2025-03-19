@@ -5,8 +5,3 @@
   <p>Tagebuch der Eva Schiffmann : 01.07.1925 - 31.07.1930 (Blatt 0002)</p>
 
 </a>
-
-
-
-
-
