@@ -1,7 +1,0 @@
-<a title="Objektdetails öffnen" 
-   href="/zum-tagebuch/dana_cbu_00001154_tei_0002?ceid=786&no_cache=1&tx_jomuseo_pi1009%5Bh%5D=1&tx_jomuseo_pi1009%5Bjopaginatepage%5D=1&tx_jomuseo_pi1009%5Bstartfrom%5D=0"
-   onclick="_paq.push(['trackEvent', 'DiaryEntry', 'DiaryEntryOpened', 'Blatt 0002']);">
-  
-  <p>Tagebuch der Eva Schiffmann : 01.07.1925 - 31.07.1930 (Blatt 0002)</p>
-
-</a>

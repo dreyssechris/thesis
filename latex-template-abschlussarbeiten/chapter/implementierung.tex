@@ -25,7 +25,7 @@ Der Reverse Proxy (Nginx) wird als Zugangspunkt für die Dienste verwendet. Die 
     \end{minipage}
 \end{figure}
 
-Das Listing~\ref{lst:reverseproxy} zeigt die Definition des Reverse Proxy in der \texttt{docker-compose.yml}. Die einzelnen Komponenten werden anhand der Kommentare beschrieben. Um die Dienste über HTTPS verfügbar zu machen, wurde für die Testumgebung auf localhost ein selbst signiertest Zertifikat hierfür erstellt und eingebunden. Dies ist in Zeile 8 zu erkennen. In Zeile 10 wird das Volume für Matomo gemountet, sprich eingebunden. Dies dient zur Bereitstellung von statischen Inhalten wie HTML oder Javascript. PHP-Anfragen werden wie bereits erwähnt an \texttt{matomo\textunderscore web} weitergeleitet.
+Das Listing~\ref{lst:reverseproxy} zeigt die Definition des Reverse Proxy in der \texttt{docker-compose.yml}. Die einzelnen Komponenten werden anhand der Kommentare beschrieben. Um die Dienste über HTTPS verfügbar zu machen, wurde für die Testumgebung auf localhost ein selbst signiertest Zertifikat hierfür erstellt und eingebunden. Dies ist in Zeile acht zu erkennen. In Zeile zehn wird das Volume für Matomo gemountet, sprich eingebunden. Dies dient zur Bereitstellung von statischen Inhalten wie HTML oder Javascript. PHP-Anfragen werden wie bereits erwähnt an \texttt{matomo\textunderscore web} weitergeleitet.
 
 \section{Integration der Webanalyse mit Matomo}
 Nachdem die Webserver aufgesetzt wurden und die \texttt{docker-compose.yml} definiert wurde, ist Matomo in der lokalen Umgebung über \textit{https://localhost/matomo} verfügbar und die Einrichtung kann erfolgen. Die Einrichtung besteht im wesentlichen aus fünf Schritten. Zunächst wird ein System Check durchgeführt, bei dem überprüft wird, ob die Serverumgebung die Anforderungen für den Betrieb von Matomo erfüllt. Hierbei wird unter anderem geprüft, ob eine kompatible PHP-Version verwendet wird oder auch ob Matomo auf die notwendigen Verzeichnisse zugreifen kann und Schreibrechte für diese besitzt. Nach dem erfolgreichen System Check kann die Datenbankverbindung eingerichtet werden und ein Hauptadministrator angelegt werden. 
@@ -35,25 +35,25 @@ Nachdem die Webserver aufgesetzt wurden und die \texttt{docker-compose.yml} defi
     \begin{minipage}{0.49\textwidth}
         \centering
         \includegraphics[width=\linewidth, keepaspectratio]{images/haupadministrator.png}
-        \caption{Anlegen des Kontos für den Hauptadministrator in Matomo}
+        \caption{Anlegen des Kontos für den Hauptadministrator in Matomo.}
         \label{fig:hauptadministrator}
     \end{minipage}
     \hfill
     \begin{minipage}{0.49\textwidth}
         \centering
         \includegraphics[width=\linewidth, keepaspectratio]{images/setup-datenbank.png}
-        \caption{Einrichtung der Datenbankverbindung in Matomo}
+        \caption{Einrichtung der Datenbankverbindung in Matomo.}
         \label{fig:setup-datenbank}
     \end{minipage}
 \end{figure}
 
-In Abbildung~\ref{fig:hauptadministrator} ist zu sehen wie das Konto erstellt wird. In Abbildung~\ref{fig:setup-datenbank} wird gezeigt, wie die Datenbankverbindung zu MariaDB hergestellt wird. Die Zugangsdaten für den Hauptadministrator, sowie den Datenbanknutzer sind in der Datei \texttt{db.env} gespeichert. Für die Datenbank wird der Container \texttt{db} verwendet. In diesem Container wird dafür gesorgt das folgendes Skript eingebunden wird: 
+In Abbildung~\ref{fig:hauptadministrator} ist zu sehen wie das Konto erstellt wird. In Abbildung~\ref{fig:setup-datenbank} wird gezeigt, wie die Datenbankverbindung zu MariaDB hergestellt wird. Die Zugangsdaten für den Hauptadministrator, sowie den Datenbanknutzer sind in der Datei \texttt{db.env} gespeichert. Für die Datenbank wird der Container \texttt{db} verwendet. In diesem Container wird dafür gesorgt, dass folgendes Skript eingebunden wird: 
 
 \begin{figure}[H]
     \centering
     \begin{minipage}{\textwidth}
         \lstinputlisting[
-            caption=SQL-Skript für die Erstellung eines Nutzer mit read-only Rechten, 
+            caption=SQL-Skript für die Erstellung eines Nutzer mit read-only Rechten., 
             label={lst:readonly},
             language=sql
         ]{listings/create-read-only-user.sql}
@@ -71,11 +71,11 @@ Das in Listing~\ref{lst:readonly} zu sehende Skript erstellt einen neuen Datenba
 
 Wie in Abbildung~\ref{fig:website-hinzufuegen} zu erkennen, erhält die Website ebenfalls einen Namen in Matomo. Somit kann in Matomo direkt erkannt werden, welche Website gerade getrackt wird. 
 
-Im letzten Schritt der Matomo-Einrichtung wird das Page-Tag von Matomo generiert. Um dieses nutzbar zu machen wird es anschließend vor dem \texttt{</body>}-Tag jeder Seite integriert, um sicherzustellen, dass der Inhalt der Seite geladen wurde. Da die gespiegelte Website sehr viele HTML-Dateien beinhaltet wurde hierfür ein Python Skript (\texttt{insert-scripts.py}) geschrieben, welches dafür sorgt, dass das Page-Tag in alle HTML-Dateien per Skript-Tag eingefügt wird. Das Skript selbst befindet sich in der Datei \texttt{tracking.js}. 
+Im letzten Schritt der Matomo-Einrichtung wird das Page-Tag von Matomo generiert. Um dieses nutzbar zu machen wird es anschließend vor dem \texttt{</body>}-Tag jeder Seite integriert, um sicherzustellen, dass der Inhalt der Seite geladen wurde. Da die gespiegelte Website sehr viele HTML-Dateien beinhaltet wurde hierfür ein Python Skript (\texttt{insert\allowbreak-scripts.py}) geschrieben, welches dafür sorgt, dass das Page-Tag in alle HTML-Dateien per Skript-Tag eingefügt wird. Das Skript selbst befindet sich in der Datei \texttt{tracking.js}. 
 
 
 \section{Matomo datenschutzkonform konfigurieren}
-Um sicherzustellen, dass Nutzer nicht über ihre IP-Adressen identifiziert werden können, wird in Matomo innerhalb der Einstellungen zur Privatsphäre eine IP-Anonoymisierung konfiguriert. Hierbei werden die letzten 2 bytes der IP-Adresse anonymisiert. 
+Damit sichergestellt wird, dass Nutzer nicht über ihre IP-Adressen identifiziert werden können, wird in Matomo innerhalb der Einstellungen zur Privatsphäre eine IP-Anonoymisierung konfiguriert. Hierbei werden die letzten 2 bytes der IP-Adresse anonymisiert. 
 
 Um sicherzustellen, dass Nutzer nur dann getrackt werden, wenn diese ihre Zustimmung erteilen, werden Opt-In- und Opt-Out-Mechanismen für die Einwilligung und den Widerruf der Tracking-Berechtigungen implementiert. Hierfür wurde im Page-Tag die in Listing~\ref{lst:require-consent} zu sehende Zeile hinzugefügt: 
 
@@ -129,7 +129,7 @@ Grafana ist in der lokalen Umgebung unter \textit{https://localhost/grafana} ver
     \label{fig:datasource}
 \end{figure}
 
-In der Abbildung~\ref{fig:datasource} ist zu sehen, dass der Datenbank-Container \texttt{db} mit dem Standardport für MySQL, bzw. MariaDB als Host URL gesetzt wurde. Dies ist möglich, da Grafana und Matomo über das gemeinsame Netzwerk \texttt{matomo\textunderscore network} innerhalb der Container-Umgebung kommunizieren können. Somit kann direkt der Containername, anstatt einer URL verwendet werden. Ebenfalls zu erkenne ist, dass der zuvor erstellte Datenbanknutzer, welcher ausschließlich Leseberechtigungen auf die Matomo Datenbank besitzt verwendet wird, um Daten abzurufen. Wenn nun Panels zur Visualisierung der Analysewerte erstellt werden, kann diese Datenquelle ausgewählt werden um über den read-only Nutzer der Datenbank SQL-Abfragen an diese zu erstellen.
+In der Abbildung~\ref{fig:datasource} ist zu sehen, dass der Datenbank-Container \texttt{db} mit dem Standardport für MySQL, bzw. MariaDB als Host URL gesetzt wurde. Dies ist möglich, da Grafana und Matomo über das gemeinsame Netzwerk \texttt{matomo\textunderscore network} innerhalb der Container-Umgebung kommunizieren können. Somit kann direkt der Containername, anstatt einer URL verwendet werden. Ebenfalls zu erkennen ist, dass der zuvor erstellte Datenbanknutzer, welcher ausschließlich Leseberechtigungen auf die Matomo Datenbank besitzt verwendet wird, um Daten abzurufen. Wenn nun Panels zur Visualisierung der Analysewerte erstellt werden, kann diese Datenquelle ausgewählt werden um über den read-only Nutzer der Datenbank SQL-Abfragen an diese zu erstellen.
 
 \section{Umsetzung der Filtermöglichkeiten in Grafana}
 Um die zeitliche Filterung der erhaltenen Daten einheitlich über alle Pannels hinweg zu ermöglichen wird der Grafana Time Picker verwendet. Damit dieser funktionsfähig ist, müssen die über den Time Picker eingestellten Werte in die SQL-Abfrage integriert werden. Hierfür werden die Grafana-Variablen \texttt{\$\{\_\_from\}} und \texttt{\$\{\_\_to\}} genutzt, welche das Start- und Enddatum der vom Nutzer gewählten Zeitspanne enthalten \parencite{GrafanaTimePickerVariables}. 
@@ -138,14 +138,14 @@ Um die zeitliche Filterung der erhaltenen Daten einheitlich über alle Pannels h
     \centering
     \begin{minipage}{\textwidth}
         \lstinputlisting[
-            caption=Zeitliche Filterung der Besuchsdaten in Grafana mittels \texttt{visit\_first\_action\_time} und Time-Picker-Variablen \texttt{\$\{\_\_from\}} und \texttt{\$\{\_\_to\}},
+            caption=Zeitliche Filterung der Besuchsdaten in Grafana mittels \texttt{visit\_first\_action\_time} und den Time-Picker-Variablen \texttt{\$\{\_\_from\}} und \texttt{\$\{\_\_to\}}.,
             label={lst:from-to},
             language=sql
         ]{listings/from-to.sql}
     \end{minipage}
 \end{figure}
 
-In dem Listing~\ref{lst:from-to} werden die Grafana Variablen für die Zeitbegrenzung verwendet. Da der Time Picker nur Unix Zeitstempel zurückgibt, müssen diese in das passende Datumsformat der Datenbank umgewandelt werden. Hierfür bietet MySQL die Funktion \texttt{FROM\textunderscore UNIXTIME} \parencite{MySQLUnixtime}. Die Tabelle \texttt{log\textunderscore visit} wird für die Zeitbegrenzung verwendet und speichert die einzelnen Nutzersitzungen \parencite{MatomoDBSchema}. In dieser Tabelle befindet sich die Spalte \texttt{visit\textunderscore first \textunderscore action\textunderscore time}, welche den Zeitpunkt der ersten Aktion einer Sitzung speichert \parencite{MatomoDBSchema}. Da jeder Eintrag eine eigenständige Sitzung darstellt, können darüber Sitzungen gefiltert werden, die im gewählten Zeitraum des stattgefunden haben.
+In dem Listing~\ref{lst:from-to} werden die Grafana Variablen für die Zeitbegrenzung verwendet. Da der Time Picker nur Unix Zeitstempel zurückgibt, müssen diese in das passende Datumsformat der Datenbank umgewandelt werden. Hierfür bietet MySQL die Funktion \texttt{FROM\textunderscore UNIXTIME} \parencite{MySQLUnixtime}. Die Tabelle \texttt{log\textunderscore visit} wird für die Zeitbegrenzung verwendet und speichert die einzelnen Nutzersitzungen \parencite{MatomoDBSchema}. In dieser Tabelle befindet sich die Spalte \texttt{visit\textunderscore first \textunderscore action\textunderscore time}, welche den Zeitpunkt der ersten Aktion einer Sitzung speichert \parencite{MatomoDBSchema}. Da jeder Eintrag eine eigenständige Sitzung darstellt, können darüber Sitzungen gefiltert werden, die im gewählten Zeitraum stattgefunden haben.
 
 Um die Filterung der Werte für die einzelnen Unterseiten zu realisieren, wird in Grafana die Variable \texttt{\$Seite} definiert. Diese hat als Werte die Titel der Unterseiten des Bildungsportals, also beispielsweise \glqq Zum Tagebuch\grqq{} oder \glqq Schülerin\grqq{}. Die Variable kann ebenfalls den Wert \glqq Übersicht\grqq{} haben. Wenn dieser Wert ausgewählt wird werden die angzeigten Daten nicht auf eine bestimmte Unterseite begrenzt, sondern beziehen sich auf das gesamte Bildungsportal. Ebenso kann für die Variable der Wert \glqq Alle Tagebuchseiten\grqq{} ausgewählt werden. Hierbei werden alle Tagebuchseiten zusammengefasst um eine Übersicht, über die allgemeine Nutzung des Tagebuchs zu zeigen. Nachdem die Variable definiert wurde, wird diese in der Dashboardansicht sichtbar und über ein Drop-Down Menü können die einzelnen Werte der Variable ausgewählt werden.
 
@@ -153,14 +153,14 @@ Um die Filterung der Werte für die einzelnen Unterseiten zu realisieren, wird i
     \centering
     \begin{minipage}{\textwidth}
         \lstinputlisting[
-            caption=SQL-Abfrage zur Filterung der Besuche basierend auf der ausgewählten Unterseite oder den Tagebuchseiten,
+            caption=SQL-Abfrage zur Filterung der Besuche basierend auf der ausgewählten Unterseite oder den Tagebuchseiten.,
             label={lst:seite},
             language=sql
         ]{listings/seite.sql}
     \end{minipage}
 \end{figure}
 
-Das Listing~\ref{lst:seite} zeigt, auf welche Art und Weise die Variable in den SQL-Abfragen verwendet wird. Über diese Query werden alle Besuche auf der Website ausgegeben, entweder ungefiltert, für eine Unterseite oder für alle Tagebuchseiten. Über den ersten \texttt{JOIN} in Zeile 5 werden die Sitzungen mit den zugehörigen Aktionen, also unter anderem Seitenaufrufen, verknüpft. Da die Seitentitel allerdings in der Tabelle \texttt{log\textunderscore action} gespeichert werden, wird hierfür ein weiterer \texttt{JOIN} benötigt. In der {\texttt{WHERE}-Klausel} wird zuletzt der Wert der Variable geprüft. Ist dieser \textit{Übersicht}, wird keine Filterung vorgenommen und alle Besuche werden angezeigt. Wird eine Unterseite ausgewählt, werden nur die Besuche auf dieser Seite ausgegeben. Für die Tagebuchseiten wurde ein regulärer Ausdruck verwendet, da die Titel für die Tagebuchseiten immer den Bezeichner \textit{Blatt} mit der entsprechenden Nummer besitzen.
+Das Listing~\ref{lst:seite} zeigt, auf welche Art und Weise die Variable \texttt{\$Seite} in den SQL-Abfragen verwendet wird. Über diese Query werden alle Besuche auf der Website ausgegeben, entweder ungefiltert, für eine Unterseite oder für alle Tagebuchseiten. Über den ersten \texttt{JOIN} in Zeile fünf werden die Sitzungen mit den zugehörigen Aktionen, also unter anderem Seitenaufrufen, verknüpft. Da die Seitentitel allerdings in der Tabelle \texttt{log\textunderscore action} gespeichert werden, wird hierfür ein weiterer \texttt{JOIN} benötigt. In der {\texttt{WHERE}-Klausel} wird zuletzt der Wert der Variable geprüft. Ist dieser \glqq Übersicht\grqq{}, wird keine Filterung vorgenommen und alle Besuche werden angezeigt. Wird eine Unterseite ausgewählt, werden nur die Besuche auf dieser Seite ausgegeben. Für die Tagebuchseiten wurde ein regulärer Ausdruck verwendet, da die Titel für die Tagebuchseiten immer den Bezeichner \glqq Blatt\grqq{} mit der entsprechenden Nummer besitzen.
 
 Die Variable \texttt{\$Seite} wird in diesen Metriken verwendet: 
 \begin{itemize}
@@ -178,14 +178,14 @@ Um die Sortierrichtung der Tabellen, sowie des Balkendiagramms umzukehren, wird 
     \centering
     \begin{minipage}{\textwidth}
         \lstinputlisting[
-            caption=SQL-Abfrage zur Filterung der Besuche basierend auf der ausgewählten Unterseite oder den Tagebuchseiten,
+            caption=SQL-Abfrage zur Identifikation von Traffic-Quellen sowie zur Erfassung der Seitenaufrufe und Absprungraten über diese.,
             label={lst:referer-ranking},
             language=sql
         ]{listings/referer-ranking.sql}
     \end{minipage}
 \end{figure}
 
-Die Query aus Listing~\ref{lst:referer-ranking} zeigt wie die Variable \texttt{\$Sort} verwendet wird, je nach Auswahl wird der Wert in die {\texttt{ORDER BY}-Klausel} geschrieben. Der \texttt{referer\textunderscore type} wird in der Datenbank als Zahlenwert gespeichert, wobei jede Zahl einen Quelle angibt \parencite{MatomoDBSchema}. Wenn der Zugriff nicht über einen Referer erfolgt, ist der \texttt{referer\textunderscore type} gleich \glqq 1\grqq{}. Dieser Wert wird somit ausgeschlossen. Matomo speichert in der Datenbank ebenfalls die Aktionen, welche auf der Website ausgeführt wurden, nachdem der Besucher über einen Referer auf die Seite gelangt ist. Wenn nur eine Aktion ausgeführt wurde, so wird der \texttt{bounce\textunderscore count} gesetzt. Dieser Zähler erhöht sich um eins, wenn Besucher nur eine Aktion ausführen, wenn diese über eine externe Quelle auf das Bildungsportal gelangt sind. Die Gruppierung erfolgt über die \texttt{referer\textunderscore url}, sodass die Besuche und Absprünge für jede URL angezeigt werden. 
+Die Query aus Listing~\ref{lst:referer-ranking} zeigt wie die Variable \texttt{\$Sort} verwendet wird. Je nach Auswahl wird der Wert in die {\texttt{ORDER BY}-Klausel} geschrieben. Der \texttt{referer\textunderscore type} wird in der Datenbank als Zahlenwert gespeichert, wobei jede Zahl einen Quelle angibt \parencite{MatomoDBSchema}. Wenn der Zugriff nicht über einen Referer erfolgt, ist der \texttt{referer\textunderscore type} gleich \glqq 1\grqq{}. Dieser Wert wird somit ausgeschlossen. Matomo speichert in der Datenbank ebenfalls die Aktionen, welche auf der Website ausgeführt wurden, nachdem der Besucher über einen Referer auf die Seite gelangt ist. Wenn nur eine Aktion ausgeführt wurde, so wird der \texttt{bounce\textunderscore count} gesetzt. Dieser Zähler erhöht sich um eins, wenn Besucher nur eine Aktion ausführen, wenn diese über eine externe Quelle auf das Bildungsportal gelangt sind. Die Gruppierung erfolgt über die \texttt{referer\textunderscore url}, sodass die Besuche und Absprünge für jede URL angezeigt werden. 
 
 Die Variable \texttt{\$Sort} wird in diesen Metriken verwendet: 
 \begin{itemize}
