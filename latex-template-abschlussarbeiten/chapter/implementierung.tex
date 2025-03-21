@@ -378,12 +378,14 @@ Für alle vier KPIs wird ein Gauge-Panel erstellt. Die KPIs \glqq min. eine Tage
     \begin{minipage}{0.49\textwidth}
         \centering
         \includegraphics[width=\linewidth, keepaspectratio]{images/thresholds-min-drei.png}
-        \caption{Grenzwerte für die KPIs \glqq min. drei Tagebuchseiten geöffnet\grqq{} und \glqq min. drei Überschriften aufgeklappt\grqq{} }
+        \caption{Grenzwerte für die KPIs \glqq min. drei Tagebuchseiten geöffnet\grqq{} und \glqq min. drei Überschriften aufgeklappt\grqq{}.}
         \label{fig:thresholds-min-drei}
     \end{minipage}
 \end{figure}
 
 Die unterschiedlichen Thresholds verdeutlichen, dass für die beiden Arten von KPIs unterschiedliche Maßstäbe für den Erfolg gelten. Da die Wahrscheinlichkeit, dass Nutzer eine Aktion dreimal ausführen, geringer ist als bei einer einmaligen Ausführung.
+
+Die KPIs zu den Überschriften verwenden das in Listing~\ref{lst:headingsevent} gezeigte \texttt{expand}-Event. Die Tabellen \texttt{log\textunderscore visit} und \texttt{log\textunderscore link\textunderscore visit\textunderscore action} werden hierbei ebenso verknpüft, um die Events mit dem Namen \texttt{expand} zu filtern. Dadurch, dass am Ende der Abfrage nach der Visit-ID für die Sessions gruppiert wird, wird sichergestellt, dass jeder Besuch nur einmal gezählt wird, unabhängig davon, wie oft die Aktion innerhalb eines Besuchs ausgelöst wurde. 
 
 
 
