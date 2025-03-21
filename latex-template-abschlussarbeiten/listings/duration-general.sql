@@ -1,0 +1,1 @@
+ROUND(SUM(visit_total_time) / COUNT(*) / 60, 2) AS avg_time_on_site

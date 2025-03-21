@@ -226,9 +226,9 @@ Für diese Metriken wird ein Bar-Chart-Panel verwendet. Hierfür bietet Grafana 
     \end{minipage}
 \end{figure}
 
-Wie in Abbildung~\ref{fig:orientation} zu sehen ist, wurde der Winkel der X-Achsen-Beschriftungen leicht angepasst, um die Lesbarkeit der Seitentitel zu verbessern und ein Überlappen der Texte zu vermeiden. Zusätzlich wurde die maximale Zeichenlänge der X-Achsen-Beschriftungen auf \glqq 15\grqq{} begrenzt, sodass lange Titel gekürzt werden. Die Ausrichtung des Diagramms kann zwischen horizontal und vertikal gewechselt werden, wobei die aktuelle Einstellung \glqq Auto\grqq{} einer horizontalen Darstellung entspricht. Zudem wurden die Balkenbreite und der Balkenradius angepasst, um ein abgerundetes Design zu erzeugen. Durch die aktivierte Option \texttt{Show values} wird sichergestellt, dass die Zahlenwerte direkt auf den Balken angezeigt werden, ohne das diese nochmal separat angeklickt werden müssen.
+Wie in Abbildung~\ref{fig:orientation} zu sehen ist, wird der Winkel der X-Achsen-Beschriftungen leicht angepasst, um die Lesbarkeit der Seitentitel zu verbessern und ein Überlappen der Texte zu vermeiden. Zusätzlich wird die maximale Zeichenlänge der X-Achsen-Beschriftungen auf \glqq 15\grqq{} begrenzt, sodass lange Titel gekürzt werden. Die Ausrichtung des Diagramms kann zwischen horizontal und vertikal gewechselt werden, wobei die aktuelle Einstellung \glqq Auto\grqq{} einer horizontalen Darstellung entspricht. Zudem wird die Balkenbreite und der Balkenradius angepasst, um ein abgerundetes Design zu erzeugen. Durch die aktivierte Option \texttt{Show values} wird sichergestellt, dass die Zahlenwerte direkt auf den Balken angezeigt werden, ohne das diese nochmal separat angeklickt werden müssen.
 
-In Abbildung~\ref{fig:highlight} sind die Einstellungen für die optische Darstellung der Balken zu sehen. Hier wurde festgelegt, dass beim Überfahren eines Balkens mit der Maus der gesamte Bereich farblich markiert wird. Die Farbgebung der Balken richtet sich nach dem Feld \texttt{page\textunderscore title}, um eine visuelle Unterscheidung zwischen den einzelnen Seitentiteln zu ermöglichen. Unterseiten erhalten jeweils eine eigene Farbe, wobei für alle Tagebuchseiten die selbe Farbe verwendet wird. Das ist ebenfalls der Fall für die Unterseiten von \glqq Wer War Eva Schiffmann\grqq{} und \glqq Themen\grqq{}. Diese Entscheidung wurde getroffen, da ansonsten mit verschiedenen Farbtönen einer Farbe gearbeitet werden müsste und somit die Unterscheidung zwischen den Seiten schwerer fällt. Darüber hinaus wurde die Linienbreite reduziert und die Transparenz der Balkenfüllung angepasst, um das Diagramm optisch ansprechender zu machen.
+In Abbildung~\ref{fig:highlight} sind die Einstellungen für die optische Darstellung der Balken zu sehen. Hier wird festgelegt, dass beim Überfahren eines Balkens mit der Maus der gesamte Bereich farblich markiert wird. Die Farbgebung der Balken richtet sich nach dem Feld \texttt{page\textunderscore title}, um eine visuelle Unterscheidung zwischen den einzelnen Seitentiteln zu ermöglichen. Unterseiten erhalten jeweils eine eigene Farbe, wobei für alle Tagebuchseiten die selbe Farbe verwendet wird. Das ist ebenfalls der Fall für die Unterseiten von \glqq Wer War Eva Schiffmann\grqq{} und \glqq Themen\grqq{}. Diese Entscheidung wurde getroffen, da ansonsten mit verschiedenen Farbtönen einer Farbe gearbeitet werden müsste und somit die Unterscheidung zwischen den Seiten schwerer fällt. Darüber hinaus wird die Linienbreite reduziert und die Transparenz der Balkenfüllung angepasst, um das Diagramm optisch ansprechender zu machen.
 
 \begin{figure}[H]
     \centering
@@ -241,23 +241,151 @@ In Abbildung~\ref{fig:highlight} sind die Einstellungen für die optische Darste
     \end{minipage}
 \end{figure}
 
-Das Listing~\ref{lst:seitenaufrufe} zeigt die SQL-Abfrage zur Ermittlung der zehn meist- oder wenigstbesuchten Unterseiten. Über einen \texttt{JOIN} wird die Tabelle \texttt{matomo\textunderscore log\textunderscore link\textunderscore visit\textunderscore action} mit \texttt{matomo\textunderscore log\textunderscore action} verknüpft, um die zugehörigen Seitentitel abzurufen. Ein weiterer \texttt{JOIN} mit der Tabelle \texttt{matomo\textunderscore log\textunderscore visit} verknüpft die Aktionen mit den jeweiligen Besuchssitzungen.
+Das Listing~\ref{lst:seitenaufrufe} zeigt die SQL-Abfrage zur Ermittlung der zehn meist- oder wenigstbesuchten Unterseiten. Über einen \texttt{JOIN} wird die Tabelle \texttt{log\textunderscore link\textunderscore visit\textunderscore action} mit \texttt{log\textunderscore action} verknüpft, um die zugehörigen Seitentitel abzurufen. Ein weiterer \texttt{JOIN} mit der Tabelle \texttt{log\textunderscore visit} verknüpft die Aktionen mit den jeweiligen Besuchssitzungen.
 
 Zusätzlich wird über eine \texttt{CASE}-Anweisung geprüft, ob es sich bei einer Seite um eine Tagebuchseite handelt. In diesem Fall wird mithilfe eines regulären Ausdrucks der Titel standardisiert, sodass alle Tagebuchseiten unter einer gemeinsamen Bezeichnung zusammengefasst werden. Die Abfrage zählt die Seitenaufrufe, sortiert sie nach Häufigkeit und gibt die zehn meist- oder wenigstbesuchten Seiten zurück.
 
 \subsection{Ranking der am häufigsten aufgeklappten Überschriften}
+Diese Metrik verwendet ebenfalls eine Tabelle für die Visualisierung. Wie bei der Tabelle \glqq Ranking der Referer Seiten\grqq{} werden die Farben des Bildungsportals für die Hintergründe der Spalten gesetzt. Die Spalte \glqq Anzahl\grqq{} hat den Lila-Farbton und der Hintergrund der Spalte \glqq Titel\grqq{} ist gelb. Der \glqq Titel\grqq{} gibt an, um welche Überschrift es sich handelt und die \glqq Anzahl\grqq{} zeigt, wie oft die Überschrift aufgeklappt wurde. Die Panel-Einstellungen werden ebenfalls identisch zu Metrik \glqq Ranking der Referer Seiten\grqq{} gesetzt, um für ein einheitliches Design zu sorgen. Da für das Aufklappen der Überschriften kein Page-View getriggert wird, muss um diese Metrik zu erfassen ein Event definiert werden. Dieses wird in Listing~\ref{lst:headingsevent} dargestellt:
 
-\subsection{KPIs}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{\textwidth}
+        \lstinputlisting[
+            caption=Matomo-Event für die Erfassung der Interaktionen mit den Überschriften.,
+            label={lst:headingsevent},
+        ]{listings/headings-event.js}
+    \end{minipage}
+\end{figure}
 
-\subsection{Besuche, Ei}
+In diesem Programmcode werden Events gesendet, sobald mit einer Überschrift auf der Website interagiert wird. Neben dem Event für das Aufklappen der Überschriften, wird noch ein Event für das Zuklappen benötigt. Die Differenz zwischen dem Aufklappen und Zuklappen wird genutzt, um zu bestimmen, wie lange der Text gelesen wurde. Die Kategorie des Events \texttt{expand} enhält außerdem den Titel der Überschrift. Für das \texttt{close}-Event wird der Titel nicht benötigt, da sich dieses immer auf die zuvor aufgeklappte Überschrift bezieht. Dies ist möglich, da Überschriften auf der Website automatisch zugeklappt werden, wenn eine weitere Überschrift aufgeklappt wird. Das Event \texttt{close} wird für diese Metrik zwar nicht benötigt, spielt aber für die Analyse einer Nutzersitzung eine Rolle.
+
+Die Abfrage zu diesem Panel verwendet für die Events die Tabelle \texttt{log\textunderscore action}. Da für das „Ranking der am häufigsten aufgeklappten Überschriften“ nur das Event \texttt{expand} berücksichtigt wird, wird \texttt{log\textunderscore action} mehrfach per Self-Join eingebunden. Das ist notwendig, da Matomo Kategorie, Aktion und Label eines Events gemeinsam in dieser Tabelle speichert. Um alle drei Bestandteile getrennt auswerten zu können, muss die Tabelle mit unterschiedlichen Aliasen gejoint werden. Nur so lässt sich beispielsweise der Titel (Label) mit der Aktion \texttt{expand} korrekt verknüpfen. Die Tagebuchseiten enthalten ebenfalls jeweils drei Überschriften, welche für jede Seite gleich sind. Damit diese Überschriften in dem Panel ignoriert werden, wird die in Listing~\ref{lst:ignorieren} zu sehende Zeile in der Query ergänzt: 
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{\textwidth}
+        \lstinputlisting[
+            caption=Ausschnitt einer SQL-Abfrage\, um die Überschriften innerhalb der Tagebuchseiten zu ignorieren.,
+            label={lst:ignorieren},
+            language=sql
+        ]{listings/ignore.sql}
+    \end{minipage}
+\end{figure}
+
+\texttt{event\textunderscore label} ist ein Alias für die Tabelle \texttt{log\textunderscore action} und über das Attribut \texttt{name} wird der Titel der Überschrift gefiltert.
+
+\subsection{Besuche, einmalige Besucher und wiederkehrende Besucher}
+Zur Darstellung dieser drei Metriken wird ein einfaches statisches Panel verwendet und der Hintergrund wird auf den Gelbton des Bildungsportal gesetzt.
+
+Die Abfrage für die Besuche ermittelt die Gesamtanzahl der Nutzer, die eine Seite des Bildungsportals besucht haben. Dafür wird die Tabelle \texttt{log\textunderscore action} mit \texttt{log\allowbreak\_link\allowbreak\_visit\allowbreak\_action} verknüpft. Die Anzahl der unterschiedlichen Visit-ID's in der Tabelle \texttt{log\textunderscore action} entspricht hierbei der Anzahl der Besuche. Die Tabelle \texttt{log\textunderscore link\textunderscore visit\textunderscore action} wird verwendet um die Anzahl der Besuche über die Variable \texttt{\$Seite} für eine Unterseite über den Titel zu filtern.
+
+Die Query für die wiederkehrenden Besucher basiert auf derselben Tabellenstruktur, konzentriert sich aber auf Nutzer, welche die Website bereits zuvor besucht haben. Dazu wird \texttt{visitor\textunderscore returning = 1} als Bedingung gesetzt. Der Wert \glqq 1\grqq{} gibt an, dass der Besucher bereits zuvor auf der Website war. Die Zählung erfolgt, anders als bei der Metrik für die Besuche, über die Visitor-ID. Der Unterschied hierbei ist, dass nicht einzelne Sitzungen (Besuche) gezählt werden, sondern tatsächliche Besucher.
+
+Die Metrik für die einmaligen Besucher identifiziert Nutzer, die exakt eine Session auf der Website hatten. Über eine Unterquery wird geprüft, welche Visitor-ID's nur genau einmal in der \texttt{log\textunderscore action}-Tabelle vorkommen, also nur eine einzelne Sitzung aufweisen. Das geschieht über die Filterung \texttt{HAVING COUNT(idvisit) = 1}. Die Seitenfilterung erfolgt auch hierbei genauso wie für die Besuche.
 
 \subsection{Anteil der wiederkehrenden Besucher}
+Der \glqq Anteil der wiederkehrenden Besucher\grqq{} wird über ein Gauge-Panel realisiert. Der Wert erhält außerdem die Maßeinheit \%. Es werden drei Grenzwerte (engl. Thresholds) definiert, um dabei zu helfen den angezeigten Wert auf den ersten Blick einzuordnen. Die Thresholds sind in Abbildung~\ref{fig:thresholds} zu sehen: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth, keepaspectratio]{images/thresholds.png}
+    \caption{Grenzwerte für den \glqq Anteil der wiederkehrenden Besucher\grqq{}.}
+    \label{fig:thresholds}
+\end{figure}
+
+In Abbildung~\ref{fig:thresholds} ist zu erkennen, dass wenn der Wert kleiner als 20 \% ist, die Farbe auf rot gesetzt wird. Zwischen 20 \% und 39 \% wird der Wert orange und ab 40 grün. Da es sich bei diesem Analysewert um ein Verhältnis handelt, muss der \texttt{Thresholds mode} entsprechend gesetzt werden, damit die Farben korrekt zugeordnet werden können. Damit diese Thresholds als Markierung an dem Panel angezeigt werden, wird zusätzlich die Option \texttt{Show threshold markers} aktiviert. Die Berechnung des Prozentwertes ist in Listing~\ref{lst:wiederkehrende-besucher} aufgezeigt:
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{\textwidth}
+        \lstinputlisting[
+            caption=Berechnung für den \glqq Anteil der wiederkehrenden Besucher\grqq{} in SQL.,
+            label={lst:wiederkehrende-besucher},
+            language=sql
+        ]{listings/wiederkehrende-besucher.sql}
+    \end{minipage}
+\end{figure}
+
+Der Dividend entspricht der Anzahl der wiederkehrenden Besucher, während der Divisor die Gesamtzahl aller Besuche darstellt.
 
 \subsection{Gerätetypen}
+Für die Aufteilung der Gerätetypen, wird ebenfalls wie für die \glqq Verteilung der Traffic Quellen\grqq{} ein Pie-Chart-Panel verwendet und in den Panel-Einstellungen genauso konfiguriert, um für ein konsistentes Design zu sorgen. Der einzige Unterschied ist, dass die Legende für diese Metrik aus Platzgründen rechts von dem Kreisdiagramm angezeigt wird.
 
-\subsection{Verweildauer}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{\textwidth}
+        \lstinputlisting[
+            caption=Unterscheidung von Gerätetypen in Matomo.,
+            label={lst:geraetetypen},
+            language=sql
+        ]{listings/geraetetypen.sql}
+    \end{minipage}
+\end{figure}
+
+Der Ausschnitt der Query für die Zuordnung (engl. Mapping) der Werte für die Gerätetypen ist in Listing~\ref{lst:geraetetypen} aufgelistet. Der \texttt{config\textunderscore device\textunderscore type} wird ebenfalls wie der \texttt{referer\textunderscore type} als Zahlenwert in der Datenbank gespeichert \parencite{GithubDevices}. Für den Fall, dass ein Gerät verwendet wird, welches nicht explizit gemappt wurde, wird der Wert \glqq Unknown\grqq{} gesetzt. Der \texttt{config\textunderscore device\textunderscore type} ist ebenfalls in der Tabelle \texttt{log\textunderscore visit} zu finden. 
 
 \subsection{Bounce Rate}
+Die \glqq Bounce Rate\grqq{} wird in Prozent angegeben und beschreibt, wie viele Nutzer nur eine einzige Aktion auf der Website durchgeführt haben und diese anschließend direkt wieder verlassen haben \parencite[S.33]{Dykes2014}. Da es sich bei dieser Metrik um ein Verhältnis handelt wäre hierfür ein Gaug-Panel eine gute Wahl. Um das Dashboard jedoch übersichtlich zu halten und den Nutzer nicht mit zu vielen Gauge-Visualisierungen zu überfordern, wird die Bounce Rate stattdessen in einem Stat-Panel dargestellt. Der Hintergrund wird hierbei, ebenso wie bei den bereits erläuterten Stat-Panels auf den Gelbton des Bildungsportals gesetzt.
+
+Für die Berechnung wird das Attribut \texttt{visit\textunderscore total\textunderscore actions} der Tabelle \texttt{log\textunderscore visit} verwendet. Der Dividend bildet sich aus allen \texttt{visit\textunderscore total\textunderscore actions} welche den Wert \glqq 1\grqq{} haben. Also aus allen Besuchen, in welchen nur eine Aktion erfolgt ist. Der Dividend ist die Anzahl aller Sitzungen.
+
+\subsection{Verweildauer}
+Für die Darstellung der Verweildauer wird ebenfalls ein Stat-Panel konfiguriert, da hierbei ein einzelner Zahlenwert zusammen mit der Einheit Minuten dargestellt wird. Auch hier wird der Gelbton des Bildungsportals als Hintergrundfarbe gesetzt.
+
+Für diesen Analysewert kommen zwei Abfragen zum Einsatz, je nach Auswahl des Wertes für die Variable \texttt{\$Seite}. Für den Fall, dass \glqq Übersicht\grqq{} gewählt wurde, kann das Attribut \texttt{visit\textunderscore total\textunderscore time} aus der Tabelle \texttt{log\textunderscore visit} verwendet werden. Dieses Attribut gibt die Gesamtdauer einer Session an. In Listing~\ref{lst:duration-general} wird gezeigt wie das Attribut verwendet wird um die durchschnittliche Verweildauer für die gesamte Website zu bestimmen: 
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{\textwidth}
+        \lstinputlisting[
+            caption=Berechnung der durchschnittlichen Verweildauer auf dem Bildungsportal.,
+            label={lst:duration-general},
+            language=sql
+        ]{listings/duration-general.sql}
+    \end{minipage}
+\end{figure}
+
+Hier wird zunächst die Dauer jeder einzelnen Session summiert und durch die gesammte Anzahl an Sitzungen, mittels \texttt{COUNT(*)} geteilt. \texttt{COUNT(*)} kann verwendet werden, da alle Spalten der \texttt{log\textunderscore visit}-Tabelle abgefragt werden. Daraufhin wird das Ergebnis durch 60 geteilt, um den Wert in Minuten zu erhalten. Schlussendlich wird das Ergebnis noch auf zwei Kommastellen abgerundet. 
+
+Die Berechnung der Verweildauer auf einzelnen Unterseiten erfolgt auf eine andere Art und Weise. In Listing~\ref{lst:duration-sites} ist zu sehen, wie sich diese hierbei ergibt:
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{\textwidth}
+        \lstinputlisting[
+            caption=Berechnung der durchschnittlichen Verweildauer einer Unterseite des Bildungsportals.,
+            label={lst:duration-sites},
+            language=sql
+        ]{listings/duration-sites.sql}
+    \end{minipage}
+\end{figure}
+
+Die Abfrage aus Listing~\ref{lst:duration-sites} berechnet die durchschnittliche Verweildauer der Nutzer auf einer bestimmten Seite oder auf allen Tagebuchseiten. Als Grundlage dafür wird eine verschachtelte SQL-Abfrage verwendet. Bei dieser werden zunächst für jeden Seitenaufruf die \texttt{start\textunderscore time} und \texttt{end\textunderscore time} ermittelt. Die \texttt{start\textunderscore time} wird von Matomo selbst gespeichert und stellt den Startzeitpunkt für den aktuellen Page View dar. Die \texttt{end\textunderscore time} ist der Zeitpunkt des darauffolgenden Seitenaufrufs innerhalb der selben Session. Diese Endzeit wird durch eine Unterabfrage bestimmt, die innerhalb der selben Sitzung nach dem frühesten folgenden Seitenaufruf sucht. Hierfür wird \texttt{MIN(lva2.server\textunderscore time)} verwendet, wobei nur spätere Aktionen mit \texttt{type = 1}, also keine Events, berücksichtigt werden. Dadurch, dass die \texttt{SELECT}-Abfragen innerhalb von \texttt{FROM} erfolgen, wird eine temporäre Tabelle mit den beiden Spalten für die Start- und Endzeit erstellt. Mittels \texttt{TIMESTAMPDIFF()} wird abschließend die Differenz zwischen allen Start- und Endzeiten aus der Tabelle bestimmt und per \texttt{AVG()} wird der Durchschnitt gebildet. Das Ergebnis wird ebenfalls in Minuten umgewandelt und auf zwei Nachkommastellen begrenzt.
+
+\subsection{KPIs}
+Für alle vier KPIs wird ein Gauge-Panel erstellt. Die KPIs \glqq min. eine Tagebuchseite geöffnet\grqq{} und \glqq min. eine Überschrift aufgeklappt\grqq{} erhalten die Thresholds aus Listing~\ref{fig:thresholds-min-eins}. Die KPIs \glqq min. drei Tagebuchseiten geöffnet\grqq{} und \glqq min. drei Überschriften aufgeklappt\grqq{} bekommen die Thresholds aus Listing~\ref{fig:thresholds-min-drei}: 
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, keepaspectratio]{images/thresholds-min-eins.png}
+        \caption{Grenzwerte für die KPIs \glqq min. eine Tagebuchseite geöffnet\grqq{} und \glqq min. eine Überschrift aufgeklappt\grqq{}.}
+        \label{fig:thresholds-min-eins}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, keepaspectratio]{images/thresholds-min-drei.png}
+        \caption{Grenzwerte für die KPIs \glqq min. drei Tagebuchseiten geöffnet\grqq{} und \glqq min. drei Überschriften aufgeklappt\grqq{} }
+        \label{fig:thresholds-min-drei}
+    \end{minipage}
+\end{figure}
+
+Die unterschiedlichen Thresholds verdeutlichen, dass für die beiden Arten von KPIs unterschiedliche Maßstäbe für den Erfolg gelten. Da die Wahrscheinlichkeit, dass Nutzer eine Aktion dreimal ausführen, geringer ist als bei einer einmaligen Ausführung.
+
+
 
 \subsection{Analyse einer Nutzersitzung}
 

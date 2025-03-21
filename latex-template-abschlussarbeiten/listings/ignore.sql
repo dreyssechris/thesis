@@ -1,0 +1,1 @@
+AND event_label.name NOT IN ('Allgemeine Daten', 'Zitieren und Nachnutzen', 'Feedback')
