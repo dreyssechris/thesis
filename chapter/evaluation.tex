@@ -1,0 +1,46 @@
+\chapter{Evaluation}
+\label{ch:evaluation}
+
+\section{Technische Evaluation}
+\label{sec:technische-evaluation}
+Ziel der technischen Evaluation ist es, zu überprüfen, ob die im Konzept definierten Anforderungen erfolgreich umgesetzt wurden.
+
+\textbf{Datenintegration und Aggregation}
+
+Die Datenintegration zwischen Matomo und Grafana wurde erfolgreich über eine direkte MySQL-Datenquelle in Grafana realisiert. Da Grafana nur lesenden Zugriff auf die Matomo-Datenbank hat, wird sichergestellt, dass die Rohdaten nicht verändert werden können. Die Daten können mithilfe von SQL-Abfragen aggregiert und im Dashboard als Analysewerte dargestellt werden. Außerdem können in Grafana alle SQL-Abfragen über einen Refresh-Button ausgeführt werden, wodurch direkt die aktuellsten Daten zur Verfügung stehen. An diesem Button kann ebenfalls ein Intervall für die Aktualisierung eingestellt werden. Dadurch kann die Aktualisierung der Analysedaten in definierten Intervallen erfolgen. Somit ist diese Anforderung erfüllt.
+
+\textbf{Sicherheit und Zugriffskontrolle}
+
+Matomo und Grafana sind durch die Verwendung eines Revers Proxy unter einer einheitlichen Domain und ausschließlich über HTTPS verfügbar. Ebenso verfügen beide Tools über eine RBAC, sodass nur Administratoren Änderungen vornehmen können, während reguläre Nutzer ausschließlich Leseberechtigungen für die Tools erhalten. Dadurch wird unberechtigter Zugriff verhindert und die Anforderung ist erfüllt. 
+
+\textbf{Transparenz}
+
+Auf der Datenschutzseite der Website war bereits ein umfassender Hinweistext vorhanden. Damit wird die Transparenz gewährleistet. In diesem Hinweistext wird der Nutzer über die Erhebung und Verwendung der durch Matomo erfassten Daten sowie den Einsatz von Cookies zu Analysezwecken informiert. Dies deutet darauf hin, dass Matomo bereits zuvor zur Webanalyse auf dem Bildungsportal eingesetzt wurde. 
+
+\textbf{Datenminimierung}
+
+Es werden ausschließlich anonyme Nutzerdaten erfasst, welche für die Verhaltensanalyse benötigt werden, womit das Prinzip der Datenminimierung eingehalten wird. Ebenfalls werden keine personenbezogenen Daten gesammelt und der Nutzer wird ausschließlich über eine ID identifiziert. Wenn der Nutzer den Tracking-Cookie löscht, kann dieser auch nicht mehr der ID zugeordnet werden und er erhält eine neue ID, falls der Cookie später erneut akzeptiert wird.
+
+\textbf{Einwilligung}
+
+Das Tracking erfolgt ausschließlich nach ausdrücklicher Zustimmung durch den Nutzer. Dies wurde durch ein Opt-In über das bestehende Cookie-Consent-Banner realisiert. Zusätzlich wurde ein Opt-Out über die Datenschutzseite implementiert, mit dem die Einwilligung jederzeit widerrufen werden kann und der Tracking-Cookie gelöscht wird. Somit werden die Vorgaben der DSGVO eingehalten und die Anforderung ist erfüllt.
+
+Da alle Anforderung vollständig umgesetzt wurden, wird die technische Evaluation als erfolgreich bewertet. Die entwickelte Lösung erfüllt die datenschutzrechtlichen Vorgaben und ermöglicht ebenfalls die Echtzeitübertragung der Daten an das Dashboard-Tool. 
+
+\section{Nutzerevaluation}
+\label{sec:nutzer-evaluation}
+Die Evaluation des Dashboards wurde anhand einer Nutzerbefragung in Form eines Fragebogens durchgeführt. Dieser umfasst insgesamt 34 Fragen und enthält sowohl offene als auch geschlossene Antwortmöglichkeiten. Einige Fragen mussten nicht zwingend beantwortet werden. Diese sollten nur dann ausgefüllt werden, wenn konkrete Verbesserungswünsche zu einem bestimmten Aspekt bestehen oder eine Antwort näher begründet werden sollte. Alle Fragen und Antworten sind im Anhang aufgeführt. Der Fragebogen gliedert sich in drei Abschnitte, welche im Folgenden separat ausgewertet werden.
+
+\textbf{Allgemeine Einschätzung des Dashboards}
+
+Das Dashboard wurde insgesamt positiv bewertet. Die Übersichtlichkeit und die Nutzerfreundlichkeit wurden mit vier von fünf Sternen bewertet. Laut Herrn Staack stellen die beiden Dashboards eine geeignete Grundlage zur Analyse des Nutzerverhaltens auf dem Bildungsportal dar, da sie sowohl statistische Auswertungen als auch die Nachverfolgung einzelner Sitzungsverläufe ermöglichen. Kritisch angemerkt wurde, dass einzelne Tagebuchseiten nicht separat ausgewertet werden können. Die Interaktionsdaten für diese werden aktuell über die Auswahl \glqq Alle Tagebuchseiten\grqq{} zusammengefasst. Eine Möglichkeit zur Einzelanalyse der unterschiedlichen Tagebuchseiten wäre jedoch zusätzlich wünschenswert. Die Interaktivitätsfunktionen, also die Auswahl eines bestimmten Zeitraums, die Möglichkeit zur Analyse einzelner Unterseiten sowie die Sortierung der Rankings wurden durchweg als sehr hilfreich bewertet. Auch die Beschriftungen der Panels und der Beschreibungstext wurden als gut verständlich eingestuft. Die Farbgestaltung des Dashboards wird als intuitiv empfunden und erleichtert die Analyse. Obwohl das Dashboard als übersichtlich eingestuft wurde, könnten laut Herrn Staack die Panels zur Bounce-Rate und zu den Gerätetypen anders angeordnet werden, sodass auf der rechten Seite des Dashboards alle Analysewerte angezeigt werden, welche sich über die Variable \texttt{\$Seite} filtern lassen. Ebenfalls ist noch ein weiteres Event wünschenswert, welches die Interaktionen mit den Bildern auf dem Bildungsportal erfasst. 
+
+\textbf{Analyse einzelner Nutzersitzungen}
+
+Die entwickelte Lösung zur Nachvollziehbarkeit von Nutzersitzungen im Gantt-Diagramm wurde von Herrn Staack mit fünf von fünf Sternen bewertet. Die Visualisierung wird als verständlich empfunden und ermöglicht eine detaillierte Analyse der Nutzerinteraktionen. Auch die farbliche Unterscheidung der Aktionen sowie die ergänzenden Beschriftungen an den Balken, die die Art der Aktion und deren Dauer anzeigen, wurden als sinnvoll und hilfreich beurteilt. In diesem Bereich wurden keine Verbesserungsvorschläge geäußert. Insgesamt bieten die dargestellten Interaktionen nach Einschätzung von Herrn Staack eine gute Grundlage zur Analyse von Sitzungsverläufen. Lediglich die ergänzende Darstellung von Bildinteraktionen im Diagramm wird als wünschenswert genannt.
+
+\textbf{Metriken und KPIs}
+
+Laut Herrn Staack decken die vorhandenen Analysewerte die relevanten Anforderungen an die Analyse des Nutzerverhaltens auf dem Bildungsportal ab. Es wurde kein Analysewert genannt, welcher als überflüssig oder wenig hilfreich empfunden wurde. Die Bewertungen aller Metriken in den Bereichen Besucher, Inhalte, Verhalten sowie Traffic-Quellen fielen mit jeweils fünf von fünf Sternen sehr positiv aus. Auch die Darstellung der Konversionen wird als zielgerichtet und sinnvoll wahrgenommen. Die Visualisierungen der Analysewerte wurden insgesamt als gut verständlich beurteilt. Der einzige Verbesserungsvorschlag ist auch hier eine zusätzliches Event für die Interaktion mit den Bildern auf dem Bildungsportal.
+
+Die über den Fragebogen identifizierten Verbesserungspotenziale konnten aus zeitlichen Gründen nicht mehr im Rahmen dieser Arbeit umgesetzt werden. Ursache hierfür war die verspätete Bereitstellung der Datenbasis, wodurch der Entwicklungsprozess zeitlich eingeschränkt wurde. Die erfassten Änderungswünsche bilden jedoch eine fundierte Grundlage für weiterführende Anpassungen des Dashboards, die über den zeitlichen Rahmen dieser Arbeit hinaus umgesetzt werden können. Zudem ist hervorzuheben, dass die einzelnen Panels per Drag-and-Drop neu angeordnet werden können, wodurch Nutzer das Layout individuell und nach eigenen Präferenzen anpassen können.

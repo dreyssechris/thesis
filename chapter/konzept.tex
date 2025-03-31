@@ -1,0 +1,63 @@
+\chapter{Konzept} % 5-6 Seiten? 
+\label{ch:konzept}
+In den vorherigen Kapiteln wurden die Anforderungen an das Webanalyse-Tool und das Dashboard definiert sowie geeignete Tools ausgewählt, die diese Anforderungen erfüllen können. Die Implementierung setzt diese Anforderungen technisch um, indem die ausgewählten Tools entsprechend konfiguriert und integriert werden. Dieses Kapitel beschreibt die methodische Herangehensweise an die Implementierung sowie die zugrunde liegende Architektur der Projektumgebung. Dabei wird erläutert, wie die definierten Anforderungen in der technischen Umsetzung berücksichtigt werden, welcher Aufbau für das Projekt gewählt wurde und welche Einschränkungen sich durch die Nutzung der gespiegelten Website des Bildungsportals \textit{evaschiffmann.de} ergeben. Zudem wird erklärt, wie die implementierte Lösung evaluiert wird.
+
+\section{Methodische Umsetzung der Lösung}
+\label{sec:umsetzungloesung}
+Die Umsetzung der Analyselösung erfolgt in mehreren Schritten. Zunächst wird die gespiegelte Website aufgesetzt. Anschließend wird Matomo als Webanalyse-Tool integriert und konfiguriert, sodass die Datensammlung erfolgen kann. Um die DSGVO-Vorgaben einzuhalten, werden Datenschutzmaßnahmen wie eine IP-Anonymisierung, eine Opt-Out-Möglichkeit und die Erweiterung des bestehenden Cookie-Consent-Banners umgesetzt.
+
+Danach wird Grafana installiert und mit Matomo verbunden, um die erfassten Daten auszulesen. Dabei wurde die direkte Anbindung an die Datenbank gewählt, da diese eine schnellere Verfügbarkeit der Daten sowie flexible SQL-Abfragen ermöglicht. Eine Anbindung über die Matomo Reporting API wurde geprüft, erwies sich jedoch als weniger geeignet, da sie nur vordefinierte, aggregierte Berichte liefert und weniger individuell konfigurierbar ist.
+
+Sobald die Datenübertragung sichergestellt ist, werden die SQL-Abfragen für die relevanten Metriken und KPIs erstellt und in den entsprechenden Grafana-Panels visualisiert. Dabei werden interaktive Filtermöglichkeiten integriert, um gezielte Analysen für die Unterseiten zu ermöglichen.
+
+Zusätzlich wird darauf geachtet, dass alle Komponenten sicher in die Umgebung integriert werden. Dazu zählen eine verschlüsselte Verbindung über HTTPS sowie eine rollenbasierte Zugriffskontrolle für Matomo und Grafana.
+
+\section{Projektaufbau}
+\label{sec:projektaufbau}
+Das Projekt wird in einer containerisierten Umgebung bereitgestellt, um eine leicht übertragbare Lösung für die spätere Bereitstellung auf den Servern der Thüringer Universitäts- und Landesbibliothek (ThULB) zu gewährleisten. Durch die Nutzung von Docker Compose kann die gesamte Umgebung mit einem einzigen Befehl (\texttt{docker-compose up}) gestartet werden, wodurch eine einheitliche und reproduzierbare Konfiguration sichergestellt wird.
+
+Die Architektur besteht aus mehreren Containern, die über ein internes Docker-Netzwerk miteinander kommunizieren. Über einen Reverse Proxy (Nginx), wird der Zugriff auf alle Dienste gesteuert. Die Dienste können somit über eine einheitliche Domain verfügbar gemacht werden.
+
+Das Projekt umfasst folgende Container:
+
+\begin{itemize}
+    \item \textbf{Reverse Proxy (Nginx):}  
+    Steuert den Zugriff auf alle Web-Dienste (Website, Matomo, Grafana), stellt diese sicher über HTTPS bereit und leitet Anfragen weiter.
+
+    \item \textbf{Matomo-Instanz:}  
+    Bindet das Webanalyse-Tool ein.
+
+    \item \textbf{Matomo Webserver (Nginx):}  
+    Dient als Webserver für Matomo und leitet die Anfragen an die Matomo-Instanz weiter.
+
+    \item \textbf{MariaDB (Datenbank):}  
+    Speichert die von Matomo erfassten Nutzerdaten und stellt sie für die weitere Verarbeitung bereit.
+
+    \item \textbf{Grafana-Instanz:}  
+    Bindet das Dashboard-Tool ein und wird direkt über den Reverse Proxy bereitgestellt, da es einen eigenen Webserver hat.
+
+    \item \textbf{Portal (Bildungsportal evaschiffmann.de):}  
+    Bindet die gespiegelte Website ein.
+\end{itemize}
+
+\section{Einschränkungen durch die gespiegelte Website}
+\label{sec:einschränkungen }
+Aufgrund von Verzögerungen bei der Projektbereitstellung durch die ThULB wird anstelle des eigentlichen Typo3-Projektes, welches das Bildungsportal darstellt, zunächst eine gespiegelte Form der Website verwendet. Die Spiegelung wurde mithilfe eines Befehls zur Replikation des Frontends erstellt, der sämtliche verlinkten Ressourcen wie Bilder, Videos, Stylesheets und Skripte herunterlädt. Da es sich um eine statische Kopie handelt, sind dynamische Funktionen, die serverseitige Verarbeitung erfordern, nicht verfügbar. Dies betrifft die Merkliste, die Suchfunktion und die Seitennavigation innerhalb der Unterseite \glqq Zum Tagebuch\grqq{}. Ebenfalls ist die Filterung nach Personen, Orten und Begriffen auf dieser Unterseite nicht möglich, da diese auch per Typo3-Plugin realisiert wurden. Dennoch können alle Tagebucheinträge aufgerufen werden. Diese werden korrekt geladen und die Annotationen funktionieren. Zudem funktioniert die Karte auf der Unterseite \glqq Orte\grqq{} nur eingeschränkt. Diese wird über eine externe Karten-API bereitgestellt und in die Website eingebunden. Aufgrund eines abgelaufenen API-Schlüssels wird der Kartenhintergrund nicht vollständig geladen, sodass die eigentliche Karte nur teilweise sichtbar ist.
+
+Aufgrund der genannten Einschränkungen lassen sich für die Suche und die Merkliste keine Analysewerte erfassen. Alle anderen Aspekte der Website funktionieren genauso wie auf der Originalseite und können somit analysiert werden.
+
+\section{Bewertungskriterien für die Evaluation}
+\label{sec:bewertungskriterien}
+Zur Bewertung der entwickelten Lösung werden sowohl die technischen Aspekte als auch die Qualität des Dashboards evaluiert. Die Evaluation des Dashboards erfolgt durch eine Nutzerbefragung in Form eines Fragebogens, welcher sich an den Hauptanwender, Herr Staack, richtet. Der Fragebogen umfasst Kriterien wie Benutzerfreundlichkeit, Übersichtlichkeit und den strukturellen Aufbau des Dashboards sowie die Aussagekraft und Relevanz der dargestellten Analysewerte. Zusätzlich werden die interaktiven Filterfunktionen und die Verständlichkeit der Visualisierungen von Herr Staack bewertet. Ziel dieser Befragung ist es, sowohl Stärken als auch Verbesserungspotenziale zu identifizieren und zu prüfen, inwieweit die Anforderungen von Herrn Staack an die Analyse des Bildungsportals erfüllt wurden.
+
+Die technische Evaluation gilt als erfolgreich, wenn die zuvor in Kapitel~\ref{ch:webanalyse} und Kapitel~\ref{ch:auswahl} motivierten Anforderungen vollständig umgesetzt wurden. Die folgenden Anforderungen werden für die Evaluation verwendet:
+
+\begin{itemize}
+    \item \textbf{Datenintegration und Aggregation:} Rohdaten aus dem Webanalyse-Tool müssen im Dashboard-Tool integrierbar und aggregierbar sein, um die Analysewerte korrekt darzustellen. Die Daten sollen zudem entweder in Echtzeit oder in festgelegten Intervallen im Dashboard zur Verfügung stehen.
+    \item \textbf{Sicherheit und Zugriffskontrolle:} Der Zugriff auf beide Tools muss durch Authentifizierung geschützt und über HTTPS gesichert sein.
+    \item \textbf{Transparenz:} Nutzer müssen darüber informiert werden, welche Daten erfasst werden und zu welchem Zweck.
+    \item \textbf{Datenminimierung:} Es sollen nur Daten erfasst werden, welche für den Zweck der Analyse notwendig sind.
+    \item \textbf{Einwilligung:} Um das Tracking zu erlauben muss ein Opt-In, sowie ein Opt-Out-Mechanismus implementiert werden.
+\end{itemize}
+
+Die Evaluation bildet die Grundlage zur Beantwortung der Forschungsfrage, indem sie aufzeigt, ob und in welchem Umfang die konzipierte Lösung eine datenschutzkonforme Erhebung und eine aussagekräftige Visualisierung von Nutzerdaten ermöglicht.
